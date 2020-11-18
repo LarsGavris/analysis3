@@ -1,0 +1,88 @@
+
+\ProvidesPackage{analysis_3_sty}
+
+%% packages
+\usepackage[a4paper,hcentering,bottom=4cm,headheight=3\baselineskip]{geometry}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+
+\usepackage[intlimits]{amsmath} % optn intlimits leads to limits above and below integral symbol
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{mdframed}
+\usepackage{trfsigns}   % Symbols for Transformations \laplace \Laplace \fourier \Fourier, \e and \im
+\usepackage{cancel}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{graphicx}
+\usepackage[explicit]{titlesec}
+\usepackage{color}
+
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{bm}
+
+
+
+\renewcommand{\thechapter}{\Roman{chapter}}
+
+\titleformat{\chapter}{\Large\bfseries}{}{0em}{\hspace{-0.4pt}\Large \thechapter\hspace{0.6em} #1}
+\titleformat{\section}{\Large\bfseries}{}{0em}{#1\ \thesection}
+
+
+\newmdtheoremenv{framed}{Theorem}
+
+\newtheoremstyle{big}
+  {} % Space above
+  {} % Space below
+  {} % Body font
+  {} % Indent amount
+  {\bfseries} % Theorem head font
+  {} % Punctuation after theorem head
+  {\newline} % Space after theorem head
+  {\thmname{#1}\thmnumber{ \thechapter.#2}\thmnote{ (#3)}} % Theorem head spec (can be left empty, meaning `normal')
+
+\newtheoremstyle{small}
+  {} % Space above
+  {} % Space below
+  {} % Body font
+  {} % Indent amount
+  {\bfseries} % Theorem head font
+  {} % Punctuation after theorem head
+  {\newline} % Space after theorem head
+  {\thmname{#1}} % Theorem head spec (can be left empty, meaning `normal')
+
+\newcounter{theoremCounter}[chapter]
+
+\theoremstyle{big}
+\newtheorem{theo_theorem}[theoremCounter]{Satz}
+\newtheorem{theo_definition}[theoremCounter]{Def.}
+\newtheorem{theo_lemma}[theoremCounter]{Lemma}
+
+\theoremstyle{small}
+\newtheorem{example}{Bsp.:}
+\newtheorem{remark}{Bem.:}
+\newtheorem{notation}{Notation:}
+\newtheorem{goal}{Ziel:}
+\newtheorem{goals}{Ziele:}
+
+\renewcommand{\labelitemi}{$-$}
+\newcommand{\sidenote}[2]{\hfill #1\par\hfill #2}
+\newcommand{\script}[1]{\mathcal{#1}}
+
+\newenvironment{definition}
+  {\begin{framed}\begin{theo_definition}}
+  {\end{theo_definition}\end{framed}}
+  
+\newenvironment{theorem}
+  {\begin{framed}\begin{theo_theorem}}
+  {\end{theo_theorem}\end{framed}}
+
+\newenvironment{lemma}
+  {\begin{framed}\begin{theo_lemma}}
+  {\end{theo_lemma}\end{framed}}
