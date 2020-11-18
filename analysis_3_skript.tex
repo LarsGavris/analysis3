@@ -160,7 +160,7 @@
                 \item Für $x \notin A$ gilt sowieso $\delta_x{A} = 0$
               \end{itemize}
               $\implies$ Das Dirac-Maß ist ein Wahrscheinlichkeits-Maß
-        \item \textbf{Zählmaß:} $X$ beliebige Menge \sidenote{F}{06.11.2020}\\
+        \item \textbf{Zählmaß:} $X$ beliebige Menge \sidenote{Vorlesung 2}{06.11.2020}\\
               $card: \script{P}(X) \to [0, \infty]$\\
               $card(A) := \begin{cases}\text{Anzahl der Elemente von A}, & \text{falls A endlich}\\\infty, sonst\end{cases}$\\
               Für $A = \bigcup\limits_{k\in \mathbb{N}}A_k$ endlich und paarweiße disjunkt ist die $\sigma$-Additivität klar.\\
@@ -667,4 +667,204 @@
       Es sind nur $\emptyset$ und $X$ $\beta$-messbar, denn für $X=S$ folgt aus der Annahme,\\
       dass $A$ $\beta$-messbar ist: $1 \geq \beta(A) + \beta(X \setminus A)$
     \end{example}
+
+    \sidenote{Vorlesung 5}{16.11.20}
+
+    \begin{lemma}
+      Seien $A_i \in \script{M}(\mu)$, $i=1,...,k$, paarweiße disjunkt und $\mu$ äußeres Maß. Dann gilt $\forall S \subseteq X:$
+      \begin{center}
+        $\mu(S \cap \bigcup\limits_{i=1}^k A_i) = \sum\limits_{i=1}^k \mu(S \cap A_i)$
+      \end{center}
+    \end{lemma}
+
+    \begin{proof}
+      \underline{$k=1$:} trivial\\
+      \underline{$k \geq 2$:} $A_k$ $\mu$-messbar\\
+      \begin{align*}
+        \mu(S \cap \bigcup\limits_{i=1}^k A_i) 
+        &= \mu((S \cap \bigcup\limits_{i=1}^k A_i) \cap A_k) + \mu((S \cap \bigcup\limits_{i=1}^k A_i) \setminus A_k)\\
+        &=\mu(S \cap A_k) + \mu(S \cap \bigcup\limits_{i=1}^k A_k)\\
+        &\stackrel{\text{IV}}{=} \sum\limits_{i=1}^k \mu(S \cap A_i) 
+      \end{align*}
+    \end{proof}
+
+    \begin{theorem}
+      Sei $\mu: \script{P}(X) \to [0,\infty]$ ein äußeres Maß. Dann ist $\script{M}(\mu)$ eine $\sigma$-Algebra und $\mu$ ist ein vollständiges Maß auf $\script{M}(\mu)$.
+    \end{theorem}
+
+    \begin{proof}
+      Notation: Schreibe $\script{M}$ statt $\script{M}(\mu)$\\
+      Es gilt:
+      \begin{itemize}
+        \item $x \in \script{M}$, denn: $\forall S \subseteq X$ ist:\\
+              $\mu(S \cap X) + \mu(S \setminus X) = \mu(S) + \mu(\emptyset) = \mu(S)$
+        \item Sei $A \in \script{M} \implies X \setminus A \in \script{M}$, denn $\forall S \subset X$ gilt:\\
+              $\mu(S \cap (X \setminus A)) + \mu(S \setminus (X \setminus A)) = \mu(S \setminus A) + \mu(S \cap A) = \mu(S)$
+      \end{itemize}
+      Als nächstes zeigen wir:\\
+      $A,B \in \script{M} \implies A \cap B \in \script{M} \ \forall S \subseteq X$ gilt:
+      \begin{align*}
+        \mu(S) 
+        &= \mu(S \cap A) + \mu(S \setminus A)\\
+        \mu(S \cap A) 
+        &= \mu(S \cap A \cap B) + \mu((S \cap A) \setminus B)\\
+        \mu(S \setminus (A \cap B)) 
+        &= \mu((S \setminus (A \cap B)) \cap A) + \mu((S \setminus (A \cap B)) \setminus A)\\
+        &= \mu((S \cap A) \setminus B) + \mu(S \setminus A)\\
+      \end{align*}
+      $\implies \mu(S) = \mu(S \cap (A \cap B)) + \mu(S \setminus (A \cap B))$\\
+      $\implies A \cup B \in \script{M}$, denn:\\
+      $A \cup B = X \setminus ((X \setminus A) \cap (X \setminus B))$\\ \\
+      Per Induktion:\\
+      $\script{M}$ ist abgeschlossen unter endlichen Durchschnitten und Vereinigungen.\\ \\
+      \underline{Jetzt:} $\mu$ ist $\sigma$-additiv auf $\script{M}$.\\
+      Seien $A_j, j \in \mathbb{N},$ paarweiße disjunkt mit $A_j \in \script{M} \ \forall j \in \mathbb{N}$\\
+      Wähle $S = A_1 \cup A_2$ und benutze $A_1 \in \script{M}$\\
+      $\implies \mu(S) = \mu(A_1 \cup A_2) = \mu(A_1) + \mu(A_2) \ \ (= \mu(S \cap A_1) + \mu(S \setminus A_1))$\\ \\
+      Induktion: Dasselbe gilt für endliche disjunkte Vereinigungen. \begin{align*}
+        \sum\limits_{j \in \mathbb{N}} \mu(A_j)
+        &= \lim\limits_{k \to \infty} \sum\limits_{j = 1}^k \mu(A_j)
+        = \lim\limits_{k \to \infty} \mu(\bigcup\limits_{j=1}^k A_j)\\
+        &\leq \mu(\bigcup\limits_{j \in \mathbb{N}} A_j)
+        \stackrel{\sigma \text{-Subadd.}}{\leq} \sum\limits_{j=1}^k \mu(A_j)
+      \end{align*}
+      $\implies \mu(\bigcup\limits_{j \in \mathbb{N}} A_j) = \sum\limits_{j \in \mathbb{N}} \mu(A_j) \implies$ Behauptung\\ \\
+      Als letztes: $\script{M}$ ist abgeschlossen unter abzählbaren Vereinigungen\\
+      Seien $A_j \in \script{M}, j \in \mathbb{N}$. O.B. seien $A_j$ paarweise disjunkt, sonst betrachte \\
+      $\tilde{A_i} := A_i \setminus (A_1 \cup ... \cup A_{i-1})$\\
+      Für $S \subseteq X$ folgt mit $\bigcup\limits_{i=1}^k A_i \in \script{M}$:
+      \begin{align*}
+        \mu(S) &= \mu(S \cap \bigcup\limits_{i=1}^k A_i) + \mu(S \setminus \bigcup\limits_{i=1}^k A_i)\\
+        &\stackrel{\text{Lemma II.6}}{\geq} \sum\limits_{i=1}^k \mu(S \cap A_i) + \mu(S \setminus \bigcup\limits_{i \in \mathbb{N}} A_i) \ \ \forall k \in \mathbb{N}
+      \end{align*}
+      Lasse $k \to \infty$\\
+      \begin{align*}
+        \implies \mu(S) &\geq \sum\limits_{i \in \mathbb{N}} \mu(S \cap A_i) + \mu(S \setminus \bigcup\limits_{i \in \mathbb{N}} A_i)\\
+        &\stackrel{\sigma\text{-Subadd.}}{\geq} \mu(\bigcup\limits_{i \in \mathbb{N}} (S \cap A_i)) + \mu(S \setminus \bigcup\limits_{i \in \mathbb{N}} A_i)\\
+        &= \mu(S \cap (\bigcup\limits_{i \in \mathbb{N}} A_i)) + \mu(S \setminus \bigcup\limits_{i \in \mathbb{N}} A_i)\\
+        &\implies \bigcup\limits_{i \in \mathbb{N}} A_i \in \script{M}
+      \end{align*}
+      Vollständigkeit von $\mu$: siehe Lemma II.5
+    \end{proof}
+
+    \begin{lemma}
+      $\mu$ äußeres Maß, $A_i \in \script{M}(\mu), i \in \mathbb{N}$.\\
+      Dann gelten:
+      \begin{enumerate}[label=\roman*)]
+        \item Aus $A_1 \subseteq ... \subseteq A_i \subseteq A_{i+1} \subseteq ...$ folgt $\mu(\bigcup\limits_{i \in \mathbb{N}} A_i) = \lim\limits_{i \to \infty} \mu(A_i)$
+        \item Aus $A_1 \supseteq ... \supseteq A_i \supseteq A_{i+1} \supseteq ...$ mit $\mu(A_1) < \infty$ folgt $\mu(\bigcap\limits_{i \in \mathbb{N}} A_i) = \lim\limits_{i \to \infty} \mu(A_i)$
+      \end{enumerate} 
+    \end{lemma}
+    
+    \begin{proof}
+      Folgt aus Satz I.7 und Satz II.7
+    \end{proof}
+
+    \begin{definition}
+      Ein Mengensystem $\script{A} \subseteq \script{P}(X)$ heißt $\bm{\bigcup}$\textbf{-stabil} (bzw. $\bm{\bigcap}$\textbf{-stabil}, $\bm{\setminus}$\textbf{-stabil}), wenn $A \cup B \in \script{A}$ (bzw. $A \cap B \in \script{A}$, $A \setminus B \in \script{A}$) $\forall A,B \in \script{A}$ gilt.
+    \end{definition}
+
+    \begin{remark}
+      $\bigcup$-stabil impliziert Stabilität bzgl. endlicher Vereinigung. Ebenso $\bigcap$-stabil.
+    \end{remark}
+
+    \begin{definition}
+      Ein Mengensystem $\script{R}\subset\script{P}(X)$ heißt \textbf{Ring} über $X$, falls:
+      \begin{enumerate}[label=\roman*)]
+        \item $\emptyset \in \script{R}$
+        \item $A,B \in \script{R} \implies A \setminus B \in \script{R}$
+        \item $A,B \in \script{R} \implies A \cup B \in \script{R}$
+      \end{enumerate}
+      
+      $\script{R}$ heißt \textbf{Algebra}, falls zusätzlich $X \in \script{R}$.
+    \end{definition}
+
+    \begin{example}
+      \begin{enumerate}[label=\roman*)]
+        \item[]
+        \item Für $A \subset X$ ist $\{\emptyset, A\}$ ein Ring, aber für $A \neq X$ keine Algebra.
+        \item System aller endlichen Teilmengen einer bel. Menge ist ein Ring.
+        \item Ebenso System aller höchstens abzählbaren Teilmengen. 
+      \end{enumerate}
+    \end{example}
+
+    \begin{remark}
+      Für $A,B \in \script{R}$ gilt: $A \cap B = A \setminus (A \setminus B) \in \script{R}$\\
+      Ringe sind $\bigcup$-stabil, $\bigcap$-stabil, $\setminus$-stabil
+    \end{remark}
+
+    \begin{definition}
+      Sei $\script{R} \subseteq \script{P}(X)$ Ring. Eine Funktion $\lambda: \script{R} \to [0, \infty]$ heißt \textbf{Prämaß} auf $\script{R}$, falls:
+      \begin{enumerate}[label=\roman*)]
+        \item $\lambda(\emptyset) = 0$
+        \item Für $A_i \in \script{R}, i \in \mathbb{N}$, paarweiße disjunkt mit $\bigcup\limits_{i \in \mathbb{N}} A_i \in \script{R}$ gilt:\\
+        $\lambda(\bigcup\limits_{i \in \mathbb{N}} A_i) = \sum\limits_{i \in \mathbb{N}} \lambda(A_i) $
+      \end{enumerate}
+    \end{definition}
+
+    \begin{remark}
+      $\sigma$-subadditiv, subadditiv, $\sigma$-endlich, endlich, monoton, Nullmenge und fast-überall werden wie für Maße definiert. 
+    \end{remark}
+
+    \begin{example}
+      \begin{enumerate}[label=\roman*)]
+        \item[]
+        \item $\script{R}$ Ring über $X$. $\lambda(A) = \begin{cases}
+                0 & H = \emptyset\\
+                \infty & \text{sonst}
+              \end{cases}$
+        \item $\script{R}$ sei Ring der endlichen Teilmengen einer beliebigen Menge $X$ und $\lambda = card|_\script{R}$ ist Prämaß
+        \item Alle Maße sind Prämaße. Inbesondere äußere Maße eingeschränkt auf die messbaren Mengen.
+      \end{enumerate}
+    \end{example}
+
+    \begin{definition}
+      $\lambda$ Prämaß auf Ring $\script{R} \subseteq \script{P}(X)$. Ein äußeres Maß $\mu$ auf $X$ (bzw. ein Maß auf $\script{A}$) heißt \textbf{Fortsetzung} von $\lambda$, falls gilt:
+      \begin{enumerate}[label=\roman*)]
+        \item $\mu|_\script{R} = \lambda$, d.h. $\mu(A) = \lambda(A) \ \forall A \in \script{R}$
+        \item $\script{R} \subseteq \script{M}(\mu)$ (bzw. $\script{R} \subset \script{A}$), d.h. alle $A \in \script{R}$ sind $\mu$-messbar
+      \end{enumerate}
+    \end{definition}
+
+    \begin{theorem}[Caratheodory-Fortsetzung]
+      $\lambda: \script{R} \to [0, \infty]$ Prämaß auf Ring $\script{R} \subseteq \script{P}(X)$. Sei $\mu: \script{P}(X) \to [0, \infty]$ das in Satz II.3 aus $\script{R}$ konstruierte äußere Maß, d.h. $\forall E \subseteq X:$
+      \begin{align*}
+        \mu(E) := inf\{\sum\limits_{i \in \mathbb{N}} \lambda(A_i) \ | \ A_i \in \script{R}, E \subseteq \bigcup\limits_{i \in \mathbb{N}} A_i\}
+      \end{align*}
+      Dann ist $\mu$ eine Fortsetzung von $\lambda$.\\
+      $\mu$ heißt \textbf{induziertes äußeres Maß} oder \textbf{Caratheodory-Fortsetzung} von $\lambda$.
+    \end{theorem}
+
+    \begin{proof}
+      \begin{enumerate}[label=\roman*)]
+        \item[]
+        \item $\mu(A) = \lambda(A) \ \forall A \in \script{R}$\\
+              Wir haben $\mu(A) \leq \lambda(A)$ aus Def. mit $A_1 = A, A_2 = ... = \emptyset$\\
+              Für $\lambda(A) \leq \mu(A)$ reicht es zz, dass:\\
+              $A \subseteq \bigcup\limits_{i \in \mathbb{N}} A_i$ mit $A_i \in \script{R} \implies \lambda(A) \leq \sum\limits_{i \in \mathbb{N}} \lambda(A_i)$\\
+              Betrachte paarweise disjunkte Mengen $B_i = (A_i \setminus \bigcup\limits_{j=1}^{i-1} A_j) \cap A \in \script{R}$\\
+              $\implies \lambda(A) = \lambda(\bigcup\limits_{i \in \mathbb{N}} B_i) = \sum\limits_{i \in \mathbb{N}} \lambda(B_i) \leq \sum\limits_{i \in \mathbb{N}} \lambda(A_i)$
+        \item Jedes $A \in \script{R}$ ist $\mu$-messbar.\\
+              Sei $A \in \script{R}, S \subseteq X$ bel. mit $\mu(S) < \infty$. Zu $\epsilon > 0$ wähle $A_i \in \script{R}$, sodass $S \subseteq \bigcup\limits_{i \in \mathbb{N}} (A_i \cap A)$ und $S \setminus A \subseteq \bigcup\limits_{i \in \mathbb{N}} (A_i \setminus A)$
+              \begin{align*}
+                \implies \mu(S \cap A) + \mu(S \setminus A) 
+                &\leq \sum\limits_{i \in \mathbb{N}} \lambda(A_i \cap A) + \sum\limits_{i \in \mathbb{N}} \lambda(A_i \setminus A)\\
+                &= \sum\limits_{i \in \mathbb{N}} \lambda(A_i) \leq \mu(S) + \epsilon
+              \end{align*}
+              Lasse $s \downarrow 0 \implies A \in \script{M}(\mu)$\\
+              Für $\mu(S) = \infty$ ist das trivial.
+      \end{enumerate}
+    \end{proof}
+
+    \begin{lemma}
+      $\mu$ sei Caratheodory-Fortsetzung des Prämaßes $\lambda: \script{R} \to [0, \infty]$ auf dem Ring $\script{R}$ über $X$. Sei $\tilde{\mu}$ ein Maß auf $\sigma(\script{R})$ mit $\tilde{\mu} = \mu$ auf $\script{R}$, dann gilt $\forall E \in \sigma(\script{R})$:\\
+      $\tilde{\mu}(E) \leq \mu(E)$
+    \end{lemma}
+
+    \begin{proof}
+      $\forall E \in \sigma(\script{R}): E \subseteq \bigcup\limits_{i \in \mathbb{N}} P_i$ mit $P_i \in \script{R}$\\
+      $\implies \tilde{\mu}(E) \leq \sum\limits_{i \in \mathbb{N}} \tilde{\mu}(P_i) = \sum\limits_{i \in \mathbb{N}} \lambda(P_i)$\\
+      Bilde Infimum über alle solche Überdeckungen\\
+      $\implies \tilde{\mu}(E) \leq \mu(E)$ 
+    \end{proof}
 \end{document}
