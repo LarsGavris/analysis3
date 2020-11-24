@@ -797,7 +797,7 @@
       Ringe sind $\bigcup$-stabil, $\bigcap$-stabil, $\setminus$-stabil
     \end{remark}
 
-    \begin{definition}
+    \begin{definition}[Im Aufschrieb II.10]
       Sei $\script{R} \subseteq \script{P}(X)$ Ring. Eine Funktion $\lambda: \script{R} \to [0, \infty]$ heißt \textbf{Prämaß} auf $\script{R}$, falls:
       \begin{enumerate}[label=\roman*)]
         \item $\lambda(\emptyset) = 0$
@@ -822,7 +822,7 @@
       \end{enumerate}
     \end{example}
 
-    \begin{definition}
+    \begin{definition}[Im Aufschrieb II.11]
       $\lambda$ Prämaß auf Ring $\script{R} \subseteq \script{P}(X)$. Ein äußeres Maß $\mu$ auf $X$ (bzw. ein Maß auf $\script{A}$) heißt \textbf{Fortsetzung} von $\lambda$, falls gilt:
       \begin{enumerate}[label=\roman*)]
         \item $\mu|_\script{R} = \lambda$, d.h. $\mu(A) = \lambda(A) \ \forall A \in \script{R}$
@@ -830,7 +830,7 @@
       \end{enumerate}
     \end{definition}
 
-    \begin{theorem}[Caratheodory-Fortsetzung]
+    \begin{theorem}[Caratheodory-Fortsetzung | Im Aufschrieb II.12]
       $\lambda: \script{R} \to [0, \infty]$ Prämaß auf Ring $\script{R} \subseteq \script{P}(X)$. Sei $\mu: \script{P}(X) \to [0, \infty]$ das in Satz II.3 aus $\script{R}$ konstruierte äußere Maß, d.h. $\forall E \subseteq X:$
       \begin{align*}
         \mu(E) := inf\{\sum\limits_{i \in \mathbb{N}} \lambda(A_i) \ | \ A_i \in \script{R}, E \subseteq \bigcup\limits_{i \in \mathbb{N}} A_i\}
@@ -862,7 +862,7 @@
 
     \newpage
 
-    \begin{lemma}
+    \begin{lemma}[Im Aufschrieb II.13]
       $\mu$ sei Caratheodory-Fortsetzung des Prämaßes $\lambda: \script{R} \to [0, \infty]$ auf dem Ring $\script{R}$ über $X$. Sei $\tilde{\mu}$ ein Maß auf $\sigma(\script{R})$ mit $\tilde{\mu} = \mu$ auf $\script{R}$, dann gilt $\forall E \in \sigma(\script{R})$:\\
       $\tilde{\mu}(E) \leq \mu(E)$
     \end{lemma}
@@ -873,4 +873,80 @@
       Bilde Infimum über alle solche Überdeckungen\\
       $\implies \tilde{\mu}(E) \leq \mu(E)$ 
     \end{proof}
+
+    \sidenote{Vorlesung 6}{20.11.20}
+
+    \begin{theorem}[Im Aufschrieb II.14]
+      Sei $\lambda: \script{R} \to [0, \infty]$ Prämaß auf Ring $\script{R}\subseteq \script{P}(X)$. Dann ex. ein Maß $\mu$ auf $\sigma(\script{R})$ mit $\mu=\lambda$ auf $\script{R}$. Diese Fortsetzung ist eindeutig, falls $\lambda$ $\sigma$-endlich ist.
+    \end{theorem}
+
+    \begin{proof}
+      siehe Aufschrieb
+    \end{proof}
+
+    \begin{theorem}[Regularität der Caratheodory-Fortsetzung | i.A. II.15]
+      Sei $\mu$ Caratheodory-Fortsetzung des Prämaßes $\lambda: \script{R} \to [0,\infty]$ auf Ring $\script{R}$ über $X$. Dann ex. $\forall D \subseteq X$ ein $E \in \sigma(\script{R})$ mit $E \supseteq D$ und $\mu(E) = \mu(D)$.\\
+      ($\mu$ ist \glqq reguläres \grqq äußeres Maß)
+    \end{theorem}
+
+    \begin{proof}
+      siehe Aufschrieb
+    \end{proof}
+
+    \begin{theorem}[i.A. II.16]
+      Sei $\lambda$ ein $\sigma$-endliches Prämaß auf Ring $\script{R}$ über $X$ und sei $\mu: \script{P}(X) \to [0,\infty]$ die Caratheodory-Fortsetzung von $\lambda$. Dann ist $\mu|_{\script{M}(\mu)}$ die Vervollständigung von $\mu|_{\sigma(\script{R})}$ und $\script{M}(\mu)$ ist die vervollständigte $\sigma$-Algebra von $\overline{\sigma(\mathbb{R})}_{\mu|_{\sigma(\mathbb{R})}}$.\\
+      D.h. $\overline{\sigma(\mathbb{R})}_{\mu|_{\sigma(\mathbb{R})}} = \script{M}(\mu)$. Insbesondere ex. genau eine Fortsetzung von $\lambda: \script{R} \to [0, \infty]$ zu einem vollständigen Maß auf $\script{M}(\mu)$.
+    \end{theorem}
+
+    \begin{proof}
+      siehe Aufschrieb
+    \end{proof}
+
+    \newpage
+
+    \begin{lemma}[i.A. II.17]
+      $\lambda: \script{R} \to [0, \infty]$ $\sigma$-endliches Prämaß auf Ring $\script{R} \subseteq \script{P}(X)$ mit Caratheodory-Fortsetzung $\mu$. $D \subseteq X$ ist genau dann $\mu$-messbar, wenn eine der folgenden Bedingungen gilt:
+      \begin{enumerate}[label=\roman*)]
+        \item $\exists \ E \in \sigma(\script{R})$ mit $E \supseteq D$ und $\mu(E \setminus D) = 0$
+        \item $\exists \ C \in \sigma(\script{R})$ mit $C \subseteq D$ und $\mu(D \setminus C) = 0$
+      \end{enumerate}
+    \end{lemma}
+
+    \begin{definition}
+      Ein Mengensystem $\script{Q} \subseteq \script{P}(X)$ heißt \textbf{Halbring} über $X$, falls:
+      \begin{enumerate}[label=\roman*)]
+        \item $\emptyset \in \script{Q}$
+        \item $P, Q \in \script{Q} \implies P \cap Q \in \script{Q}$
+        \item $P, Q \in \script{Q} \implies P \setminus Q = \bigcup\limits_{i=1}^k P_i$ mit endlich vielen paarweise disjunkten $P_i \in \script{Q}$
+      \end{enumerate}
+    \end{definition}
+
+    \begin{example}
+      $X$ beliebige Menge. $\script{Q} := \{\emptyset\} \cup \{\{a\} \ | \ a \in X\}$
+    \end{example}
+
+    \begin{remark}
+      $I \subseteq \mathbb{R}$ heißt \textbf{Intervall}, wenn es $a,b \in \mathbb{R}$ mit $a \leq b$ gibt, sodass: $(a,b) \subseteq I \subseteq [a,b]$. Das System aller Intervalle bezeichnen wir mit $\script{I}$.\\
+      Ein achsenparalleler n-dim. \textbf{Quader} (kurz: Quader) ist Produkt $Q = I_1 \times ... \times I_n \subseteq \mathbb{R}^n$ von Intervallen. Das System aller Quader wird mit $\script{Q}^n$ bezeichnet.
+    \end{remark}
+
+    \begin{theorem}[i.A. II.19]
+      $\script{I}$ ist ein Halbring.
+    \end{theorem}
+
+    \begin{proof}
+      siehe Aufschrieb
+    \end{proof}
+
+    \begin{theorem}[i.A. II.20]
+      Für $i = 1, ..., n$ sei $\script{Q}_i$ Halbring über $X_i$. Dann ist $\script{Q}:=\{P_1 \times ... \times P_n \ | \ P_i \in \script{Q}_i\}$ ein Halbring über $X_1 \times ... \times X_n$.
+    \end{theorem}
+
+    \begin{proof}
+      siehe Aufschrieb
+    \end{proof}
+
+    \begin{theorem}[i.A. II.21]
+      $\script{Q}^n$ ist ein Halbdring.
+    \end{theorem}
 \end{document}
