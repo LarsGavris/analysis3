@@ -12,3 +12,6 @@ Prof. Lamm
 2. Bitte keine Änderungen am Stil/Design vornehmen, ohne das vorher mit mir abzusprechen.
 3. Natürlich nichts löschen/verfälschen/etc.
 4. Nicht weiter veröffentlichen.
+
+#### Todo
+[] Beweise ergänzen
