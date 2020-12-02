@@ -3,6 +3,12 @@
 \usepackage{analysis_3_sty}
 \input{analysis_3_skript_cfg.tex}
 
+% \usepackage[
+%   active,
+%   generate=analysis_3_theorems,
+%   extract-env={theorem}
+% ]{extract}
+
 \begin{document}
   \sidenote{Vorlesung 1}{02.11.2020}
   % 
@@ -947,6 +953,98 @@
     \end{proof}
 
     \begin{theorem}[i.A. II.21]
-      $\script{Q}^n$ ist ein Halbdring.
+      $\script{Q}^n$ ist ein Halbring.
     \end{theorem}
+
+    \sidenote{Vorlesung 7}{23.11.20}
+
+    \begin{theorem}[i.A. II.22]
+      $\script{Q}$ Halbring über $X$ und $\script{F}$ sei das System aller endlichen Vereinigungen $F=\bigcup\limits_{i=1}^k P_i$ von Mengen $P_I \in \script{Q}$. Dann ist $\script{F}$ der von $\script{Q}$ erzeugte Ring.
+    \end{theorem}
+
+    \begin{proof}
+      siehe Aufschrieb
+    \end{proof}
+
+    \begin{example}
+      \begin{enumerate}
+        \item[]
+        \item $\script{Q}^n$ alle Quader $Q \subseteq \mathbb{R}^n$\\
+              $\implies$ erzeugter Ring $\script{F}^n$. Elemente davon nennen wir \textbf{Figuren}. 
+        \item $\script{Q} := \{\emptyset\} \cup \{\{a\} \ | \ a \in X\}$\\
+              $\implies$ erzeugter Ring $\script{F}$: Ring der endlichen Teilmengen von $X$.
+      \end{enumerate}
+    \end{example}
+
+    \begin{lemma}[i.A. II.23]
+      $\script{Q}$ Halbring über $X$, $\script{F}$ der von $\script{Q}$ erzeugte Ring. $\implies \sigma(\script{Q}) = \sigma(\script{F})$
+    \end{lemma}
+
+    \begin{proof}
+      siehe Aufschrieb
+    \end{proof}
+
+    \begin{lemma}[i.A. II.24]
+      $\script{Q}$ Halbring über $X$, $\script{F}$ der von $\script{Q}$ erzeugte Ring. Zu jedem $F \in \script{F}$ existieren paarweise disjunkte $P_1, ..., P_k \in \script{Q}$ mit $F = \bigcup\limits_{i=1}^k P_i$
+    \end{lemma}
+
+    \begin{proof}
+      siehe Aufschrieb
+    \end{proof}
+
+    \begin{definition}[i.A. II.25]
+      Sei $\script{Q} \subseteq \script{P}(X)$ Halbring. Eine Funktion $\lambda: \script{Q} \to [0, \infty]$ heißt \textbf{Inhalt} auf $\script{Q}$, falls:
+      \begin{enumerate}[label=\roman*)]
+        \item $\lambda(\emptyset) = 0$
+        \item Für $A_i \ in \script{Q}$ paarweiße disjunkt mit $\bigcup\limits_{i=1}^n A_i \in \script{Q}$ gilt: $\lambda(\bigcup\limits_{i=1}^n A_i) = \sum\limits_{i=1}^n \lambda(A_i)$
+      \end{enumerate}
+      $\lambda$ heißt \textbf{Prämaß} auf $\script{Q}$, falls $\lambda$ $\sigma$-additiv auf $\script{Q}$ ist.\\
+      D.h. für $A_i \in \script{Q}$ paarweiße disjunkt ($i \in \mathbb{N}$) mit $\bigcup\limits_{i \in \mathbb{N}} A_i \in \script{Q}: \lambda(\bigcup\limits_{i \in \mathbb{N}} A_i) = \sum\limits_{i \in \mathbb{N}} \lambda(A_i)$
+    \end{definition}
+
+    \begin{remark}
+      $\sigma$-subadditiv, subadditiv, $\sigma$-endlich, endlich, monoton, ... sind wie vorher definiert.\\
+      Ist $\script{Q}$ in Def. II.26 [i.A. II.25] ein Ring, so stimmt die Definition des Prämaßes mit Def. II.11 [i.A. II.10] überein.
+    \end{remark}
+
+    \begin{theorem}[i.A. II.26]
+      $\lambda$ Inhalt auf Halbring $\script{Q}$ und $\script{F}$ der von $\script{Q}$ erzeugte Ring. Dann ex. genau ein Inhalt $\bar{\lambda}:\script{F} \to [0, \infty]$ mit $\bar{\lambda}(Q)=\lambda(Q) \forall Q \in \script{Q}$.
+    \end{theorem}
+
+    \begin{proof}
+      siehe Aufschrieb
+    \end{proof}
+
+    \begin{lemma}[i.A. II.27]
+      $\lambda$ Inhalt auf Halbring $\script{Q}$ über $X$\\
+      $\implies \lambda$ ist monoton und subadditiv
+    \end{lemma}
+
+    \begin{proof}
+      siehe Aufschrieb
+    \end{proof}
+
+    \begin{example}
+      Auf $\script{Q}^n$ elementargeometrisches Volumen $vol^n$.\\
+      Sei $Q \in \script{Q}$ mit $Q = I_1 \times ... \times I_n, I_j \subseteq \mathbb{R}$ Intervall mit Intervallgrenzen $a_j \leq b_j$\\
+      $vol^n(Q) = \prod\limits_{j=1}^n (b_j - a_j) \geq 0$
+    \end{example}
+
+    \begin{theorem}[i.A. II.28]
+      $vol^n(.)$ ist ein Inhalt auf $\script{Q}^n$
+    \end{theorem}
+
+    \begin{proof}
+      siehe Aufschrieb
+    \end{proof}
+
+    \begin{theorem}[i.A. II.29]
+      $\lambda: \script{Q} \to [0, \infty]$ Prämaß auf Halbring $\script{Q} \subseteq \script{P}(X)$, $\script{R}$ der von $\script{Q}$ erzeugte Ring und $\bar{\lambda}: \script{R} \to [0,\infty]$ der eindeutig bestimmte Inhalt auf $\script{R}$ mit $\bar{\lambda}|_{\script{Q}}=\lambda$ (Satz II.27 / i.A. II.26), so ist $\bar{\lambda}$ ein Prämaß auf $\script{R}$.
+    \end{theorem}
+
+    \begin{proof}
+      siehe Aufschrieb
+    \end{proof}
+
+    
 \end{document}

@@ -1,0 +1,146 @@
+%% 
+%% This is file, `analysis_3_theorems.tex',
+%% generated with the extract package.
+%% 
+%% Generated on :  2020/11/25,8:16
+%% From source  :  analysis_3_skript.tex
+%% Using options:  active,generate=analysis_3_theorems,extract-env={theorem}
+%% 
+\documentclass[11pt,a4paper,fleqn,openany]{report}
+
+\usepackage{analysis_3_sty}
+\input{analysis_3_theorems_cfg.tex}
+
+\begin{document}
+
+\begin{theorem}
+      Jeder Durchschnitt von (endlich oder unendlich vielen) $\sigma$-Algebren auf der selben Menge $X$ ist wieder eine $\sigma$-Algebra.
+    
+\end{theorem}
+
+\begin{theorem}[Stetigkeitseigenschaften von Maßen]
+      Sei $(X,\script{A},\mu)$ Maßraum. Dann gelten für Mengen $A_i \in \script{A}, i \in \mathbb{N}$ folgende Aussagen:
+
+      \begin{enumerate}[label=(\roman*)]
+        \item Aus $A_1 \subseteq A_2 \subseteq A_3 \subseteq ...$ folgt: $\mu (\bigcup\limits_{i \in \mathbb{N}} A_i) = \lim\limits_{i \to \infty} \mu (A_i)$
+        \item Aus $A_1 \supseteq A_2 \supseteq A_3 \supseteq ...$ mit $\mu(A_1)<\infty$, folgt: $\mu (\bigcap\limits_{i \in \mathbb{N}} A_i) = \lim\limits_{i\to \infty} \mu (A_i)$
+        \item $\mu(\bigcup\limits_{i\in \mathbb{N}} A_i) \leq \sum\limits_{i\in \mathbb{N}} \mu(A_i)$
+      \end{enumerate}
+    
+\end{theorem}
+
+\begin{theorem}
+      $(X,\script{A}, \mu)$ Maßraum. Dann ist $\bar{\script{A}}_{\mu}$ eine $\sigma$-Algebra und $\bar{\mu}$ ein vollständiges Maß auf $\bar{\script{A}}_{\mu}$, welches mit $\mu$ auf $\script{A}$ übereinstimmt.
+    
+\end{theorem}
+
+\begin{theorem}
+      $(X, \script{A}, \mu)$ Maßraum und $(X, \bar{\script{A}}_{\mu}, \bar{\mu})$ sei Vervollständigung. Ferner sei $(X, \script{B}, \nu)$ ein vollständiger Maßraum mit $\script{A} \subseteq \script{B}$ und $\mu = \nu$ auf $\script{A}$. Dann ist $\bar{\script{A}}_{\mu} \subseteq \script{B}$ und $\bar{\mu} = \nu$ auf $\bar{\script{A}}_{\mu}$.
+    
+\end{theorem}
+
+\begin{theorem}
+      $(X, \script{A})$ messbarer Raum, $D \in \script{A}$ und $f_k:D \to \bar{\mathbb{R}}$ Folge von $\script{A}$-messbaren Funktionen.\\
+      Dann sind auch folgende Funktionen $\script{A}$-messbar:
+      \begin{center}
+        $\inf\limits_{k \in \mathbb{N}} f_k, \ \sup\limits_{k \in \mathbb{N}} f_k, \ \liminf\limits_{k \to \infty} f_k, \ \limsup\limits_{k \to \infty} f_k$
+      \end{center}
+    
+\end{theorem}
+
+\begin{theorem}
+      $(X, \script{A})$ messbarer Raum, $D \in \script{A}$, $f,g: D \to \bar{\mathbb{R}}$ $\script{A}$-messbar, $\alpha \in \mathbb{R}$.\\
+      Dann sind die Funktionen
+      \begin{center}
+        $f+g, \ \alpha f, \ f^{\pm}, \ max(f,g), \ min(f,g), \ |f|, \ fg, \ \dfrac{f}{g}$
+      \end{center}
+      auf ihren Definitionsbereichen, die in $\script{A}$ liegen $\script{A}$-messbar.
+    
+\end{theorem}
+
+\begin{theorem}
+      $(X, \script{A}, \mu)$ vollständiger Maßraum und seien $f_k, k \in \mathbb{N}$, $\mu$-messbar. Falls $f_k$ punktweise $\mu$-fast überall gegen $f$ konvergiert, dann ist $f$ auch $\mu$-messbar.
+    
+\end{theorem}
+
+\begin{theorem}[Egorov]
+      $(X, \script{A}, \mu)$ Maßraum, $D \in \script{A}$ Menge mit $\mu(D) < \infty$ und $f_n, f$ $\mu$-messbare, $\mu$-fast überall endliche Funktionen auf $D$ mit $f_n \to f$ $\mu$-fast überall. Dann existiert $\forall \epsilon > 0$ eine Menge $B \in \script{A}$ mit $B \subseteq D$ und
+      \begin{enumerate}[label=(\roman*)]
+        \item $\mu(D \setminus B) < \epsilon$
+        \item $f_n \to f$ gleichmäßig auf $B$
+      \end{enumerate}
+    
+\end{theorem}
+
+\begin{theorem}
+      Sei $\script{Q}$ ein System von Teilmengen einer Menge $X$, welches die leere Menge enthält, und sei $\lambda: \script{Q} \to [0,\infty]$ eine Mengenfunktion auf $\script{Q}$ mit $\lambda(\emptyset)=0$. Definiere die Mengenfunktion $\mu(E):= \inf\{\sum\limits_{i \in \mathbb{N}} \lambda(P_i) |\ P_i \in \script{Q}, E \subseteq \bigcup\limits_{i \in \mathbb{N}} P_i\}$.\\
+      Dann ist $\mu$ ein äußeres Maß. \hfill ($\inf \emptyset = \infty$)
+    
+\end{theorem}
+
+\begin{theorem}
+      Sei $\mu: \script{P}(X) \to [0, \infty]$ äußeres Maß auf X. Für M $\subseteq X$ gegeben erhält man durch $\mu \llcorner M: \script{P}(X) \to [0, \infty], \mu \llcorner M(A) := \mu(A \cap M)$ ein äußeres Maß $\mu \llcorner M$ auf $X$, welches wir \textbf{Einschränkung} von $\mu$ auf M nennen.\\
+      Es gilt:
+      \begin{center}
+        $A$ $\mu$-messbar $\implies$ $A$ $\mu \llcorner M$-messbar
+      \end{center}
+    
+\end{theorem}
+
+\begin{theorem}
+      $\mu$ äußeres Maß auf $X$. Dann gilt:
+      \begin{align*}
+        N \ \mu\text{-Nullmenge} &\implies N \ \mu\text{-messbar}\\
+        N_k, k \in \mathbb{N}, \mu\text{-Nullmengen} &\implies \bigcup\limits_{k \in \mathbb{N}} N_k \ \mu\text{-Nullmenge}
+      \end{align*}
+    
+\end{theorem}
+
+\begin{theorem}
+      Sei $\mu: \script{P}(X) \to [0,\infty]$ ein äußeres Maß. Dann ist $\script{M}(\mu)$ eine $\sigma$-Algebra und $\mu$ ist ein vollständiges Maß auf $\script{M}(\mu)$.
+    
+\end{theorem}
+
+\begin{theorem}[Caratheodory-Fortsetzung | Im Aufschrieb II.12]
+      $\lambda: \script{R} \to [0, \infty]$ Prämaß auf Ring $\script{R} \subseteq \script{P}(X)$. Sei $\mu: \script{P}(X) \to [0, \infty]$ das in Satz II.3 aus $\script{R}$ konstruierte äußere Maß, d.h. $\forall E \subseteq X:$
+      \begin{align*}
+        \mu(E) := inf\{\sum\limits_{i \in \mathbb{N}} \lambda(A_i) \ | \ A_i \in \script{R}, E \subseteq \bigcup\limits_{i \in \mathbb{N}} A_i\}
+      \end{align*}
+      Dann ist $\mu$ eine Fortsetzung von $\lambda$.\\
+      $\mu$ heißt \textbf{induziertes äußeres Maß} oder \textbf{Caratheodory-Fortsetzung} von $\lambda$.
+    
+\end{theorem}
+
+\begin{theorem}[Im Aufschrieb II.14]
+      Sei $\lambda: \script{R} \to [0, \infty]$ Prämaß auf Ring $\script{R}\subseteq \script{P}(X)$. Dann ex. ein Maß $\mu$ auf $\sigma(\script{R})$ mit $\mu=\lambda$ auf $\script{R}$. Diese Fortsetzung ist eindeutig, falls $\lambda$ $\sigma$-endlich ist.
+    
+\end{theorem}
+
+\begin{theorem}[Regularität der Caratheodory-Fortsetzung | i.A. II.15]
+      Sei $\mu$ Caratheodory-Fortsetzung des Prämaßes $\lambda: \script{R} \to [0,\infty]$ auf Ring $\script{R}$ über $X$. Dann ex. $\forall D \subseteq X$ ein $E \in \sigma(\script{R})$ mit $E \supseteq D$ und $\mu(E) = \mu(D)$.\\
+      ($\mu$ ist \glqq reguläres \grqq äußeres Maß)
+    
+\end{theorem}
+
+\begin{theorem}[i.A. II.16]
+      Sei $\lambda$ ein $\sigma$-endliches Prämaß auf Ring $\script{R}$ über $X$ und sei $\mu: \script{P}(X) \to [0,\infty]$ die Caratheodory-Fortsetzung von $\lambda$. Dann ist $\mu|_{\script{M}(\mu)}$ die Vervollständigung von $\mu|_{\sigma(\script{R})}$ und $\script{M}(\mu)$ ist die vervollständigte $\sigma$-Algebra von $\overline{\sigma(\mathbb{R})}_{\mu|_{\sigma(\mathbb{R})}}$.\\
+      D.h. $\overline{\sigma(\mathbb{R})}_{\mu|_{\sigma(\mathbb{R})}} = \script{M}(\mu)$. Insbesondere ex. genau eine Fortsetzung von $\lambda: \script{R} \to [0, \infty]$ zu einem vollständigen Maß auf $\script{M}(\mu)$.
+    
+\end{theorem}
+
+\begin{theorem}[i.A. II.19]
+      $\script{I}$ ist ein Halbring.
+    
+\end{theorem}
+
+\begin{theorem}[i.A. II.20]
+      Für $i = 1, ..., n$ sei $\script{Q}_i$ Halbring über $X_i$. Dann ist $\script{Q}:=\{P_1 \times ... \times P_n \ | \ P_i \in \script{Q}_i\}$ ein Halbring über $X_1 \times ... \times X_n$.
+    
+\end{theorem}
+
+\begin{theorem}[i.A. II.21]
+      $\script{Q}^n$ ist ein Halbring.
+    
+\end{theorem}
+
+\end{document}
