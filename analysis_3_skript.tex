@@ -3,12 +3,6 @@
 \usepackage{analysis_3_sty}
 \input{analysis_3_skript_cfg.tex}
 
-% \usepackage[
-%   active,
-%   generate=analysis_3_theorems,
-%   extract-env={theorem}
-% ]{extract}
-
 \begin{document}
   \sidenote{Vorlesung 1}{02.11.2020}
   % 
@@ -489,7 +483,8 @@
     \end{goal}
 
     \begin{definition}
-      $(X, \script{A}, \mu)$ Maßraum. Eine auf $D \in \script{A}$ definierte Funktion $f: D \to \bar{\mathbb{R}}$ heißt $\mu$-messbar (auf $X$), wenn $\mu(X \setminus D) = 0$ und $f$ $\script{A|_D}$-messbar ist.\\
+      $(X, \script{A}, \mu)$ Maßraum. Eine auf $D \in \script{A}$ definierte Funktion $f: D \to \bar{\mathbb{R}}$ heißt\\
+      $\bm{\mu}$\textbf{-messbar} (auf $X$), wenn $\mu(X \setminus D) = 0$ und $f$ $\script{A|_D}$-messbar ist.\\
       ($\script{A}|_D := \{A \cap D | A \in \script{A}\}$, siehe Blatt 1)
     \end{definition}
 
@@ -499,8 +494,8 @@
         \item Unterscheiden zwischen $\script{A}$-messbaren Funktionen (auf $X$), die \underline{überall} auf $X$ definiert sind, und $\mu$-messbaren Funktionen (auf $X$), die in der Regel nur \underline{$\mu$-fast überall} definiert sind.
         \item Analog zu $\script{A}$-Messbarkeit verwenden wir $\mu$-Messbarkeit auf für Funktionen, die nur auf Teilmengen definiert sind:\\
           Sei $(X, \script{A}, \mu)$ Maßraum, $D \in \script{A}$. $f: E \to \bar{\mathbb{R}}$ heißt \textbf{$\bm{\mu}$-messbar} (auf $D$), wenn $E \subseteq D$ in $\script{A}$ liegt mit $\mu(D \setminus E) = 0$ und $f$ $\script{A}|_E$-messbar.
-        \item \glqq$f=g \mu$-fast überall\grqq ist eine Äquivalenzrelation auf der Menge aller Funktionen
-        \item Sei $D \in \script{A}, f: D \to \bar{\mathbb{R}} \mu$-messbar. Dann ex. eine $\script{A}$-messbare Funktion $g: X \to \bar{\mathbb{R}}$ mit $f=g$ auf $D$, z.B.: $g = \begin{cases}
+        \item \glqq$f=g \ \mu$-fast überall\grqq ist eine Äquivalenzrelation auf der Menge aller Funktionen
+        \item Sei $D \in \script{A}, f: D \to \bar{\mathbb{R}}\ \mu$-messbar. Dann ex. eine $\script{A}$-messbare Funktion $g: X \to \bar{\mathbb{R}}$ mit $f=g$ auf $D$, z.B.: $g = \begin{cases}
           f & \text{, auf } D\\
           0 & \text{, auf } X \setminus D 
         \end{cases}$\\
@@ -996,7 +991,7 @@
       Sei $\script{Q} \subseteq \script{P}(X)$ Halbring. Eine Funktion $\lambda: \script{Q} \to [0, \infty]$ heißt \textbf{Inhalt} auf $\script{Q}$, falls:
       \begin{enumerate}[label=\roman*)]
         \item $\lambda(\emptyset) = 0$
-        \item Für $A_i \ in \script{Q}$ paarweiße disjunkt mit $\bigcup\limits_{i=1}^n A_i \in \script{Q}$ gilt: $\lambda(\bigcup\limits_{i=1}^n A_i) = \sum\limits_{i=1}^n \lambda(A_i)$
+        \item Für $A_i \in \script{Q}$ paarweiße disjunkt mit $\bigcup\limits_{i=1}^n A_i \in \script{Q}$ gilt: $\lambda(\bigcup\limits_{i=1}^n A_i) = \sum\limits_{i=1}^n \lambda(A_i)$
       \end{enumerate}
       $\lambda$ heißt \textbf{Prämaß} auf $\script{Q}$, falls $\lambda$ $\sigma$-additiv auf $\script{Q}$ ist.\\
       D.h. für $A_i \in \script{Q}$ paarweiße disjunkt ($i \in \mathbb{N}$) mit $\bigcup\limits_{i \in \mathbb{N}} A_i \in \script{Q}: \lambda(\bigcup\limits_{i \in \mathbb{N}} A_i) = \sum\limits_{i \in \mathbb{N}} \lambda(A_i)$
@@ -1008,7 +1003,7 @@
     \end{remark}
 
     \begin{theorem}[i.A. II.26]
-      $\lambda$ Inhalt auf Halbring $\script{Q}$ und $\script{F}$ der von $\script{Q}$ erzeugte Ring. Dann ex. genau ein Inhalt $\bar{\lambda}:\script{F} \to [0, \infty]$ mit $\bar{\lambda}(Q)=\lambda(Q) \forall Q \in \script{Q}$.
+      $\lambda$ Inhalt auf Halbring $\script{Q}$ und $\script{F}$ der von $\script{Q}$ erzeugte Ring. Dann ex. genau ein Inhalt $\bar{\lambda}:\script{F} \to [0, \infty]$ mit $\bar{\lambda}(Q)=\lambda(Q) \ \forall Q \in \script{Q}$.
     \end{theorem}
 
     \begin{proof}
@@ -1103,13 +1098,13 @@
     \begin{definition}
       Das \textbf{n-dimensionale äußere Lebesgue-Maß} einer Menge $E \subseteq \mathbb{R}^n$ ist definiert durch
       \begin{align*}
-        \lambda^n(E) := inf\{\sum\limits_{k \in \mathbb{N}} vol^n(Q_k) \ | \ Q_k \in \script{Q}^n, E \subseteq \bigcup\limits_{i \in \mathbb{N}} Q_k\}
+        \lambda^n(E) := inf\{\sum\limits_{k \in \mathbb{N}} vol^n(Q_k) \ | \ Q_k \in \script{Q}^n, E \subseteq \bigcup\limits_{k \in \mathbb{N}} Q_k\}
       \end{align*}
       $\lambda^n|_{\script{M}(\lambda^n)}$ ist das \textbf{n-dimensionale Lebesguemaß}.
     \end{definition}
 
     \begin{remark}
-      Bem nach Satz II.31 (i.A. II.30) $\implies$ $\lambda^n$ reguläre und vollständig auf $\script{M}(\lambda^n)$
+      Bem nach Satz II.31 (i.A. II.30) $\implies$ $\lambda^n$ regulär und vollständig auf $\script{M}(\lambda^n)$
     \end{remark}
 
     \begin{lemma}
@@ -1158,8 +1153,8 @@
     \begin{lemma}
       Für $E \subseteq \mathbb{R}^n$ beliebig gilt:
       \begin{enumerate}[label=\roman*)]
-        \item $\lambda^n(E) = inf\{\lambda^n(U) \ | \ U offen, U \supset E\}$
-        \item $\lambda^n(E) = inf\{\lambda^n(K) \ | \ K kompakt, K \subset E\}$, falls $E \lambda^n$-messbar
+        \item $\lambda^n(E) = inf\{\lambda^n(U) \ | \ U \text{ offen }, U \supset E\}$
+        \item $\lambda^n(E) = inf\{\lambda^n(K) \ | \ K \text{ kompakt }, K \subset E\}$, falls $E \ \lambda^n$-messbar
       \end{enumerate}
     \end{lemma}
 
@@ -1175,7 +1170,7 @@
     \newpage
 
     \begin{theorem}[Satz von Lusin]
-      Sei $A \subseteq \mathbb{R}^n$ offen mit $\lambda^n(A) < \infty$ und sei $f \lambda^n$-messbar auf $A$ mit Werten in $\mathbb{R}$. Dann existiert $\forall \epsilon > 0$ ein $K = K_{\epsilon} \subseteq A$ kompakt, mit:
+      Sei $A \subseteq \mathbb{R}^n$ offen mit $\lambda^n(A) < \infty$ und sei $f \ \lambda^n$-messbar auf $A$ mit Werten in $\mathbb{R}$. Dann existiert $\forall \epsilon > 0$ ein $K = K_{\epsilon} \subseteq A$ kompakt, mit:
       \begin{enumerate}[label=\roman*)]
         \item $\lambda^n(A \setminus K) < \epsilon$
         \item $f|_k$ ist stetig
