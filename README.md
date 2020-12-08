@@ -1,17 +1,13 @@
 # Analysis 3
 
 #### Info
+KIT
 WS 20/21
 Prof. Lamm
 
-#### Regeln
-1. Man darf gerne am Script mitarbeiten, dh:
-    - Inhalte ergänzen
-    - Korrekturen vornehmen
-    - etc.
-2. Bitte keine Änderungen am Stil/Design vornehmen, ohne das vorher mit mir abzusprechen.
-3. Natürlich nichts löschen/verfälschen/etc.
-4. Nicht weiter veröffentlichen.
+#### Notes
+- Ab Vorlesung 6 (20.11.20) habe ich keine Beweise mehr abgetippt. Falls du da gern was ergänzen möchtest, kannst du gerne einen merge-request machen.
+- Ab Def II.10 hat der Prof die Nummerierung um eins versetzt gehabt, daher habe ich hier immer die Nummern, wie sie im Aufschrieb benannt wurden hinzugefügt (mit "im Aufschrieb" bzw. "i.A." ...). Ab Kapitel III passt es aber wieder.
 
-#### Todo
-[] Beweise ergänzen
+#### Contributers
+Lars Gavris
