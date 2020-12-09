@@ -1,5 +1,7 @@
 # Analysis 3
 
+[_direkt zum PDF_](https://github.com/LarsGavris/analysis3/blob/main/analysis_3_skript.pdf)
+
 #### Info
 KIT
 WS 20/21
