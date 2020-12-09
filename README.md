@@ -7,9 +7,14 @@ KIT
 WS 20/21
 Prof. Lamm
 
+#### Aktueller Stand
+Vorlesung 11 - Def IV.5
+
 #### Notes
-- Ab Vorlesung 6 (20.11.20) habe ich keine Beweise mehr abgetippt. Falls du da gern was ergänzen möchtest, kannst du gerne einen pull-request machen.
+- Ab Vorlesung 6 (20.11.20) habe ich keine Beweise mehr abgetippt.
 - Ab Def II.10 hat der Prof die Nummerierung um eins versetzt gehabt, daher habe ich hier immer die Nummern, wie sie im Aufschrieb benannt wurden hinzugefügt (mit "im Aufschrieb" bzw. "i.A." ...). Ab Kapitel III passt es aber wieder.
 
 #### Contributers
 Lars Gavris
+
+Falls du gerne etwas beitragen möchtest, kannst du gerne einen Pull-Request machen.

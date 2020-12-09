@@ -1269,7 +1269,7 @@
 
     \begin{example}
     \begin{minipage}{0.7\textwidth}
-      $\lambda_1, ...,  \lambda_n > 0, \ E=\{x \in \mathbb{R}^n \ | \ (\dfrac{x_1}{\lambda_2})^2 + ... + (\dfrac{x_n}{\lambda_n})^2 < 1\}$\\
+      $\lambda_1, ...,  \lambda_n > 0, \ E=\{x \in \mathbb{R}^n \ | \ (\dfrac{x_1}{\lambda_1})^2 + ... + (\dfrac{x_n}{\lambda_n})^2 < 1\}$\\
       mit $\Lambda = \begin{pmatrix}
         \lambda_1 & &\\
         & \ddots &\\
@@ -1287,11 +1287,94 @@
           ytick=\empty,
           axis lines=middle,
           ]
-          \draw[red] (axis cs:0,0) ellipse [rotate=90, x radius=1, y radius=2];
+          \draw[red, fill=red!50, fill opacity=0.5] (axis cs:0,0) ellipse [rotate=90, x radius=1, y radius=2];
           \node[label={45:{$\lambda_2$}},circle,fill,inner sep=0pt] at (axis cs:0,1.2) {};
           \node[label={135:{$\lambda_1$}},circle,fill,inner sep=0pt] at (axis cs:1.65,0) {};
         \end{axis}
       \end{tikzpicture}
     \end{minipage}
     \end{example}
+
+    \begin{example}[Vitali 1905]
+      $\script{P}(\mathbb{R}^n) \neq \script{M}(\lambda^n)$\\
+      Beweis siehe Aufschrieb.
+    \end{example}
+
+  \chapter{Lebesgue-Integral}
+    \begin{definition}
+      $X$ Menge, $\mu$ äußeres Maß. Eine funktion $\zeta: X \to \mathbb{R}$ heißt $\bm{\mu}$\textbf{-Treppenfunktion}, wenn sie $\mu$-messbar ist und nur eindlich viele Funktionswerte annimmt.\\
+      Die Menge $\script{T}(\mu)$ der $\mu$-Treppenfunktionen ist ein $\mathbb{R}$-Vektorraum. Wir setzen
+      \begin{align*}
+        \script{T}^+(\mu)=\{\zeta \in \script{T}(\mu) \ | \ \zeta \geq 0\}
+      \end{align*}
+    \end{definition}
+
+    \begin{example}
+      $E \subseteq X, \psi_E: X \to \mathbb{R}, \psi_E(x) = \begin{cases}
+        1 & ,x \in E\\
+        0 & ,\text{ sonst}
+      \end{cases}$  Es ist: $\psi_E$ $\mu$-Treppenfunktion $\Leftrightarrow E \in \script{M}(\mu)$\\
+      Sei $\zeta \geq 0, \zeta = \sum\limits_{i=1}^k s_i \psi_{A_i}$ mit $A_i$ messbar und $s_i \geq 0$ und die $A_i$ sind paarweise disjunkt. So eine Darstellung heißt \textbf{einfach}.\\
+      Wir setzen:
+      \begin{align*}
+        (\star) \ I(\zeta) := \sum\limits_{i=1}^k s_i \mu(A_i)
+      \end{align*} 
+      Für $\zeta=0$ folgt $I(\zeta) = 0 \cdot \mu(X) = 0$\\
+      Jedes $\zeta \in \script{T}^+(\mu)$ besitzt eine einfache Darstellung, z.B. können wir für $s_i$ die endlich vielen Funktionswerte wählen und $A_i = \{\zeta = s_i\}$
+    \end{example}
+
+    \begin{lemma}
+      Das Integral $I: \script{T}^+(\mu) \to [0,\infty]$ ist durch $(\star)$ wohldefiniert. Für $\zeta, \phi \in \script{T}^+(\mu)$ und $\alpha, \beta \in [0, \infty)$ gilt:
+      \begin{enumerate}[label=\roman*)]
+        \item $I(\alpha \zeta + \beta \psi) = \alpha I(\zeta) + \beta I(\psi)$
+        \item $\zeta \leq \psi \implies I(\zeta) \leq I(\psi)$ 
+      \end{enumerate}
+    \end{lemma}
+
+    \begin{proof}
+      siehe Aufschrieb
+    \end{proof}
+
+    \begin{remark}
+      Für $A_i$ messbar und $s_i \geq 0$ folgt aus i) auch für $A_i$ nicht disjunk:
+      \begin{align*}
+        I(\zeta) = \sum\limits_{i=1}^k s_i \mu(A_i) \ \ \text{ für } \zeta = \sum\limits_{i=1}^k s_i \psi_{A_i}
+      \end{align*}
+    \end{remark}
+
+    \begin{definition}[Lebesgue-Integral]
+      Für $f: X \to [0,\infty]$ $\mu$-messbar, setze
+      \begin{align*}
+        \int f d\mu = sup\{I(\zeta) \ | \ \zeta \in \script{T}^+(\mu), \zeta \leq f\}
+      \end{align*}
+      $\zeta$ heißt \textbf{Unterfunktion} von f.\\
+      Ist $f: X \to [-\infty, \infty]$ $\mu$-messbar und sind die Integrale von $f^{\pm}$ nicht beide unendlich, so setzen wir
+      \begin{align*}
+        \int f d\mu = \int f^+ d\mu - \int f^- d\mu \ \ \in [-\infty, \infty] 
+      \end{align*}
+    \end{definition}
+
+    \begin{remark}
+      Für $f \geq 0$ sind beide Schritte kompatibel, denn dann gilt $f = f^+$ und $f^- = 0$
+    \end{remark}
+
+    \begin{lemma}
+      Für $f \in \script{T}^+(\mu)$ gilt: $\int f d\mu = I(f)$
+    \end{lemma}
+
+    \begin{proof}
+      siehe Aufschrieb
+    \end{proof}
+
+    \begin{example}
+      $\chi_{\mathbb{Q}}$ ist eine $\lambda^1$-Treppenfunktion und es gilt:\\
+      $\int \chi_{\mathbb{Q}} d\lambda^1 = I(\chi_{\mathbb{Q}}) = 0 \cdot \lambda^1(\mathbb{R} \setminus \mathbb{Q}) + 1 \cdot \lambda^1(\mathbb{Q}) = 0 + 1 \cdot 0 = 0$
+    \end{example}
+
+    \begin{definition}
+      $f:X \to \bar{\mathbb{R}}$ heißt \textbf{integrierbar} bzgl. $\mu$, wenn sie $\mu$-messbar ist und wenn gilt:
+      \begin{align*}
+        \int f d\mu \in \mathbb{R} \Leftrightarrow \int f^+ d\mu + \int f^- d\mu < \infty
+      \end{align*}
+    \end{definition}
 \end{document}
