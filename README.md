@@ -15,6 +15,7 @@ Vorlesung 11 - Def IV.5
 - Ab Def II.10 hat der Prof die Nummerierung um eins versetzt gehabt, daher habe ich hier immer die Nummern, wie sie im Aufschrieb benannt wurden hinzugefügt (mit "im Aufschrieb" bzw. "i.A." ...). Ab Kapitel III passt es aber wieder.
 
 #### Contributers
-Lars Gavris
+[Lars Gavris](https://github.com/LarsGavris)  
+[Lisa Bur](https://github.com/LisaBur)
 
 Falls du gerne etwas beitragen möchtest, kannst du gerne einen Pull-Request machen.
