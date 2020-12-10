@@ -1388,4 +1388,25 @@
         \int f d\mu \in \mathbb{R} \Leftrightarrow \int f^+ d\mu + \int f^- d\mu < \infty
       \end{align*}
     \end{definition}
+
+    \begin{example}
+      $\mu = card, X = \mathbb{N}_0$\\
+      z.z.: $f: \mathbb{N}_0 \to \mathbb{R}$ ist bzgl. $card$ auf $\mathbb{N}_0$ integrierbar $\implies \sum\limits_{k \in \mathbb{N}} f(k)$ absolut konvergent\\
+      Dann gilt: $\int f d card = \sum\limits_{k \in \mathbb{N}} f(k)$\\
+      Beweis siehe Aufschrieb
+    \end{example}
+
+    \begin{theorem}
+      $f,g:X \to \bar{\mathbb{R}}$ $\mu$-messbar. Ist $f \leq g$ $\mu$-fast überall und $\int f^- d\mu < \infty$, so existieren beide Integrale und es ist: $\int f d\mu \leq \int g d\mu$\\
+      \glqq$\geq$\grqq gilt entsprechend wenn $f^+ d\mu < \infty$
+    \end{theorem}
+
+    \begin{proof}
+      siehe Aufschrieb
+    \end{proof}
+
+    \begin{remark}
+      $f,g: X \to \bar{\mathbb{R}}$, $f$ $\mu$-messbar und $g = f$ $\mu$-fast überall $\stackrel{\text{Kapitel II}}{\implies} g$ $\mu$-messbar\\
+      Satz IV.6 $\implies \int g^{\pm} d\mu = \int f^{\pm} d\mu \implies \int f d\mu = \int g \ d\mu$
+    \end{remark}
 \end{document}
