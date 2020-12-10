@@ -1409,4 +1409,89 @@
       $f,g: X \to \bar{\mathbb{R}}$, $f$ $\mu$-messbar und $g = f$ $\mu$-fast überall $\stackrel{\text{Kapitel II}}{\implies} g$ $\mu$-messbar\\
       Satz IV.6 $\implies \int g^{\pm} d\mu = \int f^{\pm} d\mu \implies \int f d\mu = \int g \ d\mu$
     \end{remark}
+
+    \sidenote{Vorlesung 12}{11.11.2020}
+
+    \begin{remark}
+      Einschub: zum Beweis von Satz III.7
+      siehe Aufschrieb
+    \end{remark}
+
+    \begin{lemma}[Tschebyscheff-Ungleichung]
+      Für $f:X \to [0, \infty]$ $\mu$-messbar mit $\int f d\mu < \infty$ gilt:
+      \begin{align*}
+        \mu(\{f\geq s\}) \leq \begin{cases}
+          \dfrac{1}{s} \cdot \int f d\mu & \text{ für } s \in (0, \infty)\\
+          0 & \text{ für } s = \infty
+        \end{cases}
+      \end{align*}
+    \end{lemma}
+
+    \begin{proof}
+      siehe Aufschrieb
+    \end{proof}
+
+    \begin{lemma}
+      Sei $f: X \to \bar{\mathbb{R}}$ $\mu$-messbar.
+      \begin{enumerate}[label=\roman*)]
+        \item ist $\int f d\mu < \infty \implies \{f = \infty\}$ ist $\mu$-Nulllmenge
+        \item ist $f \geq 0$ und $\int f d\mu = 0 \implies \{f > 0\}$ ist $\mu$-Nullmenge
+      \end{enumerate}
+    \end{lemma}
+
+    \begin{proof}
+      siehe Aufschrieb
+    \end{proof}
+
+    \begin{theorem}
+      Zu $f: X \to [0,\infty]$ $\mu$-messbar gibt es eine Folge $f_k \in \script{T}^+(\mu)$ mit $f_0 \leq f_1 \leq ...$ und $\lim\limits_{k \to \infty} f_k(x) = f(x) \ \forall x \in X$.
+    \end{theorem}
+
+    \begin{proof}
+      siehe Aufschrieb
+    \end{proof}
+
+    \begin{theorem}[Monotonie Konvergenz / Beppo-Levi]
+      Seien $f_k:X \to [0,\infty]$ $\mu$-messbar mit $f_1 \leq f_2 \leq ...$ und $f: X \to [0, \infty]$ mit $f(x) := \lim\limits_{k \to \infty} f_k(x)$. Dann gilt:
+      \begin{align*}
+        \int f d\mu = \lim\limits_{k \to \infty} \int f_k \ d\mu
+      \end{align*}
+    \end{theorem}
+
+    \begin{proof}
+      siehe Aufschrieb
+    \end{proof}
+
+    \begin{theorem}
+      $f,g: X \to \bar{\mathbb{R}}$ integrierbar bzgl. $\mu$, so ist auch $\alpha f + \beta g$ integrierbar $\forall \alpha, \beta \in \mathbb{R}$ und es gilt:
+      \begin{align*}
+        \int (\alpha f + \beta g) \ d\mu = \alpha \int f d\mu + \beta \int g d\mu
+      \end{align*}
+    \end{theorem}
+
+    \begin{proof}
+      siehe Aufschrieb
+    \end{proof}
+
+    \begin{definition}
+      Sei $\mu$ ein äußeres Maß auf $X$ und $E \subseteq X$ sei $\mu$-messbar. Dann setzen wir, falls das rechte Integral existiert
+      \begin{align*}
+        \int\limits_E f d\mu = \int f \chi_E d\mu
+      \end{align*}
+      $f$ heißt \textbf{auf $\bm{E}$ integrierbar}, wenn $f \chi_E$ integrierbar ist.
+    \end{definition}
+
+    \begin{remark}
+      Wegen $(f \chi_E)^{\pm} = f^{\pm} \chi_E \leq f^{\pm}$ existiert das Integral von $f$ über $E$ auf jeden Fall dann, wenn $\in f d\mu$ existiert. (Speziell für $f \geq 0$)
+    \end{remark}
+
+    \begin{example}
+      $\alpha \in \mathbb{R}, \ f:\mathbb{R}^n \to \mathbb{R}, \ f(x) = ||x||^{-\alpha}$\\
+      Beh: 
+      \begin{align*}
+        \int\limits_{\mathbb{R}^n \setminus B_1(0)} f d\lambda^n < \infty &\Leftrightarrow \alpha > n\\
+        \int\limits_{B_1(0)} f d\lambda^n < \infty &\Leftrightarrow \alpha < n
+      \end{align*}
+      Beweis siehe Aufschrieb
+    \end{example}
 \end{document}
