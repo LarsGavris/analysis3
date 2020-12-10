@@ -882,10 +882,10 @@
     \end{theorem}
 
     \begin{proof}
-      Existenz folgt aus Satz II.13 und Satz II.7 ($\sigma(\skript{R}) \subseteq \skript{M}(\mu))$. Sei $\tilde{\mu}$ ein Maß auf $\sigma(\skript{R})$ mit $\tilde{\mu} = \lambda$ auf $\skript{R}$. Für $A_i \in \skript{R}$ und $\bigcup\limits_{i = 1}^n A_i = A \in \sigma(\skript{R})$ folgt aus Satz I.7. $\tilde{\mu}(A) = \lim\limits_{n \to \infty} \tilde{\mu}(\bigcup\limits_{i=1}^n A_i) = \lim\limits_{n\to\infty} \mu (\bigcup\limits_{i=1}^n A_i) = \mu(A)$. Für $E \in \sigma(\skript{R})$ mit $\mu(E) < \infty$ und $\epsilon > 0$ ex. Mengen $A_i \in \skript{R}, A = \bigcup\limits_{i=1}^\infty A_i$ mit $E \subseteq A$ und $\mu(A) \leq \mu(E) + \epsilon \implies \mu(A\setminus B) \leq \epsilon$. Aus $\mu(A) = \tilde{\mu}(A)$ und Lemma II.14 folgt \\    
+      Existenz folgt aus Satz II.13 und Satz II.7 ($\sigma(\script{R}) \subseteq \script{M}(\mu))$. Sei $\tilde{\mu}$ ein Maß auf $\sigma(\script{R})$ mit $\tilde{\mu} = \lambda$ auf $\script{R}$. Für $A_i \in \script{R}$ und $\bigcup\limits_{i = 1}^n A_i = A \in \sigma(\script{R})$ folgt aus Satz I.7. $\tilde{\mu}(A) = \lim\limits_{n \to \infty} \tilde{\mu}(\bigcup\limits_{i=1}^n A_i) = \lim\limits_{n\to\infty} \mu (\bigcup\limits_{i=1}^n A_i) = \mu(A)$. Für $E \in \sigma(\script{R})$ mit $\mu(E) < \infty$ und $\epsilon > 0$ ex. Mengen $A_i \in \script{R}, A = \bigcup\limits_{i=1}^\infty A_i$ mit $E \subseteq A$ und $\mu(A) \leq \mu(E) + \epsilon \implies \mu(A\setminus B) \leq \epsilon$. Aus $\mu(A) = \tilde{\mu}(A)$ und Lemma II.14 (i.A. II.13) folgt \\    
       $\mu(E) \leq \mu(A) = \tilde{\mu}(A) = \tilde{\mu}(E) + \tilde{\mu}(A\setminus E) \leq \tilde{\mu}(E) + \mu(A\setminus E) \leq \tilde{\mu}(E) + \epsilon$. \\
-      Lasse $\epsilon > 0$ und betrachte $\tilde{\mu}(E) \leq \mu(E)$(Lemma II.14) $\implies \mu(E) = \tilde{\mu}(E)$. \\ Sei nun $\lambda$ $\sigma$-endlich. Dann ex. o.B.d.A. paarweise disjunkte $X_n \in \skript{R}$ mit $\mu(X_n) < \infty$ und $X = \bigcup\limits_{n=1}^{\infty} X_n$. Für $E \in \sigma(\skript{R})$ bel. folgt: \\
-      $\mu(E) = \sum_{n=1}^{\infty}\mu(E\cap X_n) = \sum_{n=1}^{\infty}\tilde{\mu}(E\cap X_n) = \tilde{\mu}(E) \implies \mu = \tilde{\mu}$ auf $\sigma(\skript{R})$.
+      Lasse $\epsilon > 0$ und betrachte $\tilde{\mu}(E) \leq \mu(E)$(Lemma II.14 / i.A. II.13) $\implies \mu(E) = \tilde{\mu}(E)$. \\ Sei nun $\lambda$ $\sigma$-endlich. Dann ex. o.B.d.A. paarweise disjunkte $X_n \in \script{R}$ mit $\mu(X_n) < \infty$ und $X = \bigcup\limits_{n=1}^{\infty} X_n$. Für $E \in \sigma(\script{R})$ bel. folgt: \\
+      $\mu(E) = \sum_{n=1}^{\infty}\mu(E\cap X_n) = \sum_{n=1}^{\infty}\tilde{\mu}(E\cap X_n) = \tilde{\mu}(E) \implies \mu = \tilde{\mu}$ auf $\sigma(\script{R})$.
     \end{proof}
 
     \begin{theorem}[Regularität der Caratheodory-Fortsetzung | i.A. II.15]
@@ -895,7 +895,7 @@
 
     \begin{proof}
       \item $\mu(D) = \infty$ $\rightarrow$ Wähle $E = X$
-      \item $\mu(D) \leq \infty$: Aus Def. von Caratheodory-Fortsetzung folgt $\forall n \in \N D \subseteq E^n = \bigcup\limits_{i=1}^{\infty}A_i^n$ mit $A_i^n \in \skript{R}$  und $\sum\limits_{i=1}^{\infty}\lambda(A_i^n) \leq \mu(D) + \frac{1}{n}$. Wähle $E := \bigcap\limits_{n=1}^{\infty} E^n \implies E \in \sigma(\skript{R})$ mit $D \subseteq E$ und $\forall n \in \mathbb{N}$ gilt: \\
+      \item $\mu(D) \leq \infty$: Aus Def. von Caratheodory-Fortsetzung folgt $\forall n \in D \subseteq E^n = \bigcup\limits_{i=1}^{\infty}A_i^n$ mit $A_i^n \in \script{R}$  und $\sum\limits_{i=1}^{\infty}\lambda(A_i^n) \leq \mu(D) + \frac{1}{n}$. Wähle $E := \bigcap\limits_{n=1}^{\infty} E^n \implies E \in \sigma(\script{R})$ mit $D \subseteq E$ und $\forall n \in \mathbb{N}$ gilt: \\
       $\mu(D) \leq \mu(E) \leq \mu(E^n) \leq \sum\limits_{i=1}^{\infty}\mu(A_i^n) = \sum\limits_{i=1}^{\infty}\lambda(A_i^n) \leq \mu(D) + \frac{1}{n} < \infty$. $n \rightarrow \infty \implies \mu(E) = \mu(D)$.
     \end{proof}
 
@@ -905,13 +905,13 @@
     \end{theorem}
 
     \begin{proof}
-      Satz II.7 $\implies \mu|_{\skript{M}(\mu)}$ ist vollständiges Maß. \\
-      Satz I.10 $\implies \sigma(\skript{R})_{\mu|_{\sigma(\skript{R})}} \subseteq \skript{M}(\mu)$. Sei $D \in \skript{M}(\mu)$ mit $\mu(D) < \infty$. Wähle $E \in \sigma(\skript{R})$ mit $D \subseteq E$. \\ Aus Satz II.16 $\implies \mu(D) = \mu(E) = \mu(E\cap D) + \mu(E\setminus D) = \mu(D) + \mu(E\setminus(D)) \implies \mu(E\setminus D) = 0$. \\
-      $\lambda$ $\sigma$-endlich $\implies \exists X_n \in \skript{R}$ mit $X = \bigcup\limits_{n=1}^{\infty}X_n$ und $\mu(X_n) < \infty$ $\forall n\in\mathbb{N}$. \\
-      Für $D \in \skript{M}(\mu)$ bel. setze $D_n := \bigcup\limits_{k=1}^{n} D \cap X_k \implies D_n \subseteq D_{n+1}$ $\forall n \in \mathbb{N}$ mit $\mu(D_n) < \infty$, $D = \bigcup\limits_{n=1}^{\infty}D_n$. \\
-      Wie bewiesen ex. $E_n \supset D_n$ mit $E_n \in \sigma(\skript{R})$ und $\mu(E_n\setminus D_n) = 0$. Für $E = \bigcup\limits_{n=1}^{\infty}E_n \supset D$ folgt $E \in \sigma(\skript{R})$ mit $\mu(E\setminus D) \leq \sum\limits_{n=1}^{\infty}\mu(E_n \setminus D_n)=0$. \\
-      Satz II.16 $\implies \exists N \in \sigma(\skript{R})$ mit $N \supset (E\setminus D)$ und $\mu(E\setminus D) = \mu(N)=0 \implies D = (E\setminus N) \cup (D \cap N) \implies \skript{M}(\mu) = \overline{\sigma(\mathbb{R})}_{\mu|_{\sigma(\mathbb{R})}} \implies$ Vervollständigung von $\mu|_{\sigma(\skript{R})}$ ist $\mu|_{\skript{M}(\mu)}$. \\
-      Eindeutigkeit folgt jetzt daraus und aus Satz II.15.
+      Satz II.7 $\implies \mu|_{\script{M}(\mu)}$ ist vollständiges Maß. \\
+      Satz I.10 $\implies \sigma(\script{R})_{\mu|_{\sigma(\script{R})}} \subseteq \script{M}(\mu)$. Sei $D \in \script{M}(\mu)$ mit $\mu(D) < \infty$. Wähle $E \in \sigma(\script{R})$ mit $D \subseteq E$. \\ Aus Satz II.16 (i.A. II.15) $\implies \mu(D) = \mu(E) = \mu(E\cap D) + \mu(E\setminus D) = \mu(D) + \mu(E\setminus(D)) \implies \mu(E\setminus D) = 0$. \\
+      $\lambda$ $\sigma$-endlich $\implies \exists X_n \in \script{R}$ mit $X = \bigcup\limits_{n=1}^{\infty}X_n$ und $\mu(X_n) < \infty$ $\forall n\in\mathbb{N}$. \\
+      Für $D \in \script{M}(\mu)$ bel. setze $D_n := \bigcup\limits_{k=1}^{n} D \cap X_k \implies D_n \subseteq D_{n+1}$ $\forall n \in \mathbb{N}$ mit $\mu(D_n) < \infty$, $D = \bigcup\limits_{n=1}^{\infty}D_n$. \\
+      Wie bewiesen ex. $E_n \supset D_n$ mit $E_n \in \sigma(\script{R})$ und $\mu(E_n\setminus D_n) = 0$. Für $E = \bigcup\limits_{n=1}^{\infty}E_n \supset D$ folgt $E \in \sigma(\script{R})$ mit $\mu(E\setminus D) \leq \sum\limits_{n=1}^{\infty}\mu(E_n \setminus D_n)=0$. \\
+      Satz II.16 (i.A. II.15) $\implies \exists N \in \sigma(\script{R})$ mit $N \supset (E\setminus D)$ und $\mu(E\setminus D) = \mu(N)=0 \implies D = (E\setminus N) \cup (D \cap N) \implies \script{M}(\mu) = \overline{\sigma(\mathbb{R})}_{\mu|_{\sigma(\mathbb{R})}} \implies$ Vervollständigung von $\mu|_{\sigma(\script{R})}$ ist $\mu|_{\script{M}(\mu)}$. \\
+      Eindeutigkeit folgt jetzt daraus und aus Satz II.15 (i.A. II.14).
     \end{proof}
 
     \newpage
