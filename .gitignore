@@ -1,8 +1,8 @@
 *.aux
 *.fdb_latexmk
 *.fls
-.log
-.gz
-.thm
+*.log
+*.gz
+*.thm
 
 .vscode/
