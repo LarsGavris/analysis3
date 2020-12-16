@@ -55,9 +55,138 @@
   \begin{theorem}
     $X$ metrischer Raum, $\mu$ Maß auf $Y$ und $f:X \times Y \to \mathbb{R}$ mit $f(x, \cdot)$ integrierbar bzgl. $\mu \ \forall x \in X$.\\
     Betrachte $F: X \to \mathbb{R}, F(x) = \int f(x,y) d\mu(y)$\\
-    Sei $f(\cdot, y)$ stetig in $x_0 \in X$ für $\mu$-fast alle $y \in Y$. Weiter gebe es eine $\mu$-integrierbare Funktion $g: Y \to [0, \infty]$, so dass für alle $x \in X$ gilt: $|f(x,y)| \leq g(y) \ \forall y \in Y \setminus N_X$ mit einer $\mu$-Nullmenge $N_X$.\\
+    Sei $f(\cdot, y)$ stetig in $x_0 \in X$ für $\mu$-fast alle $y \in Y$. Weiter gebe es eine $\mu$-integrierbare Funktion $g: Y \to [0, \infty]$, so dass für alle $x \in X$ gilt: $|f(x,y)| \leq g(y) \ \forall y \in Y \setminus N_X$ mit einer $\mu$-Nullmenge $N_x$.\\
     Dann ist $F$ stetig in $x_0$.
   \end{theorem}
+
+  \begin{proof}
+    siehe Aufschrieb
+  \end{proof}
+
+   \sidenote{Vorlesung 14}{18.12.20}
+
+  \begin{theorem}
+    Sei $I \subseteq \mathbb{R}$ offenes Intervall, $\mu$ Maß auf $Y$ und $f: I \times Y \to \mathbb{R}$ mit $f(x, \cdot)$ integrierbar bzgl. $\mu$ für alle $x \in I$.\\
+    Setze $F: U \to \mathbb{R}, F(x) = \int f(x,y) d\mu(y)$\\
+    Es sei $f(\cdot, y)$ in $x_0$ differenzierbar für $\mu$-fast alle $y \in Y$ und es existiere $g: Y \to [0, \infty]$ $\mu$-integrierbar mit
+    \begin{align*}
+      \dfrac{|f(x,y) - f(x_0, y)|}{|x-x_0|} \leq g(y) \ \forall x\in I \ \forall y \in Y \setminus N_x
+    \end{align*} 
+    mit einer $\mu$-Nullmenge $N_x$. Dann folgt:
+    \begin{align*}
+      F'(x_0) = \int \dfrac{\partial f}{\partial x} (x_0, y) d\mu(y)
+    \end{align*}
+  \end{theorem}
+  \begin{proof}
+    siehe Aufschrieb
+  \end{proof}
+
+  \newpage
+
+  \begin{lemma}
+    $\script{U} \subseteq \mathbb{R}^n$ offen, $\mu$ Maß auf $Y$ und $f: \script{U} \times Y \to \mathbb{R}$ mit $f$ integrierbar bzgl. $\mu \ \forall x \in \script{U}$. Betrachte $F: \script{U} \to \mathbb{R}, F(x) = \int f(x,y) d\mu(y)$\\
+    Es gebe eine $\mu$-Nullmenge $N \subseteq Y$, so dass $\forall y \in Y \setminus N$ gilt:
+    \begin{align*}
+      f(\cdot, y) \in C^1(\script{U}) \text{ und } |D_x f(x,y)| \leq g(y) \text{ mit } g: Y \to [0, \infty] \text{ integrierbar}
+    \end{align*}
+    $\implies F \in C^1(\script{U})$ und $\forall x \in \script{U}$ gilt:
+    \begin{align*}
+      \dfrac{\partial F}{\partial x_i}(x) = \int \dfrac{\partial f}{\partial x_i}(x,y) d\mu(y)
+    \end{align*}
+  \end{lemma}
+
+  \begin{proof}
+    siehe Aufschrieb
+  \end{proof}
+
+  \begin{example}
+    \begin{align*}
+      \int\limits_0^{\infty} \dfrac{\sin(x)}{x} dx = ? \ \ \ \ \text{Betrachte $F: [0, \infty] \to \mathbb{R}, F(t) = \int\limits_0^{\infty} e^{-tx} \dfrac{\sin{x}}{x} dx$}
+    \end{align*}
+    $f(t,x) := e^{-tx} \dfrac{\sin(x)}{x}$ hat für $t \geq \delta$ die Abschätzungen\\
+    $|f(t,x)|, |\partial_t f(t,x)| \leq e^{-\delta x} =: g(x) \in L^1([0, \infty))$\\
+    Lemma V.6 $\implies \forall t > 0$ gilt: 
+    \begin{align*}
+      F'(t) &= \int\limits_0^{\infty} e^{-tx} (-\sin{x}) dx\\
+            &= [e^{-tx} \cos{x}]_{x=0}^{x=\infty} + t \int\limits_0^{\infty} e^{-tx} \cos{x} dx\\
+            &= -1 + t^2 \int\limits_0^{\infty} e^{-tx} \sin{x} dx\\
+            &= -1 - t^2 F'(t)
+    \end{align*}
+    $\implies F'(t) = \dfrac{-1}{1+t^2}$\\
+    \newline
+    ... (siehe Aufschrieb)\\
+    \newline
+    $\int\limits_0^{\infty} \dfrac{\sin(x)}{x} dx = \dfrac{\pi}{2}$
+  \end{example}
+
+  \newpage
+  \begin{definition}[$L^p$-Norm]
+    Für $\mu$-messbares $f: X \to \bar{\mathbb{R}}$ und $1 \leq p \leq \infty$ setzen wir
+    \begin{align*}
+      ||f||_{L^p(\mu)} := \begin{cases}
+        (\int |f|^p d\mu)^{1/p} & \text{, für } 1\leq p < \infty\\
+        \inf\{s>0 \ | \ \mu(\{|f| > s\})=0\} & \text{, für } p = \infty
+      \end{cases}
+    \end{align*}
+    auf $\script{L}^p(\mu) = \{f:X \to \bar{\mathbb{R}} \ | \ f \mu-\text{messbar }, ||f||_{L^p(\mu)} < \infty\}$\\
+    Betrachte Äquivalenzrelation $f\sim g \Leftrightarrow f(x) = g(x)$ für $\mu$-fast alle $x \in X$, und definiere den $\bm{L^p}$\textbf{-Raum} durch $\script{L}^p(\mu)/_{\sim}$.
+  \end{definition}
+
+  \begin{definition}
+    Für $E \subseteq X$ messbar und $f: E \to \bar{\mathbb{R}}$ sei $f_0: X\to \bar{\mathbb{R}}$ die \textbf{Fortsetzung} mit $f_0(x)=0 \ \forall x \in X \setminus E$. Wir setzen dann
+    \begin{align*}
+      \script{L}^p(E) := \{f:E \to \bar{\mathbb{R}} \ | \ f_0 \in \script{L}^p(\mu)\}
+    \end{align*}
+    und $L^p(E,\mu) := \script{L}^p(E)/_{\sim}$.
+  \end{definition}
+
+  \begin{proposition}
+    Für $1 \leq p \leq \infty$ ist $(L^p(\mu), ||\cdot||_{L^p(\mu)})$ ein normierter Vektorraum. Insbesondere gelten für $\lambda \in \mathbb{R}$ und $f,g \in L^p(\mu)$:
+    \begin{enumerate}
+      \item $||f||_{L^p} = 0 \implies f = 0$ $\mu$-fast überall
+      \item $f \in L^p(\mu), \lambda \in \mathbb{R} \implies \lambda f \in L^p(\mu), \ ||\lambda f||_{L^p} = |\lambda| \ ||f||_{L^p}$
+      \item $f,g \in L^p(\mu) \implies f+g \in L^p(\mu)$ und $||f+g||_{L^p} \leq ||f||_{L^p} + ||g||_{L^p}$
+    \end{enumerate}
+  \end{proposition}
+
+  \begin{proof}
+    siehe Aufschrieb
+  \end{proof}
+
+  \begin{lemma}[Youngsche Ungleichung]
+    Für $1 < p,q < \infty$ mit $\dfrac{1}{p} + \dfrac{1}{q} = 1$ und $x,y \geq 0$ gilt: \ \ $xy \leq \dfrac{x^p}{p} + \dfrac{y^q}{q}$
+  \end{lemma}
+
+  \begin{proof}
+    siehe Aufschrieb
+  \end{proof}
+
+  \newpage
+  \begin{theorem}[Höldersche Ungleichung]
+    Für $\mu$-messbare $f,g: X \to \bar{\mathbb{R}}$ gilt: \ \ $|\int fg d\mu| \leq ||f||_{L^p} ||g||_{L^p}$,\\
+    falls $1 \leq p,q \leq \infty$ mit $\dfrac{1}{p} + \dfrac{1}{q} = 1$
+  \end{theorem}
+
+  \begin{proof}
+    siehe Aufschrieb
+  \end{proof}
+
+  \begin{theorem}[Minkowski-Ungleichung]
+    Für $f,g \in L^p(\mu)$ mit $1 \leq p \leq \infty$ gilt: \ \ $|| f+g ||_{L^p} \leq ||f||_{L^p} + ||g||_{L^p}$
+  \end{theorem}
+
+  \begin{proof}
+    siehe Aufschrieb
+  \end{proof}
+
+  \begin{lemma}
+    Sei $1 \leq p < \infty$ und $f_k = \sum\limits_{j=1}^k u_j$ mit $u_j \in L^p(\mu)$. Falls $\sum\limits_{j=1}^k ||u_j||_{L^p} < \infty$, so gelten:
+    \begin{enumerate}[label=\roman*)]
+      \item $\exists \ \mu$-Nullmenge $N$: $f(x) = \lim\limits_{k \to \infty} f_k(x) \ \forall x \in X \setminus N$ ex.
+      \item mit $f := 0$ auf gilt $f \in L^p(\mu)$
+      \item $||f - f_k||_{L^p} \to 0$ mit $k \to \infty$
+    \end{enumerate}
+  \end{lemma}
 
   \begin{proof}
     siehe Aufschrieb
