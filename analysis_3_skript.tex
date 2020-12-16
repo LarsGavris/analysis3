@@ -947,16 +947,23 @@
     \end{theorem}
 
     \begin{proof}
-      siehe Aufschrieb
-    \end{proof}
+      $\varnothing \in \script{I}$, denn $\varnothing = (a,a)$ für $a \in \mathbb{R}$ bel. Seien $I,J \subset \mathbb{R}$ Intervalle mit Grenzen $a \leq b$ bzw. $c \leq d$. Für $I \cap J \neq \varnothing$ ist $max(a,c) \leq min(b,d)$ und $(max(a,c), min(b,d)) \subset I\cap J \subset [max(a,c), min(b,d)] \implies I\cap J \in \script{I}$. \newline
+  	  Wegen $I\setminus J = I\setminus (I\cap J)$ können wir o.B. $J\subset I$ annehmen. \newline Setze $I' = {x\in I\setminus J: x \leq c}$, $II' = {x\in I\setminus J: x \geq d}$. \newline
+    Falls $I' \cap II' \neq \varnothing \implies c = d \in I\setminus J \implies J=\varnothing \implies I\setminus J = I$. \newline 
+	Andernfalls ($I' \cap II' = \varnothing$) gilt: 
+$I\setminus J = I' \cup II'$ wobei $(a,c)\subset I' \subset [a,c]$, $(d,b) \subset II' \subset [d,d]$. \end{proof}
 
     \begin{theorem}[i.A. II.20]
       Für $i = 1, ..., n$ sei $\script{Q}_i$ Halbring über $X_i$. Dann ist $\script{Q}:=\{P_1 \times ... \times P_n \ | \ P_i \in \script{Q}_i\}$ ein Halbring über $X_1 \times ... \times X_n$.
     \end{theorem}
 
     \begin{proof}
-      siehe Aufschrieb
-    \end{proof}
+	Nur für $n = 2$ (Rest per Induktion) \newline
+	\item[1] Es ist $\varnothing = \varnothing\times\varnothing\in\script{Q}$
+	\item[2] Für $P=I_1\times I_2$ und $Q = J_1 \times J_2$ gilt: $ P\cup Q = (I_1 \cup J_1) \times (I_2 \cup J_2) \in \script{Q}$
+	\item[3] $P\setminus Q = ((I_1 \cup J_1)\times I_2\setminus J_2) \cup ((I_1\setminus J_1)\times I_2)$ \newline
+	Sowohl $I_2\setminus J_2$ als auch $I_1 \setminus J_1$ sind als disjunkte Verbindungen darstellbar, da $\script{Q}_1$, $\script{Q}_2$ Halbringe sind. $\implies P\setminus Q \in \script{Q}$.
+   \end{proof}
 
     \begin{theorem}[i.A. II.21]
       $\script{Q}^n$ ist ein Halbring.
@@ -969,7 +976,13 @@
     \end{theorem}
 
     \begin{proof}
-      siehe Aufschrieb
+      Jeder Ring $\script{R}$ mit $\script{Q}\supset \script{R}$ enthält $\script{F} \implies$ Reicht zu zeigen: $\script{F}$ ist ein Ring. \newline
+      Es gilt: $\varnothing \in \script{F}$ \newline
+      $E$, $F \in \script{F}$. Sei $E = \bigcup\limits_{i=1}^{k}P_i$, $F = \bigcup\limits_{j=1}^{m}Q_j$, $P_1$, $Q_i \in \script{Q}$ \newline 
+      $\implies E\setminus F = (\bigcup\limits_{i=1}^{k}P_i)\setminus (\bigcup\limits_{j=1}^{m}Q_j) = \bigcup\limits_{i=1}^{k}(P_i\setminus (\bigcup\limits_{j=1}^{m}Q_j)) = \bigcup\limits_{i=1}^{k}(\bigcap\limits_{j=1}^{m}P_i\setminus Q_j)$ \newline
+      $E$, $F \in \script{F} \implies E\cup F \in \script{F}$. \newline
+      z.z: $\script{F}$ ist $\cap$-stabil \newline
+      $E\cap F = (\bigcup\limits_{j=1}{k}P_i)\cap (\bigcup\limits_{j=1}^{m}Q_j) = \bigcup\limits_{i=1}{k} \bigcup\limits_{j=1}^{m}(P_i \cap Q_j) \in \script{F}$. 
     \end{proof}
 
     \begin{example}
@@ -987,7 +1000,8 @@
     \end{lemma}
 
     \begin{proof}
-      siehe Aufschrieb
+      $\script{Q} \subset \script{F} \implies \sigma(\script{Q}) \subset \sigma(\script{F})$ \newline
+      $\sigma(\script{Q})$  $\cup$-stabil $\implies \script{F}\subset \sigma(\script{Q}) \implies \sigma(\script{F}) \subset \sigma(\script{Q})$
     \end{proof}
 
     \begin{lemma}[i.A. II.24]
@@ -995,7 +1009,12 @@
     \end{lemma}
 
     \begin{proof}
-      siehe Aufschrieb
+      Sei $F\in \script{F}$. \newline
+      Satz II.22 (i.A. Satz II.21) $\implies F = \bigcup\limits_{l=1}^{m}Q_l$ mit $Q_l \in \script{Q} \implies F = \bigcup\limits_{l=1}^{m}(Q_l\setminus \bigcup\limits_{j=1}^{l-1}Q_j)$, (wobei $Q_l\setminus \bigcup\limits_{j=1}^{l-1}$ paarweise disjunkt). \newline
+      z.z. $Q\setminus \bigcup\limits_{i=1}^{m}Q_i$ mit $Q,Q_1,...,Q_n$ besitzt eine disjunkte Zerlegung in $\script{Q}$. \newline
+      Induktion: $n=1$ Folgt aus Definition von Halbring. Sei $Q\setminus\bigcup\limits_{i=1}^{m}Q_i$ disjunkte Zerlegung schon gefunden: $Q\setminus\bigcup\limits_{i=1}^{m}Q_i = \bigcup\limits_{j=1}^{k}P_j$ \newline
+      $\implies Q\setminus\bigcup\limits_{i=1}^{n+1}Q_i = (\bigcup\limits_{j=1}^{k}P_j)\setminus Q_{n+1} = \bigcup\limits_{j=1}^{k}(P_j\setminus Q_{n+1})$ ($P_j\setminus Q_{n+1}$ paarweise disjunkt). \newline
+      Nach Def. von $\script{Q}$ ist $P_j\setminus Q_{n+1}$ disjunkte Ver. von Elementen in $\script{Q}$. 
     \end{proof}
 
     \begin{definition}[i.A. II.25]
@@ -1018,7 +1037,17 @@
     \end{theorem}
 
     \begin{proof}
-      siehe Aufschrieb
+      $F = \bigcup\limits_{i=1}^{k}P_i$ mit $P_i \in \script{Q}$ paarweise disjunkt. \newline
+      Lemma II.24 (i.A. Lemma II.23), so muss für jede Fortsetzung gelten: \newline
+      $\bar{\lambda}(F) = \sum\limits_{i=1}^{k}\bar{\lambda}(P_i) = \sum\limits_{i=1}^{k}\lambda(P_i)$ \newline
+      $\rightarrow$ Eindeutigkeit \newline
+      Ex: Definiere $\bar{\lambda}$ durch $\bar{\lambda}(F) = \sum\limits_{i=1}^{k}\lambda(P_i)$. \newline
+      $\bar{\lambda}$ wohldefiniert. Sei $F = \bigcup\limits_{i=1}^{k}P_i = \bigcup\limits_{j=1}^{l}Q_j$ paarweise disjunkt mit $Q_j \in \script{Q}$. \newline
+      $\implies Q_j = \bigcup\limits_{i=1}^{k}Q_j \cap P_i$, $j=1,...,l$, $P_i = \bigcup\limits_{j=1}^{l}P_i\cap Q_j$, $i=1,...,k$ \newline
+      $\implies \sum\limits_{j=1}^{l}\lambda{Q_j} = \sum\limits_{j=1}^{l}\sum\limits_{i=1}^{k}\lambda(P_i \cap Q_j) = \sum\limits_{j=1}^{l}\sum\limits_{i=1}^{k} \lambda(Q_k \cap P_i) = \sum\limits_{i=1}^{k}\lambda(P_i)$ \newline
+      $\implies \bar{\lambda}$ wohldefiniert \newline
+      Sei $F = \bigcup\limits_{i=1}^{k}F_i$ paarweise disjunkt mit $F_i \in \script{F}$, $F\in\script{F}$. Schreibe $F_i = \bigcup\limits_{j=1}^{m_i}P_{i,j}$ mit $P_{i,j}\in\script{Q}$ paarweise disjunkt \newline
+      $\implies \bar{\lambda}(F) = \sum\limits_{i=1}^{k} \sum\limits_{j=1}^{m_i}\bar{\lambda}(P_{i,j}) = \sum\limits_{i=1}^{k}\sum\limits_{j=1}^{m_i}\lambda(P_{i,j}) = \sum\limits_{i=1}^{k}\bar{\lambda}(F_i) \implies \bar{\lambda}$ Inhalt.
     \end{proof}
 
     \begin{lemma}[i.A. II.27]
@@ -1027,7 +1056,9 @@
     \end{lemma}
 
     \begin{proof}
-      siehe Aufschrieb
+      Satz II.27 (i.A. Satz II.26) $\implies$ o.B. $\script{Q}$ ist Ring \newline
+      $\implies P,Q\in\script{Q}$, $Q\supset P \implies \lambda(Q) = \lambda(P) + \lambda(Q\setminus P) \geq \lambda(P) \rightarrow \lambda$ ist monoton. \newline
+      Für $P_i\in\script{Q}$, $i=1,...,k$ folgt \newline $\lambda(\bigcup\limits_{i=1}^{k}P_i) = \lambda(\bigcup\limits_{i=1}^{k}(P_i\setminus (\bigcup\limits_{j=1}^{i-1}P_j))) = \sum\limits_{i=1}^{k}\lambda(P_i\setminus (\bigcup\limits_{j=1}^{i-1}P_j)) \leq \sum\limits_{i=1}^{k}\lambda(P_i)$
     \end{proof}
 
     \begin{example}
@@ -1041,7 +1072,17 @@
     \end{theorem}
 
     \begin{proof}
-      siehe Aufschrieb
+      $vol^n(\varnothing) = 0$ \newline
+      Endliche Additivität per Induktion \newline
+      Für n=1 sind $\script{Y}_{I_j}$ Riemann-Int. und für $I_1, ..., I_k$ paarweise disjunkt gilt: \newline
+      $vol^1(\bigcup\limits_{i=1}^{k}I_i) = \int\limits_{\mathbb{R}}\sum\limits_{i=1}^{k}\script{Y}_{I_i}(x) dx = \sum\limits_{i=1}^{k}\int\limits_{\mathbb{R}}\script{Y}_{I_i}(x) dx = \sum\limits_{i=1}^{k}vol^1(I_i)$. \newline
+      Sei jetzt Aussage für $vol^{n-1}$ im $\mathbb{R}^{n-1}$ schon bewiesen. Betrachte für $Q = I_1\times ... \times I_m \in \script{Q}^n$ den y-Schnitt. \newline
+      $Q^y = {x\in\mathbb{R}^{n-1}: (x,y) \in Q} = I_1\times ... \times I_{n-1}$ falls $y\in I_n$ ($\varnothing$ sonst). \newline
+  Es gilt: $vol^{n-1}(Q^y) = vol^{n-1}(I_1\times ...\times I_{n-1})\script{Y}_{I_n}(y)$ und für jede paarweise disjunkte Zerlegung von $Q = \bigcup\limits{i=1}^{k}Q_i$ mit $Q_i\in\script{Q}^n$ gilt: \newline 
+  $Q^y = (\bigcup\limits_{i=1}^{k}Q_i)^y = \bigcup\limits_{i=1}^{k}Q_i^y$ \newline
+  $\implies vol^n(\bigcup\limits_{i=1}^{k}Q_i) = vol^n(Q) = vol^{n-1}(I_1\times ... \times I_{n-q})vol^1(I_n)$ \newline
+  $ = vol^{n-1}(I_1\times ... \times I_{n-1})\int\limits_{\mathbb{R}}\script{Y}_{I_n}(y) dy = \int\limits_{\mathbb{R}} vol^{n-1}(\bigcup\limits_{i=1}^{k}Q_i^y) dy = \sum\limits_{i=1}^{n}\int\limits_{\mathbb{R}}vol^{n-1}(Q_i^y)dy$ \newline
+  $= \sum\limits_{i=1}^{l} vol^n(Q_i)$
     \end{proof}
 
     \begin{theorem}[i.A. II.29]
@@ -1049,7 +1090,12 @@
     \end{theorem}
 
     \begin{proof}
-      siehe Aufschrieb
+      Sei $F = \bigcup\limits_{i=1}^{\infty}F_i$ mit $F$, $F_i\in\script{R}$ und $F_i$ paarweise disjunkt. \newline
+      Lemma II.25 (i.A. Lemma II.24) $\implies \exists$ paarweise disjunkte Zerlegungen $F = \bigcup\limits_{j=1}^{k}P_j$ und $F_i = \bigcup\limits_{k=1}^{k_i}P_{i,k}$ mit $P_j$, $P_{i,k}\in\script{Q}$ \newline
+      $\implies P_j = \bigcup\limits_{i=1}^{\infty}(P_j \cap F_i) = \bigcup\limits_{i=1}^{\infty}\bigcup\limits_{k=1}^{k_i}(P_j \cap P_{i,k})$ paarweise disjunkt \newline
+      $\lambda$ Prämass $\implies \lambda(P_j) = \sum\limits_{i=1}^{\infty}\sum\limits_{k=1}^{k_i}\lambda(P_j\cap P_{i,k}) = \sum\limits_{i=1}^{\infty}\bar{\lambda}(P_j\cap F_i)$ \newline
+      $\implies \bar{\lambda}(F) = \sum\limits_{j=1}^{k}\lambda(P_j) = \sum\limits_{j=1}^{k}\sum\limits_{i=1}^{\infty}\bar{\lambda}(P_j\cap F_i) = \sum\limits_{i=1}^{\infty}\sum\limits_{j=1}^{k}\bar{\lambda}(p_j\cap F_i) = \sum\limits_{i=1}^{\infty}\bar{\lambda}(F_i)$ \newline
+      $\implies \bar{\lambda}$ ist Prämass.
     \end{proof}
 
     \sidenote{Vorlesung 8}{27.11.20}
@@ -1094,7 +1140,15 @@
     \end{theorem}
 
     \begin{proof}
-      siehe Aufschrieb
+      i) $\implies$ ii)$ \implies$ iii) Siehe Beweis von Satz I.7 \newline
+      iii) $\implies$ iv) ist trivial \newline
+      ii) $\implies$ i) Seien $A_n\in\script{R}$ paarweise disjunkt mit $\bigcup\limits_{n=1}^{\infty}A_n\in\script{R}$ \newline
+      $\implies B_n := \bigcup\limits_{i=1}^{n}A_i$ erfüllt Bed. von ii) mit $\bigcup\limits_{n=1}^{\infty}B_n = \bigcup\limits_{i=1}^{\infty}A_i\in\script{R}$ \newline
+      $\implies \lambda(\bigcup\limits_{n=1}^{\infty}A_n) = \lim\limits_{n\to\infty} \lambda(B_n) = \lim\limits_{n\to\infty} \sum\limits_{i=1}^{n}\lambda(A_i) = \sum\limits_{i=1}^{\infty}\lambda(A_i)$ \newline
+      $\lambda$ endlich. z.z. iv) $\implies$ ii) \newline
+      Sei $(A_i)\subset\script{R}$ monoton aufsteigende Folge mit $A := \bigcup\limits_{i=1}^{\infty}A_i\in\script{R}$. Für $B_n := A\setminus A_n$ gilt $B_n > B_{n+1}$ und $\bigcap\limits_{n=1}^{\infty}B_n = \varnothing$. \newline
+      iv) $\implies \lim\limits_{n\to\infty}\lambda(B_n) = 0 \implies \lambda(B_n) = \lambda(A\setminus A_n) = \lambda(A) - \lambda(A_n)$ \newline
+      $\implies \lim\limits_{n\to\infty}\lambda(A_n) = \lambda(A) = \lambda(\bigcup\limits_{i=1}^{\infty}A_i)\implies$ ii)
     \end{proof}
 
   \chapter{Das Lebesgue-Maß}
@@ -1103,7 +1157,11 @@
     \end{lemma}
 
     \begin{proof}
-      siehe Aufschrieb
+      Sei $P = \bigcup\limits_{i=1}^{\infty}P_i$ mit $P_i \cap P_j = \varnothing$ für $i\neq j$, $P$,$P_i \in \script{Q}^n$ $\forall i\in \mathbb{N}$. \newline
+      Satz II.27 (i.A. Satz II.26) $\implies vol^n$ ist Inhalt auf Ring $\script{F}^n  \implies \sum\limits_{i=1}^{\infty}vol^n(P_i)$ \newline $= \lim\limits_{k\to\infty}\sum\limits_{i=1}^{k}vol^n(P_i) = \lim\limits_{k\to\infty}vol^n(\bigcup\limits_{i=1}^{k}P_i) \leq vol^n(P)$. \newline
+      Wähle zu $\epsilon > 0$ offene Quader $Q_i \supset P_i$ und einen kompakten Quader $Q \subset P$ mit $\sum\limits_{i=1}^{\infty}vol^n(Q_i) < \sum\limits_{i=1}^{\infty} vol^n(P_i) + \frac{\epsilon}{2}$, $vol^n(P)<vol^n(Q)+\frac{\epsilon}{2}$. \newline
+      Satz von Heine-Borel (Satz (XIV).22 Ana1): $Q$ wird von endlich vielen Quadern \newline $Q_i\times ... \times Q_k$ überdeckt ($Q\subset P = \bigcup\limits_{i=1}^{\infty}P_i \subset  \bigcup\limits_{i=1}^{\infty}Q_i$) \newline $\implies vol^n(P) < vol^n(Q) +\frac{\epsilon}{2} \leq \sum\limits_{i=1}^{k}vol^n(Q_i) + \frac{\epsilon}{2} < \sum\limits_{i=1}^{\infty}vol^n(P_i)+\epsilon$. \newline
+      Lasse $\epsilon > 0$ $\implies vol^n(P) \leq \sum\limits_{i=1}^{\infty}vol^n(P_i)$. 
     \end{proof}
 
     \begin{definition}
@@ -1135,7 +1193,16 @@
     \end{lemma}
 
     \begin{proof}
-      siehe Aufschrieb
+      $\bigcup\{Q:Q\in W_k\} = \mathbb{R}^n$ $\forall k\in\mathbb{N}$. \newline
+      $W_k$ hat abzählbar viele Elemente, die Würfel aus $W_k$ sind kompakt mit paarweise disjunktem Inneren und jede beschränkte Menge wird nur von endlich vielen Würfeln aus $W_k$ getroffen. $\implies F_k(E)$, $F^k(E)$ sind abgeschlossen $\implies$ i) \newline
+      $Q_{k,m}$ ist Vereinigung der $2^n$ Teilwürfel $Q_{k+1, 2m+l}$ mit $l\in \{0,1\}^n$ und es gilt \newline $Q_{k,m} \subset E \implies Q_{k+1, 2m+l} \subset E$ $\forall l\in\{0,1\}^n$ \newline
+      $Q_{k+1,2m+l} \cap E \neq \varnothing \implies Q_{k,m} \cap E \neq \varnothing$ wobei $l\in\{0,1\}^n$ \newline
+      $\implies F_k(E) \subset F_{k+1}(E)$, $F^k(E) \supset F^{k+1}(E)$ $\implies$ ii) \newline
+      Denn für $x \in E$ bel. existiert ein $Q\in W_k$ mit $x\in Q$. \newline
+      Sei nun $x\in\mathbb{R}^n$ mit $dist(x,\mathbb{R}^n\setminus E) > 2^{-k}\sqrt{n} \implies \exists Q\in W_k$ mit $x\in Q$ und aus $dist(Q) = 2^{-k}\sqrt{n}$ folgt $Q\subset E \implies x\in F_k(E)\implies \{x\in\mathbb{R}^n: dist(x,\mathbb{R}^n\setminus E) > 2^{-k}\sqrt{n}\} \subset F_k(E)$. \newline
+      Ist $x\in F^k(E) \implies \exists Q\in W_k$ mit $x\in Q$ und $Q \cap E \neq \varnothing \implies x\in F^k(E) \implies dist(x,E) \leq dist(Q) \leq 2^{-k}\sqrt{n} \implies$ iii) \newline
+      iv) folgt sofort aus iii) und Def. von $\mathring{E}$ bzw. $\bar{E}$. 
+      
     \end{proof}
 
     \sidenote{Vorlesung 9}{30.11.20}
