@@ -1212,7 +1212,16 @@ $I\setminus J = I' \cup II'$ wobei $(a,c)\subset I' \subset [a,c]$, $(d,b) \subs
     \end{lemma}
 
     \begin{proof}
-      siehe Aufschrieb
+      Jeder Quader ist Borelmenge: \newline
+      Ein Intervall $I\subset \mathbb{R}$ ist entweder offen oder abzählbarer Schnitt von offenen Intervallen und liegt damit in $\script{B}^1$, z.B. $[a,b) = \bigcap\limits_{k=1}^{\infty}(a-\frac{1}{k},b)$. \newline
+      Für einen Quader $Q = I_1 \times ... \times I_n \subset \mathbb{R}^n$ schreibe $I_j = \bigcap\limits_{k=1}^{\infty}U_{j,k}$ und damit \newline
+      $Q = \bigcap\limits_{k=1}^{\infty}(U_{1,k}\times ... \times U_{n,k}) \in \script{B}^n \implies \script{Q}^n \subset \script{F}^n \subset \script{B}^n$. \newline
+      Da Figuren endl. Vereinigungen von Quadern sind und $\script{B}^n$ $\cup$-stabil ist $\implies \sigma(\script{Q}^n) \subset \sigma(\script{F}^n) \subset \script{B}^n$. \newline
+      Andererseits folgt aus Lemma III.3, dass $U \subset \mathbb{R}^n$ offen als abzählbare Vereinigung von kompakten Würfeln geschrieben werden kann. \newline
+      $\implies \script{O}^n \subset \sigma(\script{Q}^n) \implies \script{B}^n \subset \sigma(\script{Q}^n) \subset \sigma(\script{F}^n)$ \newline 
+      $\implies \script{B}^n = \sigma(\script{Q}^n) = \sigma(\script{F}^n)$ \newline
+      Abgeschlossene mengen sind Komplemente von offenen Mengen \newline 
+      $\implies \sigma(\script{C}^n) = \sigma(\script{O}^n) = \script{B}^n$
     \end{proof}
 
     \begin{theorem}
@@ -1225,7 +1234,9 @@ $I\setminus J = I' \cup II'$ wobei $(a,c)\subset I' \subset [a,c]$, $(d,b) \subs
     \end{theorem}
 
     \begin{proof}
-      siehe Aufschrieb
+      \item[1] Satz II.31 (i.A. Satz II.30) $\implies \script{Q}^n \subset \script{M}(\lambda^n) \implies \sigma(\script{Q}^n) = \script{B}^n \subset \script{M}(\lambda^n)$ nach Lemma III.4 
+      \item[2] Folgt aus Bem. nach Satz II.31 (i.A. Satz II.30)
+      \item[3] Es gilt $\lambda^n = vol^n$ auf $\script{Q}^n$ \newline $\implies$ Für $a>0$ bel. ist $\lambda^n([-a,a]^n) = vol^n([-a,a]^n) = (2a)^n < \infty$ $\forall K\subset \mathbb{R}^n$ kompakt $\exists a<\infty: K\subset [-a,a]^n \implies$ Beh.
     \end{proof}
 
     \begin{lemma}
@@ -1235,7 +1246,20 @@ $I\setminus J = I' \cup II'$ wobei $(a,c)\subset I' \subset [a,c]$, $(d,b) \subs
         \item $\lambda^n(E) = inf\{\lambda^n(K) \ | \ K \text{ kompakt }, K \subset E\}$, falls $E \ \lambda^n$-messbar
       \end{enumerate}
     \end{lemma}
-
+	
+	\begin{proof}
+		\item[i)]Trivial: $\lambda^n(E) \leq inf\{\lambda^n(U): U \text{ offen, } U \supset E\}$\newline
+		"$\geq$": O.B. $\lambda^n(E) < \infty$. Def. von $\lambda^n \implies$ Zu $\epsilon > 0$ $\exists$ Überdeckung $E\subset \bigcup\limits_{i=1}^{\infty}P_i$ mit $P_i \in \script{Q}^n$, sodass gilt: $\sum\limits_{i=1}^{\infty}vol^n(P_i) < \lambda^n(E) + \epsilon$. \newline
+		O.B. $\forall P_i$ sind offen \newline $\implies U = \bigcup\limits_{i=1}^{\infty}P_i$ offen \newline $\implies E\subset U$ und $\lambda^n(U) \leq \sum\limits_{i=1}^{\infty}vol^n(P_i) < \lambda^n(E) + \epsilon$. 
+		\item[ii)] Klar: $\lambda^n(E) \geq sup\{\lambda^n(K): K \text{ kompakt, } K\subset E\}$ \newline "$\leq$": \subitem{a)} B beschränkt \newline Wähle $K_0 \subset \mathbb{R}^n$ kompakt mit $E\subset K_0$ $\implies$ Zu $\epsilon > 0$ $\exists U\subset\mathbb{R}^n$ offen mit $U \supset K_0\setminus E$ und $\lambda^n(U) < \lambda^n(K_0\setminus E) + \epsilon = \lambda^n(K_0) - \lambda^n(E) + \epsilon$ \newline Nun ist $K:=K_0\setminus U \subset K_0\setminus (K_0\setminus E) = E$ kompakt \newline $\implies \lambda^n(K) = \lambda^n(K_0) - \lambda^n(K_0\cap U) \geq \lambda^n(K_0) - \lambda^n(U) >  \lambda^n(E) - \epsilon$ \newline
+		$\epsilon \to 0 \implies$ Beh.
+		\subitem{b)} $E$ $\lambda^n$-messbar beliebig \newline
+		Betrachte $E_j := E\cap \{x\in \mathbb{R}^n: ||x||\leq j\}$ $E_j$ beschränkt und $\lambda^n$-messbar \newline
+		$\implies \lambda^n(E_j) = sup\{\lambda^n(K): K \text{ kompakt, }K\subset E_j\} \leq sup\{\lambda^n(K): K \text{ kompakt, }K\subset E\}$ \newline
+		Aber $\lambda^n(E_j) \to \lambda^n(E)$ mit $j\to\infty$ nach Satz I.7 $\implies$ Beh.
+		
+		
+	\end{proof}
     \begin{theorem}
       $D \subseteq \mathbb{R}^n$ ist genau dann $\lambda^n$-messbar, wenn eine der beiden Bedingungen gilt:
       \begin{enumerate}[label=\roman*)]
@@ -1245,6 +1269,17 @@ $I\setminus J = I' \cup II'$ wobei $(a,c)\subset I' \subset [a,c]$, $(d,b) \subs
       Es kann $E = \bigcap\limits_{i \in \mathbb{N}} U_i$ mit $U_i$ offen und $C = \bigcup\limits_{j \in \mathbb{N}} A_j$ mit $A_j$ abgeschlossen gewählt werden.
     \end{theorem}
 
+	\begin{proof}
+		Äquivalenz von i) bzw. ii) mit $\lambda^n$-Messbarkeit von (?) wurde in Lemma II.18 (i.A. Lemma II.17) gezeigt. \newline
+		Sei $D$ $\lambda^n$-messbar. Schreibe $D = \bigcup\limits_{j=1}^{\infty}D_j$ mit $D_j = \{x\in D: j-1 \leq ||x|| < j\}$ \newline
+		Lemma III.6 $\implies \exists U_{i,j}$ offen bzw. $K_{i,j}$ kompakt mit $U_{i,j} \supset D_j \supset K_{i,j}$ und \newline $\lambda^n(U_{i,j}) <  \lambda^n(D_j) + \frac{2^{-j}}{i}$, $\lambda^n(K_{i,j}) > \lambda^n(D_j)-\frac{2^{-j}}{i}$ \newline
+		$\implies U_i := \bigcup\limits_{j=1}^{\infty}U_{i,j}$ offen und $A_i := \bigcup\limits_{j=1}^{\infty}K_{i,j}$ abgeschlossen ($K_{i,j}\cap K_{i,m} = \varnothing$ for $j\neq m$) \newline
+		und es gilt: $U_i \supset D \supset A_i$ \newline
+		Mit $E:=\bigcap\limits_{i=1}^{\infty}U_i$, $C:=\bigcup\limits_{i=1}^{\infty}A_i$ gelten für $i\in\mathbb{N}$: \newline
+		$\lambda^n(E\setminus D) \leq \lambda^n(U_i\setminus D) \leq \sum\limits_{j=1}^{\infty}\lambda^n(U_{i,j}\setminus D_j) = \sum\limits_{j=1}^{\infty}(\lambda^n(U_{i,j})-\lambda^n(D_j)) \leq \frac{1}{i}$ \newline
+		$\lambda^n(D\setminus C) \leq \lambda^n(D\setminus A_i) \leq \sum\limits_{j=1}^{\infty}\lambda^n(D_j\setminus K_{i,j}) = \sum\limits_{j=1}^{\infty}(\lambda^n(D_j) - \lambda^n(K_{i,j})) \leq \frac{1}{i}$ \newline
+		Mit $i\to\infty$ folgt Beh. 
+	\end{proof}
     \newpage
 
     \begin{theorem}[Satz von Lusin]
@@ -1254,7 +1289,31 @@ $I\setminus J = I' \cup II'$ wobei $(a,c)\subset I' \subset [a,c]$, $(d,b) \subs
         \item $f|_k$ ist stetig
       \end{enumerate}
     \end{theorem}
+	
+	\begin{proof}
+		Kap II. $\implies$ oBdA ist $f$ auf ganz $A$ definiert, d.h. $f: A\to \mathbb{R}$. Für $i\in\mathbb{N}$ setze \newline
+		$B_{i(2k+1)}:=[\frac{k}{i}, \frac{k+1}{i}]$, $k\in\mathbb{N}_0$ \newline
+		$B_{i(2k)} := [-\frac{k}{i}, -\frac{k-1}{i}]$, $k\in\mathbb{N}_0$ \newline
+		$B_{i(j)}$, $j\in\mathbb{N}_0$, sind paarweise disjunkt mit $\bigcup\limits_{j\in\mathbb{N}_o} B_{i(j)} = \mathbb{R}$ und (?)($B_{i(j)} = \frac{1}{i}$)\newline
+		$A_{i,j} := f^{-1}(B_{i(j)})$ sind $\lambda^n$-messbar und $A = \bigcup\limits_{j\in\mathbb{N}_0}A_{ij}$. \newline
+		Lemma III.6 ii) $\implies \exists K_{ij} \subset A_{ij}$ kompakt mit $\lambda^n(A_{ij\setminus K_{ij}}) < \frac{\epsilon}{2^{i+j}}$ \newline
+		$\implies \lambda^n(A\setminus \bigcup\limits_{l=1}^{\infty}K_{il}) = \lambda^n(\bigcup\limits_{j=1}^{\infty} A_{ij} \setminus \bigcup\limits_{l=1}^{\infty}K_{il}) \leq \lambda^n(\bigcup\limits_{j=1}^{\infty}(A_{ij}\setminus K_{ik})) < \frac{\epsilon}{2^i}$ \newline
+		Satz I.7 ii) $\implies \lim\limits_{N\to\infty} \lambda^n(A\setminus \bigcup\limits_{l=1}^{N}K_{il}) = \lambda^n(A\setminus \bigcup\limits_{l=1}^{\infty}K_{il}) < \frac{\epsilon}{2^i}$ \newline
+		$\implies \exists N(i)$ mit $\lambda^n(A\setminus \bigcup\limits_{j=1}^{N(i)}K_{ij}) < \frac{\epsilon}{2^i}$ \newline
+		$\implies D_i := \bigcup\limits_{j=1}^{N(i)}K_{ik}$ ist kompakt. \newline
+		$\forall i,j$ wählen wir $b_{ij}\in B_{i(j)}$ und definiere $g_i: D_i \to \mathbb{R}$ durch $g_i(x) := b_{ij}$ $\forall x\in K_{ij}$ ($j \leq N(i)$) \newline 
+		$K_{i1}, ...,K_{iN(i)}$ sind kompakt, paarweise disjunkt \newline 
+		$\implies$ Sie haben positiven Abstand voneinander \newline
+		$\implies g_i$ ist stetig \newline
+		Aus Konstruktion folgt \begin{equation}
+		 |f(x) - g_i(x)| \leq \frac{1}{i} \text{ } \forall x\in D_i
+		 \label{eq1}
+		\end{equation}
+		Setze $K:= \bigcap\limits_{i=1}^{\infty} D_i \implies K$ ist kompakt und $\lambda^n(A\setminus K) \leq \sum\limits_{i=1}^{\infty}\lambda^n(A\setminus D_i) < \epsilon$ \newline
+		Aus \ref{eq1} und Def von $K$ folgt: $g_i$ konvergiert gleichmäßig gegen $f$ auf $K$ $\implies f$ ist stetig auf $K$. 
+	\end{proof}
 
+\newpage
     \sidenote{Vorlesung 10}{4.12.20}
 
     \begin{definition}
@@ -1277,7 +1336,9 @@ $I\setminus J = I' \cup II'$ wobei $(a,c)\subset I' \subset [a,c]$, $(d,b) \subs
     \end{lemma}
 
     \begin{proof}
-      siehe Aufschrieb
+      Sei $Q = [0,1]^n$ und $F = \{x\in Q: x_i = 0\}$. Für $a\in\mathbb{R}^n$ ist $F+a$ abgeschlossen $\implies$ $\mu$-messbar. Für $\{s_i, ..., s_k\} \subset [0,1]$ folgt: \newline $k\mu(F) = \sum\limits_{j=1}^{k}\mu(s_j e_i + F) = \mu(\bigcup\limits_{j=1}^{k}(s_j e_i + F)) \leq \mu(Q) < \infty$  \newline
+      $k$ kann beliebig groß gewählt werden $\implies \mu(F) = 0$. \newline
+      $H$ ist Vereinigung abzählbar vieler Translationen von $F \implies \mu(H) = 0$
     \end{proof}
 
     \begin{theorem}
