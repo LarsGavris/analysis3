@@ -8,10 +8,9 @@ WS 20/21
 Prof. Lamm
 
 #### Aktueller Stand
-Vorlesung 11 - Def IV.5
+Vorlesung 12 - Def IV.12
 
 #### Notes
-- Ab Vorlesung 6 (20.11.20) habe ich keine Beweise mehr abgetippt.
 - Ab Def II.10 hat der Prof die Nummerierung um eins versetzt gehabt, daher habe ich hier immer die Nummern, wie sie im Aufschrieb benannt wurden hinzugefügt (mit "im Aufschrieb" bzw. "i.A." ...). Ab Kapitel III passt es aber wieder.
 
 #### Contributors
