@@ -1,0 +1,64 @@
+\chapter{Konvergenzsätze und $L^n$-Räume}
+  \begin{example}
+    Punktweise Konvergenz reicht nicht für Konvergenz der Integrale.\\
+    Für $\epsilon > 0$ sei $f_{\epsilon}: \mathbb{R} \to \mathbb{R}, f_{\epsilon} = \dfrac{1}{2\epsilon} \chi_{[-\epsilon, \epsilon]}$\\
+    Es gilt $f_{\epsilon}(x) = 0$ für $\epsilon < |x|$\\
+    $\implies f(x) := \lim\limits_{\epsilon \downarrow 0} f_{\epsilon}(x) = \begin{cases}
+      0 & \text{, für } x \neq 0\\
+      \infty & \text{, für } x = 0
+    \end{cases}$\\
+    Weiter $\int f_{\epsilon} d\lambda^1 = \dfrac{1}{2\epsilon} \lambda^1([-\epsilon, \epsilon]) = 1 \ \forall \epsilon > 0$\\
+    $\implies \int f d\lambda^1 = 0 < 1 = \lim\limits_{\epsilon \downarrow 0} f_{\epsilon} d\lambda^1$
+  \end{example}
+
+  \begin{theorem}[Lemma von Fatou]
+    $f_k: X \to [0,\infty]$ Folge von $\mu$-messbaren Funktionen.\\
+    Für $f: X \to \bar{\mathbb{R}}, f(x) = \liminf\limits_{k \to \infty} f_k(x)$ gilt:
+    \begin{align*}
+      \int f d\mu \leq \liminf\limits_{k \to \infty} \int f_k d\mu
+    \end{align*}
+  \end{theorem}
+
+  \begin{proof}
+    siehe Aufschrieb
+  \end{proof}
+
+  \begin{theorem}[Dominierte Konvergenz bzw. Satz von Lebesgue]
+    $f_1, f_2, ...$ Folge von $\mu$-messbare Funktionen und $f(x) = \lim\limits_{k \to \infty} f_k(x)$ für $\mu$-fast alle $x \in X$. Es gebe eine integrierbare Funktion $g: X \to [0, \infty]$ mit $\sup\limits_{k \in \mathbb{N}} |f_k(x)| \leq g(x)$ für $\mu$-fast alle $x$. Fann ist $f$ integrierbar und $\int f d\mu = \lim\limits_{k \to \infty} \int f_k d\mu$.\\
+    Es gilt sogar $||f_k \cdot f||_{L^1(y)} := \int |f_k -f| d\mu \to 0$
+  \end{theorem}
+
+  \begin{proof}
+    siehe Aufschrieb
+  \end{proof}
+
+  \begin{remark}[Anwendung]
+    Vergleich Riemann-$\int$ mit Lebesgue-$\int$\\
+    Sei $I=[a,b]$ kompaktes Intervall, $f:I \to \mathbb{R}$ beschränkt. Unterteilungspunkte $a = x_0 \leq ... \leq x_N = b$ $\to$ Zerlegung $Z$ von $I$ mit Teilintervallen $I_j = [x_{j-1}, x_j]$\\
+    $\bar{S}_Z(f) = \sum\limits_{j=1}^N (\sup\limits_{I_j} f) (x_j - x_{j-1}), \ \ \ \underbar{S}_Z(f)= \sum\limits_{j=1}^N (\inf\limits_{I_j} f)(x_j-x_{j-1})$\\
+    Für Zerlegungen $Z_1, Z_2$ mit Verfeinerung $Z_1 \cup Z_2$\\
+    $\implies \underbar{S}_{Z_1}(f) \leq \underbar{S}_{Z_1 \cup Z_2}(f) \leq \bar{S}_{Z_1 \cup Z_2}(f) \leq \bar{S}_{Z_2}(f)$\\
+    $f$ heißt \textbf{Riemann-integrierbar} mit Integral $\int\limits_a^b f(x) dx = S$, falls gilt:\\
+    $\sup\limits_Z \underbar{S}_Z(f) = \inf\limits_Z \bar{S}_Z(f) = S$
+  \end{remark}
+
+  \begin{theorem}
+    $f: I \to \mathbb{R}$ beschränkt auf kompaktem Intervall $I=[a,b]$. Dann gilt:\\
+    $f$ Riemann-integrierbar $\Leftrightarrow \lambda^1(\{x \in I \ | \ f \text{ ist nicht stetig in } x\}) = 0$\\
+    In diesem Fall ist $f$ auch Lebesgue-integrierbar und die Integrale stimmen überein.
+  \end{theorem}
+
+  \begin{proof}
+    siehe Aufschrieb
+  \end{proof}
+
+  \begin{theorem}
+    $X$ metrischer Raum, $\mu$ Maß auf $Y$ und $f:X \times Y \to \mathbb{R}$ mit $f(x, \cdot)$ integrierbar bzgl. $\mu \ \forall x \in X$.\\
+    Betrachte $F: X \to \mathbb{R}, F(x) = \int f(x,y) d\mu(y)$\\
+    Sei $f(\cdot, y)$ stetig in $x_0 \in X$ für $\mu$-fast alle $y \in Y$. Weiter gebe es eine $\mu$-integrierbare Funktion $g: Y \to [0, \infty]$, so dass für alle $x \in X$ gilt: $|f(x,y)| \leq g(y) \ \forall y \in Y \setminus N_X$ mit einer $\mu$-Nullmenge $N_X$.\\
+    Dann ist $F$ stetig in $x_0$.
+  \end{theorem}
+
+  \begin{proof}
+    siehe Aufschrieb
+  \end{proof}

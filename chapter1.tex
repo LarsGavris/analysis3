@@ -1,0 +1,552 @@
+\chapter{Maße und messbare Funktionen}
+
+  \begin{notation}
+    Menge $X$, Potenzmenge $\script{P}(X)$, eine Teilmenge von $\script{P}(X)$ heißt Mengensystem
+  \end{notation}
+
+  \begin{definition}
+    Ein Mengensystem $\script{A} \subseteq \script{P}(X)$ heißt \textbf{$\bm{\sigma}$-Algebra}, falls:
+    \begin{enumerate}[label=(\roman*)]
+      \item $X \in \script{A}$
+      \item $A \in \script{A} \implies X \setminus A \in \script{A}$
+      \item $A_i \in \script{A}, \forall i \in \mathbb{N} \implies \bigcup\limits_{i \in \mathbb{N}} A_i \in \script{A}$
+    \end{enumerate}
+    Das Paar $(X, \script{A})$ heißt dann \textbf{messbarer Raum}.
+  \end{definition}
+
+  \begin{remark}
+    \begin{enumerate}
+      \item[]
+      \item $A_i \in \script{A}, \forall i \in \mathbb{N} \implies \bigcap\limits_{i \in \mathbb{N}} A_i \in \script{A}$\\
+            Denn: $\bigcap\limits_{i \in \mathbb{N}} A_i = X \setminus (\bigcup\limits_{i \in \mathbb{N}} X \setminus A_i)$
+      \item $\emptyset = X \setminus X \in \script{A}$
+      \item $A,B \in \script{A} \implies A \setminus B \in \script{A}$\\
+            Denn: $A \setminus B = A \cap (X \setminus B)$
+    \end{enumerate}
+  \end{remark}
+
+  \begin{example}
+    \begin{enumerate}
+      \item[]
+      \item $\script{P}(X)$ ist $\sigma$-Algebra, $\{\emptyset, X\}$ ist $\sigma$-Algebra
+      \item später: Menge aller messbaren Mengen eines äußeren Maßes bildet eine $\sigma$-Algebra.
+    \end{enumerate}
+  \end{example}
+  
+  \begin{theorem}
+    Jeder Durchschnitt von (endlich oder unendlich vielen) $\sigma$-Algebren auf der selben Menge $X$ ist wieder eine $\sigma$-Algebra.
+  \end{theorem}
+
+  \begin{proof}
+    $(A_i)_{i \in I}$ sei eine Familie von $\sigma$-Algebren bezüglich $X$.\\
+    Offensichtlich gilt: $X \in \bigcap\limits_{i \in I} \script{A}_i$\\
+    Sei $A \in \bigcap\limits_{i \in I} \script{A}_i \implies A \in \script{A}_i \ \forall i \in I \implies X \setminus A \in \script{A}_i \ \forall i \in I \implies X \setminus A \in \bigcap\limits_{i \in I} A_i$\\
+    Analog für die abzählbare Vereinigung.
+  \end{proof}
+
+  \begin{definition}
+    Für ein Mengensystem $\script{E} \subseteq \script{P}(X)$ heißt $\sigma(\script{E}) := \bigcap\{\script{A}|\script{A}$ ist $\sigma$-Algebra in $X$ mit $\script{E} \subseteq \script{A}\}$ die von $\script{E}$ \textbf{erzeugte $\bm{\sigma}$-Algebra}. Man nennt $\script{E}$ das \textbf{erzeugende System} von $\sigma(\script{E})$.
+  \end{definition}
+
+  \begin{remark}
+    Dieser Durchschnitt ist nicht-trivial, denn $\script{P}(X)$ ist $\sigma$-Algebra mit $\script{E} \subseteq \script{P}(X)$.
+  \end{remark}
+
+  \begin{example}
+    \begin{enumerate}
+      \item[]
+      \item Ist $E \subseteq X$ und $\script{E} = \{E\} \implies \sigma(\script{E}) = \{\emptyset, E, X \setminus E, X\}$
+      \item Sei $(X,d)$ ein metrischer Raum. $\script{O} \subseteq \script{P}(X)$ sei das System der offenen Mengen. Die von $\script{O}$ erzeugte $\sigma$-Algebra heißt \textbf{Borel-$\bm{\sigma}$-Algebra} $\mathbb{B} (\script{O})=\mathbb{B}$. Ihre Elemente heißen \textbf{Borelmengen}.
+      \item Seien $X \neq \emptyset$, $(Y, \script{C})$ messbarer Raum, $f:X \to Y$ eine Abbildung und das Urbild von $C \subseteq Y$: $f^{-1}(C) := \{x \in X|f(x) \in C\}$. Dann ist $f^{-1}(\script{C}):=\{f^{-1}(C)|C \in \script{C}\}$ eine $\sigma$-Algebra bzgl. $X$.\\
+            Begründung: 
+            \begin{itemize}
+              \item $X \in f^{-1}(\script{C})$, denn $f^{-1}(Y) = X$ und $Y \in \script{C}$
+              \item $f^{-1}(C) \in f^{-1}(\script{C}) \iff C \in \script{C}$,\\$f^{-1}(Y \setminus C) = X \setminus f^{-1}(C)$
+              \item Erinnerung: $f^{-1}(A \cup B) = f^{-1}(A) \cup f^{-1}(B)$
+            \end{itemize}
+      \item Sei $X$ eine beliebige Menge und $\script(E)_i \subseteq \script{P}(X)$, $i \in I$, Mengensysteme, dann gilt: $\sigma(\bigcup\limits_{i \in I} \script{E}_i) = \sigma(\bigcup\limits_{i \in I} \sigma(\script{E}_i))$\\
+            Begründung:
+            \begin{itemize}
+              \item Klar: $\subseteq$
+              \item Andererseits enthält $\sigma(\bigcup\limits_{i \in I} \script{E}_i)$ das System $\bigcup\limits_{i \in I} \sigma (\script{E}_i)$ und ist eine $\sigma$-Algebra $\implies \sigma(\bigcup\limits_{i \in I} \sigma(\script{E}_i)) \subseteq \sigma(\bigcup\limits_{i \in I} \script{E}_i)$
+            \end{itemize}
+    \end{enumerate}
+  \end{example}
+
+  \begin{notation}
+    $\bar{\mathbb{R}} := \mathbb{R} \cup \{+\infty, -\infty\}$ mit $-\infty < a < +\infty,\ \forall a \in \mathbb{R}$
+  \end{notation}
+
+  \newpage
+
+  \begin{definition}
+    Eine Folge $(s_k) \subseteq \bar{\mathbb{R}}\ (k \in \mathbb{N})$ konvergiert gegen $s \in \bar{\mathbb{R}}$, falls eine der folgenden Alternativen gilt:
+    \begin{enumerate}[label=(\roman*)]
+      \item $s \in \mathbb{R}$ und $\forall \epsilon>0$ gilt: $s_k \in (s-\epsilon, s+\epsilon) \subseteq \mathbb{R}$ für k hinreichend groß
+      \item $s=\infty$ und $\forall r \in \mathbb{R}: s_k \in (r, \infty]$ für k hinreichend groß
+      \item $s=-\infty$ und $\forall r \in \mathbb{R}: s_k \in [-\infty, r)$ für k hinreichend groß
+    \end{enumerate}
+    $(s_k) \subseteq \mathbb{R}$ ist genau dann in $\bar{\mathbb{R}}$ konvergent, wenn sie entweder in $\mathbb{R}$ konvergiert, oder bestimmt gegen $\pm\infty$ divergiert.
+  \end{definition}
+
+  \begin{example}
+    \begin{itemize}
+      \item[]
+      \item $s_k$ monoton $\implies\ s_k$ konvergiert in $\bar{\mathbb{R}}$
+      \item $a_k \geq 0 \implies \sum\limits_{k \in \mathbb{N}}a_k \in \bar{\mathbb{R}}$
+      \item Eine Menge $U \subseteq \bar{\mathbb{R}}$ ist genau dann offen, wenn $U \cap \mathbb{R}$ offen ist und im Fall $+\infty \in U$ (bzw. $-\infty \in U$) ein $a \in \mathbb{R}$ existiert, sodass $(a,\infty] \subseteq U$ (bzw. $[-\infty,a) \subset U$) ist.
+      \item Die Borel-$\sigma$-Algebra $\bar{\mathbb{B}}$ auf $\bar{\mathbb{R}}$ wird durch die offenen Mengen in $\bar{\mathbb{R}}$ erzeugt. Es gilt: $\bar{\mathbb{B}} = \{B \cup E|B \in \mathbb{B}, E \subseteq \{-\infty,+\infty\}\}$ 
+    \end{itemize}
+  \end{example}
+
+  \begin{notation}
+    \underline{Addition:}
+    \begin{tabular}[t]{c | c c c}
+      + & $-\infty$ & $\mathbb{R}$ & $+\infty$\\
+      \hline
+      $-\infty$ & $-\infty$ & $-\infty$ & /\\
+      $\mathbb{R}$ & $-\infty$ & $\mathbb{R}$ & $+\infty$\\
+      $+\infty$ & / & $+\infty$ & $+\infty$
+    \end{tabular}\\
+    $\sup\emptyset := -\infty,\ \inf\emptyset := +\infty$ konsistent mit $A,B \subseteq \mathbb{R}$ gilt $A \subseteq B \implies \sup A < \sup B$ und $\inf A \geq \inf B$ 
+  \end{notation}
+
+  \begin{definition}
+    Sei $\script{A} \subseteq \script{P}(X)$ eine $\sigma$-Algebra, eine nicht-negative Mengenfunktion $\mu: \script{A} \rightarrow [0, \infty]$ heißt \textbf{Maß} auf $\script{A}$, falls:
+    \begin{enumerate}[label=(\roman*)]
+      \item $\mu(\emptyset) = 0$
+      \item für beliebige paarweiße disjunkte $A_i \in \script{A}$, $i \in \mathbb{N}$, gilt:\\
+            $\mu(\bigcup\limits_{i \in \mathbb{N}} A_i) = \sum\limits_{i \in \mathbb{N}} \mu (A_i)$ \hfill ($\sigma$-Additivität)
+    \end{enumerate}
+    Das Tripel $(X, \script{A}, \mu)$ heißt \textbf{Maßraum}.
+  \end{definition}
+
+  \begin{remark}
+    \begin{enumerate}
+      \item[]
+      \item Für endlich viele paarweiße disjunkte $A_i \in \script{A}$, $i=1,...,n$, folgt aus (ii) indem man $A_i=\emptyset$ für $i=n+1, ...$ setzt: $\mu(\bigcup\limits_{i=1}^n A_i) = \sum\limits_{i=1}^n \mu(A_i)$
+      \item Monotonie des Maßes: $A,B \in \script{A}$ mit $A \subseteq B \implies \mu(A) \leq \mu(B) = \mu(A \cup (B \setminus A)) = \mu(A) + \mu(B \setminus A)$
+    \end{enumerate}
+  \end{remark}
+
+  \begin{definition}
+    Sei $(X, \script{A}, \mu)$ ein Maßraum. Das Maß $\mu$ heißt \textbf{endlich}, wenn $\mu(A) < \infty\ \forall A \in \script{A}$ und $\bm{\sigma}$\textbf{-endlich}, wenn es eine Folge $(X_i) \in \script{A}$ mit $\mu(X_i) < \infty$ gibt, sodass $X=\bigcup\limits_{i \in \mathbb{N}} X_i$. Falls $\mu(X) = 1$, so wird $\mu$ \textbf{Wahrscheinlichkeits-Maß} genannt.
+  \end{definition}
+
+  \begin{example}
+    \begin{enumerate}
+      \item[]
+      \item Sei $X$ eine beliebige Menge, $\script{A} = \script{P}(X)$, für $x \in X$ sei $\delta_x(A) := \begin{cases}1, & x \in A\\0, & x \notin A\end{cases}$ (\textbf{Dirac-Maß})
+            \begin{itemize}
+              \item Es gilt $\delta_x(A) \in \{0,1\}$, $\delta_x(\emptyset) = 0$, $\delta_x(X) = 1$.
+              \item Sei $A = \bigcup\limits_{k \in \mathbb{N}} A_k$ gegeben mit $A_k$ paarweiße disjunkt und $x \in A \implies x \in A_k$ für genau ein $k \in \mathbb{N} \implies\ \sigma$-Additivität.
+              \item Für $x \notin A$ gilt sowieso $\delta_x{A} = 0$
+            \end{itemize}
+            $\implies$ Das Dirac-Maß ist ein Wahrscheinlichkeits-Maß
+      \item \textbf{Zählmaß:} $X$ beliebige Menge \sidenote{Vorlesung 2}{06.11.2020}\\
+            $card: \script{P}(X) \to [0, \infty]$\\
+            $card(A) := \begin{cases}\text{Anzahl der Elemente von A}, & \text{falls A endlich}\\\infty, sonst\end{cases}$\\
+            Für $A = \bigcup\limits_{k\in \mathbb{N}}A_k$ endlich und paarweiße disjunkt ist die $\sigma$-Additivität klar.\\
+            \\
+            Sei $A$ unendlich und $A = \bigcup\limits_{k\in \mathbb{N}}A_k$.
+            \begin{enumerate}
+              \item nur endlich viele $A_k$ nicht-trivial\\
+                    $\implies \exists k_0: A_{k_0}$ ist unendlich
+              \item abzählbar viele $A_k$ sind nicht-trivial $\implies$ Behauptung
+            \end{enumerate}
+            $\implies$ Behauptung\\
+            \\
+            Zählmaß ist $\sigma$-endlich $\Leftrightarrow X$ ist abzählbar\\
+            Zählmaß ist endlich $\Leftrightarrow X$ ist endlich
+    \end{enumerate}
+  \end{example}
+
+  \begin{example}
+    $X$ beliebige Menge, $\script{A} \subseteq \script{P}(X)$ $\sigma$-Algebra, $\mu(A)=0 \ \forall A \in \script{A}$
+  \end{example}
+
+  \begin{theorem}[Stetigkeitseigenschaften von Maßen]
+    Sei $(X,\script{A},\mu)$ Maßraum. Dann gelten für Mengen $A_i \in \script{A}, i \in \mathbb{N}$ folgende Aussagen:
+
+    \begin{enumerate}[label=(\roman*)]
+      \item Aus $A_1 \subseteq A_2 \subseteq A_3 \subseteq ...$ folgt: $\mu (\bigcup\limits_{i \in \mathbb{N}} A_i) = \lim\limits_{i \to \infty} \mu (A_i)$
+      \item Aus $A_1 \supseteq A_2 \supseteq A_3 \supseteq ...$ mit $\mu(A_1)<\infty$, folgt: $\mu (\bigcap\limits_{i \in \mathbb{N}} A_i) = \lim\limits_{i\to \infty} \mu (A_i)$
+      \item $\mu(\bigcup\limits_{i\in \mathbb{N}} A_i) \leq \sum\limits_{i\in \mathbb{N}} \mu(A_i)$
+    \end{enumerate}
+  \end{theorem}
+
+  \begin{remark}
+    \begin{enumerate}
+      \item[]
+      \item \begin{enumerate}[label=(\roman*)]
+        \item Stetigkeit von unten
+        \item Stetigkeit von oben
+        \item $\sigma$-Subadditivität von $\mu$
+      \end{enumerate}
+      \item Bedingung $\mu(A_i) \leq \infty$ in (ii) kann durch $\mu(A_k) \leq \infty$ für ein $k \in \mathbb{N}$ ersetzt werden, kann aber nicht weggelassen werden.\\
+            Begründung:\\
+            $A_k = {k, k+1,...} \subseteq \mathbb{N}$\\
+            $card(A_k) = \infty \ \forall k \in \mathbb{N}$\\
+            Aber: $card(\bigcap\limits_{i \in \mathbb{N}} A_i) = card(\emptyset) = 0$ 
+    \end{enumerate}
+  \end{remark}
+
+  \begin{proof}
+    \begin{enumerate}[label=(\roman*)]
+      \item[]
+      \item $\tilde{A_1} := A_1, \ \tilde{A_k} := A_k \setminus A_{k-1}, \ k \geq 2$\\
+            $\tilde{A_i}$ sind paarweiße disjunkt.\\
+            $\bigcup\limits_{i \in \mathbb{N}} \tilde{A_i} = \bigcup\limits_{i \in \mathbb{N}} A_i$\\
+            $\mu(\bigcup\limits_{i \in \mathbb{N}} A_i) = \mu(\bigcup\limits_{i \in \mathbb{N}} \tilde{A_i}) = \sum\limits_{i \in \mathbb{N}} \mu(\tilde{A_i}) = \lim\limits_{k \to \infty}(\sum\limits_{i=1}^k \mu(\tilde{A_i})) = \lim\limits_{k \to \infty} \mu(\bigcup\limits_{i=1}^k A_k) = \lim\limits_{k \to \infty} \mu(A_k)$
+      \item $A'_k := A_1 \setminus A_k \ \implies \ A'_1 \subseteq A'_2 \subseteq ...$\\
+            Es gilt: $\mu(A_1) = \mu(A_1 \cap A_k) + \mu(A_1 \setminus A_k) = \mu(A_k) + \mu(A'_k)$\\
+            $\implies \mu(A_1) - \lim\limits_{k \to \infty} \mu(A_k) = \lim\limits_{k \to \infty} \mu(A'_k) \stackrel{(i)}{=} \mu(\bigcup\limits_{k \in \mathbb{N}} A'_i) = \mu(A_1 \setminus \bigcap\limits_{i \in \mathbb{N}})\\ = \mu(A_1) - \mu(\bigcap\limits_{i \in \mathbb{N}} A_i)$
+      \item Es genügt, die Folge $B_1 = A_1,\ B_i \stackrel{i \geq 2}{=} A_i \setminus \bigcup\limits_{j=1}^{i-1}A_j$ zu betrachten.\\
+            $\bigcup\limits_{i \in \mathbb{N}} A_i = \bigcup\limits_{i \in \mathbb{N}} B_i$ und $(B_i)$ ist paarweiße disjunkt.\\
+            $\implies \mu(\bigcup\limits_{i \in \mathbb{N}} A_i) = \mu(\bigcup\limits_{i \in \mathbb{N}} B_i) = \sum\limits_{i \in \mathbb{N}} \mu(B_i) \leq \sum\limits_{i \in \mathbb{N}} \mu(A_i)$
+    \end{enumerate}
+  \end{proof}
+
+  \begin{definition}
+    $(X, \script{A}, \mu)$ Maßraum.\\
+    Jede Menge $A \in \script{A}$ mit $\mu(A) = 0$ heißt $\bm{\mu}$\textbf{-Nullmenge}. Das System aller $\mu$-Nullmengen bezeichnen wir mit $\bm{\script{N}(\mu)}$. Das Maß $\mu$ heißt \textbf{vollständig}, wenn gilt:\\
+    \[
+      N \subseteq A \text{ für ein } H \in \script{A} \text{ mit } \mu(A)=0\\
+      \implies N \in \script{A} \text{ und } \mu(N)=0
+    \]
+  \end{definition}
+
+  \begin{remark}
+    Nicht jedes Maß ist vollständig:
+    \[
+      \script{A} \neq \script{P}(X) \ \mu(A) = 0 \ \forall A \in \script{A}
+    \]
+    Allerdings lässt sich jedes Maß vervollständigen:\\
+    Sei $(X, \script{A}, \mu)$ Maßraum und $\script{T}_{\mu}$ sei das System aller Mengen $N \subseteq X$ für die keine $\mu$-Nullmenge $B \in \script{N}(\mu)$ existiert mit $N \subseteq B$. Es gilt:\\
+    \[
+      \mu \text{ vollständig } \Leftrightarrow \script{T}_{\mu} \subseteq \script{A}
+    \]
+    Definiere auf $\bar{A_{\mu}} := \{A \cup N | A \in \script{A}, N \in \script{T}_{\mu}\}$ die Mengenfunktion $\bar{\mu}$ durch $\bar{\mu}(A\cup N) := \mu(A) \ \forall A \in \script{A}, N\in \script{T}_{\mu}$
+  \end{remark}
+
+  \begin{remark}
+    $\bar{\mu}$ ist wohldefiniert: $A \cup N = B \cup P$ mit $A,B\in \script{A}, \ P,N \in \script{T}_{\mu} \implies \exists C \in \script{A}, \mu(C) = 0: P \subseteq C \implies A \subseteq B \cup C \implies \mu(A) \leq \mu(B) + \mu(C) = \mu(B)$\\
+    Symm $\implies \mu(A) = \mu(B)$\\
+    $\bar{\mu}$ heißt \textbf{Vervollständigung} von $\mu$
+  \end{remark}
+
+  \begin{theorem}
+    $(X,\script{A}, \mu)$ Maßraum. Dann ist $\bar{\script{A}}_{\mu}$ eine $\sigma$-Algebra und $\bar{\mu}$ ein vollständiges Maß auf $\bar{\script{A}}_{\mu}$, welches mit $\mu$ auf $\script{A}$ übereinstimmt.
+  \end{theorem}
+
+  \begin{proof}
+    Offensichtlich:
+    \begin{enumerate}
+      \item $\script{A} \subseteq \bar{\script{A}}_{\mu}$
+      \item $\script{T}_{\mu}$ ist abgeschlossen unter Abz. $\bigcup$
+    \end{enumerate}
+    $\script{A}$ ist auch abgeschlossen unter abzählbarer Vereinigung\\
+    $\implies \ \bar{\script{A}}_{\mu}$ abgeschlossen unter abzählbarer Vereinigung\\
+    Sei $x \in \bar{\script{A}}_{\mu}$. Für $E \in \bar{\script{A}}_{\mu}$ ex. ein $A \in \script{A}, \ N \in \script{T}_{\mu}$ und $B \in \script{A}$ und $N \subseteq B$ mit $\mu(B) = 0$, sodass $E = A \cup N \\ \implies B \setminus N \in \script{T}_{\mu} \\ \implies X \setminus E = (X \setminus (A\cup B)) \cup (B \setminus N) \in \bar{\script{A}}_{\mu} \\ \implies \bar{\script{A}}_{\mu}$ ist $\sigma$-Algebra \\
+    $\bar{\mu}$ ist Maß (ist klar)\\
+    Sei $M \subseteq B = A \cup N$ mit $A \in \script{A}, N \in \script{T}_{\mu}$ und $\bar{\mu}(B) = \mu(A) = 0$ \\
+    Aus $M = (M \cap A) \cup (M \cap N) \in \script{T}_{mu} \cup \script{T}_{\mu} = \script{T}_{\mu} \in \bar{\script{A}}_{\mu} \\ \implies \ \bar{\mu}$ ist vollständig.  
+  \end{proof}
+
+  \begin{theorem}
+    $(X, \script{A}, \mu)$ Maßraum und $(X, \bar{\script{A}}_{\mu}, \bar{\mu})$ sei Vervollständigung. Ferner sei $(X, \script{B}, \nu)$ ein vollständiger Maßraum mit $\script{A} \subseteq \script{B}$ und $\mu = \nu$ auf $\script{A}$. Dann ist $\bar{\script{A}}_{\mu} \subseteq \script{B}$ und $\bar{\mu} = \nu$ auf $\bar{\script{A}}_{\mu}$. 
+  \end{theorem}
+
+  \begin{proof}
+    Aus $\script{A} \subseteq \script{B}$ und $\mu = \nu$ auf $\script{A}$ folgt: $\script{N}(\mu) \subseteq \script{N}(\nu) \implies \script{T}_{\mu} \subseteq \script{T}_{\mu}$\\
+    $\nu$ vollständig $\implies \ \script{T}_{\nu} \subseteq \script{B} \implies \script{T}_{\mu} \subseteq \script{B} \implies \bar{\script{A}}_{\mu} \subseteq \script{B}$\\
+    Da $\bar{\mu}$ auf $\bar{\script{A}}_{\mu}$ vollständig durch $\mu$ auf $\script{A}$ bestimmt ist, folgt sofort $\bar{\mu} = \nu$ auf $\bar{\script{A}}_{\mu}$, da $\mu = \nu$ auf $\script{A}$.
+  \end{proof}
+
+  \begin{definition}
+    $(X, \script{A}), (Y, \script{C})$ messbare Räume. Eine Abbildung $f: X \to Y$ heißt $\bm{\script{A}-\script{C}-}$\textbf{messbar}, falls $f^{-1}(\script{C}) \subseteq{\script{A}}$
+  \end{definition}
+
+  \begin{notation}
+    Falls $\script{A}, \script{C}$ klar sind, bezeichnen wir $f$ einfach als messbar. 
+  \end{notation}
+
+  \begin{example}
+    \begin{enumerate}
+      \item[]
+      \item $(X, \script{A}), (Y, \script{C})$ beliebige messbare Räume.\\
+            Sei $y_0 \in Y$ und $f: X \to Y, \ f(x) = y_0 \ \forall x \in X$\\
+            $\implies f$ ist $\script{A}$-$\script{C}-$messbar
+      \item $\chi_R: X \to \mathbb{R}, \chi_R(x) = \begin{cases} 1 \text{, falls } x \in E \subseteq X \\ 0 \text{, sonst}\end{cases}$\\
+            $\mathbb{R}$ wird versehen mit Borel-$\sigma$-Algebra $\script{B}$. Für $(X, \script{A})$ messbarer Raum gilt:\\
+            $\chi_R \ \script{A}$-$\script{B}$-messbar $\Leftrightarrow \ E \in \script{A}$
+      \item Komposition messbarer Abbildungen ist messbar.\\
+            $(X, \script{A}), (Y, \script{C}), (Z, \script{D})$ messbare Räume.\\
+            $f:X  \to Y$ $\script{A}$-$\script{C}$-messbar\\
+            $g:Y \to Z$ $\script{C}$-$\script{D}$-messbar\\
+            $\implies g \circ f: X \to Z$ ist $\script{A}$-$\script{D}$-messbar, denn:\\
+            $(g \circ f)^{-1}(\script{D}) = f^{-1}(g^{-1}(\script{D})) \subseteq f^{-1}(\script{C}) \subseteq \script{A}$
+    \end{enumerate}
+  \end{example}
+
+  \begin{lemma}
+    $(X, \script{A}), (Y, \script{C})$ messbare Räume und $\script{C} := \sigma(\script{E})$. Jede Abbildung $f: X \to Y$ mit $f^{-1}(\script{E}) \subseteq \script{A}$ ist $\script{A}$-$\script{C}$-messbar.
+  \end{lemma}
+
+  \begin{proof}
+    Es gilt: $f^{-1}(\script{C}) = f^{-1}(\sigma(\script{E})) \stackrel{s. Blatt 1}{=} \sigma(f^{-1}(\script{E})) \subseteq \sigma(\script{A}) = \script{A}$
+  \end{proof}
+
+  \begin{example}
+    \begin{enumerate}
+      \item[]
+      \item Jede stetige Abbildung $f: \mathbb{R}^n \to \mathbb{R}^n$ ist $\mathbb{B}^n$-$\mathbb{B}^n$-messbar\\
+            (man sagt: $f$ ist \textbf{borel-messbar}).\\
+            Denn $\mathbb{B}^n = \sigma(\{\text{offene Teilmengen des } \mathbb{R}^n\})$ und Urbilder offener Mengen sind offen für $f$ stetig (siehe. Ana 1)
+      \item Sei $X \neq \emptyset$ Menge, $(Y, \script{C})$ messbarer Raum, $f: X \to Y$ Abbildung.\\
+            Nach Bsp. aus 1. Vorlesung ist $f^{-1}(\script{C})$ $\sigma$-Algebra.\\
+            Offensichtlich ist $f^{-1}(\script{C}) \subseteq \script{P}(X)$ die kleinste $\sigma$-Algebra und $f$ messbar.
+    \end{enumerate}
+  \end{example}
+
+  \begin{notation}
+    Multiplikation und Division in $\bar{\mathbb{R}} = \mathbb{R} \cup \{\pm \infty\}$\\
+    $s * (\pm \infty) = (\pm \infty) * s = \begin{cases}\pm \infty & \text{, falls } s \in (0, \infty] \\ 0 & \text{, falls } s = 0 \\ \mp \infty & \text{, falls } s \in [-\infty, 0)\end{cases}$\\
+    $\dfrac{1}{t} = 0$ für $t = \pm \infty$
+  \end{notation}
+
+  \begin{definition}
+    $(X, \script{A})$ messbarer Raum und $D \in \script{A}$.\\
+    Eine Funktion $f: D \to \bar{\mathbb{R}}$ heißt \textbf{numerische Funktion}.
+  \end{definition}
+
+  \begin{lemma}
+    $(X, \script{A})$ messbarer Raum, $D \in \script{A}$ und $f: D \to \bar{\mathbb{R}}$.\\
+    Dann sind folgende Aussagen äquivalent:
+    \begin{enumerate}[label=(\roman*)]
+      \item $f$ ist $\script{A}$-$\bar{\mathbb{B}}^1$-messbar
+      \item $\forall \ \script{U} \subseteq \mathbb{R}$ offen ist $f^{-1}(\script{U}) \in \script{A}$ und $f^{-1}(\{\infty\}), f^{-1}(\{-\infty\}) \in \script{A}$
+      \item $\{f \leq s\} := \{x \in D \ |\ f(x) \in [-\infty, s]\} \in \script{A} \ \forall s \in \mathbb{R}$
+      \item $\{f < s\} := \{x \in D \ |\ f(x) \in [-\infty, s)\} \in \script{A} \ \forall s \in \mathbb{R}$
+      \item $\{f \geq s\} := \{x \in D \ |\ f(x) \in [s, \infty]\} \in \script{A} \ \forall s \in \mathbb{R}$
+      \item $\{f > s\} := \{x \in D \ |\ f(x) \in (s, \infty]\} \in \script{A} \ \forall s \in \mathbb{R}$
+    \end{enumerate}
+  \end{lemma}
+
+  \begin{proof}
+    $\bar{\mathbb{B}}^1$ wird erzeugt durch die offenen Mengen und $\pm \infty \implies$ (i) $\Leftrightarrow$ (ii)\\
+    \\
+    (iii) $\Leftrightarrow$ (iv) $\Leftrightarrow$ (v) $\Leftrightarrow$ (vi) denn:\\
+    (iv) $\implies$ (iii): ${f \leq s} = \bigcap\limits_{k \in \mathbb{N}} \{f < s + \dfrac{1}{k}\}$\\
+    (iii) $\implies$ (vi): $\{f > s\} = D \setminus \{f \leq s\}$\\
+    (vi) $\implies$ (v): $\{f \geq \bigcap\limits_{k \in \mathbb{N}} \{f > s - \dfrac{1}{k}\}\}$\\
+    (v) $\implies$ (iv): $\{f < s\} = D \setminus \{f \geq s\}$\\
+    \\
+    (ii) $\implies$ (vi), denn: $\{f > s\} = f^{-1}(s,\infty) \cup f^{-1}(\{\infty\}) \in \script{A}$\\
+    \\
+    Für ein offenes Intervall $(a,b)$ gilt: $f^{-1}((a,b)) = \{f > a\} \cap \{f < b\} \in \script{A}$\\
+    Eine der Aussagen (und damit alle) (iii) - (vi) gelte.\\
+    Mann kann zeigen: Jede offene Menge $U \subseteq \mathbb{R}$ lässt sich als abzählbare Vereinigung $\script{U} = \bigcup\limits_{k \in \mathbb{N}} I_k$ von offenen Intervallen $I_k = (a_k, b_k)$ schreiben (siehe Blatt 2).\\
+    $\implies f^{-1}(\script{U}) = \bigcup\limits_{k \in \mathbb{N}} f^{-1}(I_k) \in \script{A}$\\
+    $f^{-1}(\{\infty\}) = \bigcap\limits_{k \in \mathbb{N}} \{f > k\} \in \script{A}, \ \ \ f^{-1}(\{-\infty\}) = \bigcap\limits_{k \in \mathbb{N}} \{f < -k\} \in \script{A} \ \ \ \implies$ (ii)
+  \end{proof}
+
+  \begin{remark}
+    In (iii) - (vi) reicht es aus, $s \in \mathbb{Q}$, statt $s \in \mathbb{R}$ zu haben, denn es gilt z.B.:\\
+    $\{f \geq s\} = \bigcap\limits_{\stackrel{q \in \mathbb{Q}}{s > q}} \{f > q\}$
+  \end{remark}
+
+  \sidenote{Vorlesung 3}{09.11.20}
+
+  \begin{lemma}
+    Sei $(X, \script{A})$ ein messbarer Raum, $D \in \script{A}$ und $f,g: D \to \bar{\mathbb{R}}$ $\script{A}$-messbar. Dann sind die Mengen $\{f < g\} := \{x \in D: f(x) < g(x)\}$ und $\{f \leq g\} := \{x \in D: f(x) \leq g(x)\}$ Elemente aus $\script{A}$.
+  \end{lemma}
+
+  \begin{proof}
+    Es gilt: $\{f < g\} = \bigcup\limits_{q \in \mathbb{Q}} (\{f < g\} \cap \{g > q\}) \in \script{A}$, denn:\\
+    $\{f < g\}, \{g > q\} \in \script{A}$ (s. Lemma I.14)\\
+    $\{f \leq g\} = D \setminus \{f > g\} \in \script{A}$
+  \end{proof}
+
+  \begin{remark}
+    Im folgenden Satz sind die Grenzfunktionen paarweiße definiert, z.B.:\\
+    $\liminf f_x : X \to \bar{\mathbb{R}}$ ist definiert durch: \ \ $(\liminf\limits_{k \to \infty} f_k)(x) := \liminf\limits_{k \to \infty} f_k (x)$
+  \end{remark}
+
+  \begin{theorem}
+    $(X, \script{A})$ messbarer Raum, $D \in \script{A}$ und $f_k:D \to \bar{\mathbb{R}}$ Folge von $\script{A}$-messbaren Funktionen.\\
+    Dann sind auch folgende Funktionen $\script{A}$-messbar:
+    \begin{center}
+      $\inf\limits_{k \in \mathbb{N}} f_k, \ \sup\limits_{k \in \mathbb{N}} f_k, \ \liminf\limits_{k \to \infty} f_k, \ \limsup\limits_{k \to \infty} f_k$
+    \end{center}
+  \end{theorem}
+
+  \begin{proof}
+    Für $s \in \mathbb{R}$ gilt:\\
+    $\{\inf\limits_k f_k \geq s\} = \bigcap\limits_{k \in \mathbb{N}} \{f_k \geq s\} \in \script{A}$, denn nach Lemma I.14 ist $\{f_k \geq s\} \in \script{A}$\\
+    $\{\sup\limits_k f_k \leq s\} = \bigcap\limits_{k \in \mathbb{N}} \{f_k \leq s\} \in \script{A}$\\
+    $\stackrel{\text{Lemma I.14}}{\implies} \inf f_k, \sup f_k$ sind $\script{A}$-messbar\\
+    $\liminf\limits_{k \to \infty} f_k = \sup\limits_{k \in \mathbb{N}} (\inf\limits_{l \geq k} f_l)$ ist $\script{A}$-messbar.\\
+    $\limsup\limits_{k \to \infty} f_k = \inf\limits_{k \in \mathbb{N}} (\sup\limits_{l \geq k} f_l)$ ist $\script{A}$-messbar.
+  \end{proof}
+
+  \begin{notation}
+    Seien $D \in \script{A}$ und $f: D \to \bar{\mathbb{R}}$, dann sind $f^{\pm}:D \to [0, \infty]$ definiert durch:\\
+    $f^+ := max(f, 0) \geq 0$ und $f^- := max(-f, 0) = -min(f, 0) \geq 0$\\
+    $\implies f = f^+ - f^-, \ |f| = f^+ + f^-$
+  \end{notation}
+
+  \begin{theorem}
+    $(X, \script{A})$ messbarer Raum, $D \in \script{A}$, $f,g: D \to \bar{\mathbb{R}}$ $\script{A}$-messbar, $\alpha \in \mathbb{R}$.\\
+    Dann sind die Funktionen
+    \begin{center}
+      $f+g, \ \alpha f, \ f^{\pm}, \ max(f,g), \ min(f,g), \ |f|, \ fg, \ \dfrac{f}{g}$
+    \end{center}
+    auf ihren Definitionsbereichen, die in $\script{A}$ liegen $\script{A}$-messbar.
+  \end{theorem}
+
+  \begin{proof}
+    \begin{enumerate}
+      \item[]
+      \item \underline{$f,g:D \to \mathbb{R}$}
+        \begin{itemize}
+          \item $\{f+g < t\} = \bigcup\limits_{\stackrel{r,s \in \mathbb{Q}}{r+s<t}} \{f < r\} \cap \{g < s\} \in \script{A}$\\
+            $\{-f < t\} = \{f > -t\} \in \script{A}$\\
+            $\implies f+g, -f \script{A}$-messbar. Ebenso $\alpha f$ für $\alpha \in \mathbb{R}$
+          \item Für $\script{C} \in C^{\infty} (\mathbb{R})$ ist $\script{C} \circ f$ messbar, denn für $\script{U} \subseteq \mathbb{R}$ offen ist $\script{C}^{-1}(\script{U})$ offen und damit $(\script{C} \circ f)^{-1}(\script{U}) = f^{-1}(\script{C}^{-1}(\script{U})) \in \script{A}$\\
+            $\implies f^{\pm}$ sind $\script{A}$-messbar (wähle $\script{C}(s)) = max(\pm s,0))$\\
+            $\implies |f| = f^+ + f^-$,\\
+            $max(f,g) = \dfrac{1}{2} (f + g + |f-g|)$ und\\
+            $min(f,g) = \dfrac{1}{2} (f + g - |f-g|)$ sind $\script{A}$-messbar
+          \item $f^2 = \script{C} \circ f$ mit $\script{C}(s) = s^2$ und\\
+            $fg = \dfrac{1}{4} ((f+g)^2 - (f-g)^2)$ $\script{A}$-messbar
+          \item $\dfrac{1}{g}$ ist $\script{A}$-messbar, denn:\\
+            $\{\dfrac{1}{g} < s\} = \begin{cases} 
+              \{\dfrac{1}{s} < g < 0\} & , s < 0 \\ 
+              \{g < 0\} & s = 0 \\
+              \{g < 0\} \cup \{g > \dfrac{1}{2}\} & s > 0
+            \end{cases}$
+        \end{itemize}
+      \item \underline{$f,g$ beliebig}\\
+        Betrachte $f_k(x) = \begin{cases}
+          k & , f(x) \geq k\\
+          -k & , f(x) \leq -k\\
+          f(x) & , \text{ sonst}
+        \end{cases} \in \mathbb{R}$\\
+        Analog $g_k(x)$. $f_k, g_k$ sind $\script{A}$-messbar $\forall k$\\
+        Punktweise gilt: $f_k(x) \to f(x), g_k(x) \to g(x)$\\
+        Ebenso: $f_k+g_k \to f+g, \alpha f_k \to \alpha f, ... , f_k g_k \to fg$ punktweise.\\
+    \end{enumerate}
+    Der Allgemeine Fall folgt aus 1. und Satz I.16.
+  \end{proof}
+
+  \newpage
+
+  \begin{notation}
+    Sei $(X, \script{A}, \mu)$ Maßraum. Man sagt, die Aussage $A[x]$ ist wahr \textbf{für $\bm{\mu}$-fast alle} $x \in M \in \script{A}$ oder \textbf{$\bm{\mu}$-fast überall} auf M, falls es eine $\mu$-Nullmenge $N$ gibt mit
+    \begin{center}
+      $\{x \in M: A[x] \text{ ist falsch}\} \subseteq N$
+    \end{center}
+    Dabei wird nicht verlangt, dass $\{x \in M: A[x] \text{ ist falsch}\}$ selbst zu $\script{A}$ gehört.\\
+    Zum Beispiel bedeutet für Funktionen $f,g: X \to \bar{\mathbb{R}}$ die Aussage \glqq$f(x) \leq g(x)$ für $\mu$-fast alle $x \in X$\grqq, dass es eine Nullmenge $N$ gibt, so dass $\forall x \in X \setminus N$ gilt: $f(x) \leq g(x)$.\\
+    Eine Funktion $h$ ist \glqq$\mu$-fast überall auf $X$ definiert\grqq, wenn $h$ auf $D \in \script{A}$ definiert ist und $\mu(X \setminus D) = 0$. 
+  \end{notation}
+
+  \begin{example}[\glqq Konvergenz $\mu$-fast überall \grqq]
+    Eine Folge von Funktionen $f_k:D \to \bar{\mathbb{R}}$ konvergiert punktweise $\mu$-fast überall gegen $f: D \to \bar{\mathbb{R}}$, wenn es eine $\mu$-Nullmenge $N$ gibt, so dass $\forall x \in D \setminus N$ gilt:
+    \begin{center}
+      $\lim\limits_{k \to \infty} f_k(x) = f(x)$
+    \end{center}
+  \end{example}
+
+  \begin{goal}
+    Messbarkeit für Funktionen, die nur $\mu$-fast überall definiert sind.
+  \end{goal}
+
+  \begin{definition}
+    $(X, \script{A}, \mu)$ Maßraum. Eine auf $D \in \script{A}$ definierte Funktion $f: D \to \bar{\mathbb{R}}$ heißt\\
+    $\bm{\mu}$\textbf{-messbar} (auf $X$), wenn $\mu(X \setminus D) = 0$ und $f$ $\script{A|_D}$-messbar ist.\\
+    ($\script{A}|_D := \{A \cap D | A \in \script{A}\}$, siehe Blatt 1)
+  \end{definition}
+
+  \begin{remark}
+    \begin{enumerate}
+      \item[]
+      \item Unterscheiden zwischen $\script{A}$-messbaren Funktionen (auf $X$), die \underline{überall} auf $X$ definiert sind, und $\mu$-messbaren Funktionen (auf $X$), die in der Regel nur \underline{$\mu$-fast überall} definiert sind.
+      \item Analog zu $\script{A}$-Messbarkeit verwenden wir $\mu$-Messbarkeit auf für Funktionen, die nur auf Teilmengen definiert sind:\\
+        Sei $(X, \script{A}, \mu)$ Maßraum, $D \in \script{A}$. $f: E \to \bar{\mathbb{R}}$ heißt \textbf{$\bm{\mu}$-messbar} (auf $D$), wenn $E \subseteq D$ in $\script{A}$ liegt mit $\mu(D \setminus E) = 0$ und $f$ $\script{A}|_E$-messbar.
+      \item \glqq$f=g \ \mu$-fast überall\grqq ist eine Äquivalenzrelation auf der Menge aller Funktionen
+      \item Sei $D \in \script{A}, f: D \to \bar{\mathbb{R}}\ \mu$-messbar. Dann ex. eine $\script{A}$-messbare Funktion $g: X \to \bar{\mathbb{R}}$ mit $f=g$ auf $D$, z.B.: $g = \begin{cases}
+        f & \text{, auf } D\\
+        0 & \text{, auf } X \setminus D 
+      \end{cases}$\\
+      Somit übertragen sich die Sätze I.16 und I.17 auf $\mu$-messbare Funktionen.
+    \end{enumerate}
+  \end{remark}
+
+  \newpage
+  \sidenote{Vorlesung 4}{13.11.20}
+  \begin{lemma}
+    $(X, \script{A}, \mu)$ vollständiger Maßraum. $f$ $\mu$-messbar auf $X$. Dann ist auch jede Funktion $\tilde{f}$ mit $\tilde{f}=f$ $\mu$-fast überall $\mu$-messbar.
+  \end{lemma}
+
+  \begin{proof}
+    Sei $f$ auf $D \in \script{A}$ definiert mit $\mu(X \setminus D) = 0$ und sei $\tilde{f}$ auf $\tilde{D} \subseteq X$ definiert.\\
+    Vor. $\implies \exists$ Nullmenge $N$ mit $X \setminus N \subseteq \cap \tilde{D}$ und $\tilde{f}(x) = f(x) \ \forall x \in X \setminus N$\\
+    $\implies X \setminus \tilde{D} \subseteq N$\\
+    $\stackrel{\mu\text{-vollständig}}{\implies} X\setminus \tilde{D} \in \script{A} \implies \tilde{D} \in \script{A}$.\\ \\
+    Weiter gilt: \\
+    $\{x \in \tilde{D}| \tilde{f}(x) < s\} = \{x \in \tilde{D} \cap N |\ \tilde{f}(x) < s\} \cup \{x \in \tilde{D} \cap (X \setminus N)|\ \tilde{f}(x) < s\}$\\
+    $ = \{x \in \tilde{D} \cap N |\ \tilde{f}(x) < s\} \cup \{x \in D \cap (X \setminus N) |\ f(x) < s\}$\\
+    $ = \{x \in \tilde{D} \cap N |\ \tilde{f}(x) < s\} \cup \{x \in D|\ f(x) < s\} \setminus \{x \in D \cap N |\ f(x) < s\}$\\
+    $=: A \cup B$\\
+    Da $f$ $\mu$-messbar ist, folgt, dass $B \in \script{A}$\\
+    $\mu$-vollständig $\implies A \in \script{A} \implies \{x \in \tilde{D} |\ \tilde{f}(x) < s\} \in \script{A} \ \forall s$\\ \\
+    Weiter ist $\{x \in \tilde{D}|\ \tilde{f}(x) < s\} \subseteq \tilde{D} \implies \{x \in \tilde{D}|\ \tilde{f}(x) < s\} \in \script{A}|_{\tilde{D}}$\\
+    $\stackrel{\text{Lemma I.14}}{\Leftrightarrow} \tilde{f}$ $\mu$-messbar
+  \end{proof}
+
+  \begin{theorem}
+    $(X, \script{A}, \mu)$ vollständiger Maßraum und seien $f_k, k \in \mathbb{N}$, $\mu$-messbar. Falls $f_k$ punktweise $\mu$-fast überall gegen $f$ konvergiert, dann ist $f$ auch $\mu$-messbar.
+  \end{theorem}
+
+  \begin{proof}
+    Sei $f_k$ auf $D_k \in \script{A}$ definiert. Dann sind alle $f_k$, $k \in \mathbb{N}$, auf $D := \bigcap\limits_{k \in \mathbb{N}} D_k$ definiert und $X \setminus D$ ist $\mu$-Nullmenge $E := \{x \in D |\ \lim\limits_{k \to \infty} f_k(x) \neq f(x)\}$ und betrachte
+    \begin{center}
+      $\tilde{f}_k(x) = \begin{cases}
+        f_k(x) & ,\forall x \in D \setminus E\\
+        0 & \text{, sonst}
+      \end{cases}$, $\tilde{f}(x) = \begin{cases}
+        f(x) & ,\forall x \in D \setminus E\\
+        0 & \text{, sonst}
+      \end{cases}$
+    \end{center}
+    Es gilt $\tilde{f} = \lim\limits_{k \to \infty} \tilde{f}_k \stackrel{\text{Satz I.16}}{\implies} \tilde{f}$ ist $\script{A}$-messbar\\
+    Vor.: $(X\setminus D) \cup E$ ist $\mu$-Nullmenge $\stackrel{\text{Lemma I.14}}{\implies} f$ ist $\mu$-messbar.
+  \end{proof}
+
+  \newpage
+
+  \begin{theorem}[Egorov]
+    $(X, \script{A}, \mu)$ Maßraum, $D \in \script{A}$ Menge mit $\mu(D) < \infty$ und $f_n, f$ $\mu$-messbare, $\mu$-fast überall endliche Funktionen auf $D$ mit $f_n \to f$ $\mu$-fast überall. Dann existiert $\forall \epsilon > 0$ eine Menge $B \in \script{A}$ mit $B \subseteq D$ und
+    \begin{enumerate}[label=(\roman*)]
+      \item $\mu(D \setminus B) < \epsilon$
+      \item $f_n \to f$ gleichmäßig auf $B$
+    \end{enumerate}
+  \end{theorem}
+
+  \begin{proof}
+    $E := \{x \in D |\ f_n(x), f(x) \text{ sind endlich und } f_n(x) \to f(x)\}$\\
+    Vor. $\implies \exists$ $\mu$-Nullmenge $N$ mit $D\setminus E \subseteq N$\\
+    O.B. $E = D$ (sonst erstetze $D$ durch $D \setminus N$)\\
+    Sei $C_{i,j} := \bigcup\limits_{n=j}^{\infty} \{x \in D |\ |f_n(x) - f(x)| > 2^{-i}\}, \ i,j \in \mathbb{N}$\\
+    Satz I.17 $\implies$ $C_{i,j} \in \script{A}$ und $C_{i,j+1} \subseteq C_{i,j} \ \forall i,j \in \mathbb{N}$\\
+    $\mu(D) < \infty \stackrel{\text{Satz I.7}}{\implies} \lim\limits_{j \to \infty} \mu(C_{i,j}) = \mu(\bigcap\limits_{j \in \mathbb N} C_{i,j}) = 0$, denn $f_n \to f$\\
+    Sei $\epsilon > 0$ gegeben\\
+    $\implies \forall i \in \mathbb{N} \ \exists N(i) \in \mathbb{N}$ mit $\mu(C_{i,N(i)}) < \epsilon * 2^{-i}$\\
+    Setze $B := D \setminus \bigcup\limits_{i \in \mathbb{N}} C_{i,N(i)} \in \script{A}$ und $\mu(D \setminus B) = \mu(\bigcup\limits_{i \in \mathbb{N}} C_{i,N(i)}) \stackrel{\text{Satz I.7}}{\leq} \sum\limits_{i \in \mathbb{N}} \mu(C_{i,N(i)}) < \epsilon$\\
+    $\forall i\in \mathbb{N} \ \forall x \in B \ \forall n>N(i)$ gilt:\\
+    $|f_n(x) - f(x)| \leq 2^{-i}$
+    $\implies f_n \to f$ auf $B$
+  \end{proof}
+

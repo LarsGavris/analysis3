@@ -8,7 +8,7 @@ WS 20/21
 Prof. Lamm
 
 #### Aktueller Stand
-Vorlesung 12 - Def IV.12
+Vorlesung 13 - Def V.4
 
 #### Notes
 - Ab Def II.10 hat der Prof die Nummerierung um eins versetzt gehabt, daher habe ich hier immer die Nummern, wie sie im Aufschrieb benannt wurden hinzugefügt (mit "im Aufschrieb" bzw. "i.A." ...). Ab Kapitel III passt es aber wieder.
