@@ -1404,7 +1404,22 @@ $I\setminus J = I' \cup II'$ wobei $(a,c)\subset I' \subset [a,c]$, $(d,b) \subs
     \end{theorem}
 
     \begin{proof}
-      siehe Aufschrieb
+      $\lambda^n$ translationsinvariant $\implies$ O.E. $a=0$. \newline
+      Sei jetzt $S\in GL(\mathbb{R}^n)$ und $T:=S^{-1}$. \newline
+      Definiere $\mu := T(\lambda^n): \script{P}(\mathbb{R}^n) \rightarrow [0,\infty]$, $E \to \mu(E) := \lambda^n(T^{-1}(E))$, d.h.\newline
+      $\lambda^n(S(E)) = \mu(E)$. \newline
+      Beh.: $\mu$ ist translationsinvariantes Borelmaß. \newline
+      Ist $B\subset\mathbb{R}^n$ Borelmenge $\rightarrow B$ $\lambda^n$-messbar (Satz III.5) $\implies T^{-1}(B) = S(B)$ $\lambda^n$-messbar (Satz III.13) $\implies B$ ist $\mu$-messbar (s. Blatt 2) \newline
+      Für $K\subset\mathbb{R}^n$ kompakt ist $T^{-1}(K) = S(K)$ kompakt $\implies \mu(K) < \infty \implies \mu$ Borelmaß. \newline
+      Sei $b\in\mathbb{R}^n$, $E\subset\mathbb{R}^n$ beliebig \newline 
+      $\implies \mu(E+b) = \lambda^n(S(E+b)) = \lambda^n(S(E) + S(b)) = \lambda^n(S(E)) = \mu(E) \implies$ Beh. \newline
+      Satz III.11 $\implies \mu(E) = \theta(S) \lambda^n(E)$ $\forall E\subset\mathbb{R}^n$ $\lambda^n$-messbar, wobei $\theta(S) = \mu([0,1]^n) = \lambda^n(S([0,1]^n)) \in [0,\infty]$. \newline
+      Für $E\subset\mathbb{R}^n$ bel. gilt mit Lemma III.6 \newline
+      $\mu(E) = \lambda^n(S(E)) = inf\{\lambda^n(V): S(E)\subset V \text{ offen}\} = inf\{\lambda^n(S(U)): E\subset U \text{ offen}\}$ \newline $= \theta(S) inf\{\lambda^n(U): E\subset U \text{ offen}\}$ \newline
+      $\implies \mu(E) = \lambda^n(S(E)) = \theta(S) \lambda^n(E)$ $\forall E\subset\mathbb{R}^n$ \newline
+      Ist $S\in O(\mathbb{R}^n)$, so wähle $E = B_1(O) \implies S(B_1(O) = B_1(O))$ \newline
+      $\implies \mu(B_1(O)) = \lambda^n(B_1(O)) \implies \theta(S) = 1$ $\forall S\in O(\mathbb{R}^n)$ \newline
+      $\implies \lambda^n(S(E)) = \lambda^n(E)$ $\forall S \in O(\mathbb{R}^n)$
     \end{proof}
 
     \begin{lemma}[Polarzerlegung]
@@ -1413,7 +1428,11 @@ $I\setminus J = I' \cup II'$ wobei $(a,c)\subset I' \subset [a,c]$, $(d,b) \subs
     \end{lemma}
 
     \begin{proof}
-      siehe Aufschrieb
+      $S^T S$ ist symmetrisch und hat positive EW, denn für \newline $v\in\mathbb{R}^n\setminus\{0\}:$ $<S^T Sv,v > = ||Sv||^2 > 0$ \newline
+      $\implies \exists T\in O(\mathbb{R}^n)$ und $\Lambda$ Diagonalmatrix mit Einträgen $\lambda_i > 0$ $i=1,...,n$, sodass $S^T S = T \Lambda^2 T^{-1}$. \newline
+      $R := T \Lambda T^{-1}$ ist symmetrisch mit $R^2 = S^T S$ $\implies$ mit $Q := S R^{-1}$ gilt \newline
+      $Q^T Q = (R^{-1})^T S^T S R^{-1} = R^{-1} R^2 R^{-1} = \mathbb{I}_n \implies Q \in O(\mathbb{R}^n)$ \newline
+      $\implies S = Q R = Q T \Lambda T^{-1} = T_1 \Lambda T_2$ mit $T_1 := Q T \in O(\mathbb{R}^n)$, $T_2 := T^{-1} \in O(\mathbb{R}^n)$
     \end{proof}
 
     \begin{theorem}[Lineare Transformationsformel]
@@ -1424,7 +1443,12 @@ $I\setminus J = I' \cup II'$ wobei $(a,c)\subset I' \subset [a,c]$, $(d,b) \subs
     \end{theorem}
 
     \begin{proof}
-      siehe Aufschrieb
+      Ist $det(S) = 0 \implies S(E)$ liegt in Hyperebene $\implies$ Beh. folgt aus Lemma III.10. \newline
+      Ist $det(S) \neq 0 \implies$ (*) aus Beweis von Satz III.14, d.h. $\lambda^n(S(E)) = \theta(S) \lambda^n(E)$ \newline
+      z.z. $\theta(S) = |det(S)|$ \newline
+      i) S diagonal mit Einträgen $\lambda_i > 0 \implies \theta(S) = \lambda^n(S([0,1]^n)) = \lambda^n([0,\lambda_1]\times ... \times [0,\lambda_n])= \Pi_{i=1}^{n} \lambda_i = |det(S)|$ \newline 
+      ii) $S\in GL(\mathbb{R}^n)$ bel. $\implies S = T_1 \Lambda T_2$ s.Lemma III.15, $T_1$, $T_2 \in O(\mathbb{R}^n)$ \newline
+      $\implies \theta(S) = \lambda^n(T_1\Lambda T_2([0,1]^n)) = \lambda^n(\Lambda T_2([0,1]^n)) = |det(\Lambda)| \lambda^n(T_2([0,1]^n))$ \newline $= |det(\Lambda)| \lambda^n([0,1]^n) = |det(S)|$
     \end{proof}
 
     \begin{example}
