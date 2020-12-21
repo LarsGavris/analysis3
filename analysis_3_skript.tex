@@ -1350,7 +1350,13 @@ $I\setminus J = I' \cup II'$ wobei $(a,c)\subset I' \subset [a,c]$, $(d,b) \subs
     \end{theorem}
 
     \begin{proof}
-      siehe Aufschrieb
+      Setze $Q_{k,j} = 2^{-k}(j+[0,1]^n)$ für $k\in\mathbb{N}_0$, $j\in\mathbb{R}^n \implies [0,1]^n$ ist Vereinigung der $2^{nk}$ abgeschlossenen Teilwürfel $\{Q_{k,j}: j\in J_k\}$ mit $J_k = \{j = (j_1, ...., j_n) \in \mathbb{R}^n: 0$ $leq j_i \leq 2^k-1\}$ mit paarweise disjunktem Inneren. Lemma III.10 \newline  $\implies \mu([0,1]^n) = \sum\limits_{j\in J_k} \mu(Q_{k,j})$ \newline
+      $\lambda^n([0,1]^n) = \sum\limits_{j\in J_k} \lambda^n(Q_{k,j})$ \newline
+      Translationsinvarianz $\implies \mu(Q{k,j}) = \mu(Q_{k,0})$ \newline
+      $\lambda^n(Q_{k,j}) = \lambda^n(Q_{k,0})$ $\forall  j\in \mathbb{R}^n$ \newline
+      $\implies \theta = \frac{\mu([0,1]^n)}{\lambda^n([0,1]^n)} = \frac{\mu(Q_{k,0})}{\lambda^n(Q_{k,0})} = \frac{\mu(Q_{k,j})}{\lambda^n(Q_{k,j})}$ $\forall j\in \mathbb{R}^n$ \newline
+      Lemma III.3, Lemma III.10 $\implies \mu(U) = \theta \lambda^n(U)$ $\forall U\supset \mathbb{R}^n$ offen \newline
+      $\implies$ Beh. gilt für alle $Q \in \script{Q}^n$ und damit $\forall$ $\lambda^n$-messbaren Teilmengen nach Eindeutigkeit der Massfortsetzung, Satz II.17 (i.A. Satz II.16). 
     \end{proof}
 
     \begin{lemma}
@@ -1361,7 +1367,15 @@ $I\setminus J = I' \cup II'$ wobei $(a,c)\subset I' \subset [a,c]$, $(d,b) \subs
     \end{lemma}
 
     \begin{proof}
-      siehe Aufschrieb
+      O.E. $\lambda^n(E) < \infty$ \newline
+      Setze $Q_{\rho}(x_0) = \{x\in\mathbb{R}^n: ||x-x_0||_{\infty} < \rho\}$ $\forall x_0\in\mathbb{R}^n$, $\rho >0$ \newline
+      Vor $\implies ||f(x)-f(x_0)||_{\infty} \leq \Lambda ||x-x_0||_{\infty}$ für $x,x_0\in U$ \newline
+      Also $Q_{\rho}(x_0) \subset U \implies f(Q_{rho}(x_0)) \subset Q_{\Lambda \rho}(f(x_0))$ \newline
+      Lemma III.6 $\implies$ $\exists V$ offen mit $E\subset V$ und $\lambda^n(V) < \lambda^n(E) + \epsilon$ $\forall$ $\epsilon >0$. \newline
+      (O.E. $V\subset U$) \newline 
+      Weiter existiert $Q_j$ Würfel mit paarweise disjunktem Inneren und $V = \bigcup\limits_{j=1}^{\infty}Q_j$ \newline
+      $\implies \lambda^n(f(E)) \leq \lambda^n(f(V)) \leq \sum\limits_{j=1}^{\infty}\lambda^n(f(Q_j)) \leq \Lambda^n \sum\limits_{j=1}^{\infty}\lambda^n(Q_j) \leq \Lambda^n(\lambda(E)+\epsilon)$ \newline
+      Lasse $\epsilon\to 0 \implies$ Beh. 
     \end{proof}
 
     \begin{theorem}
@@ -1373,7 +1387,13 @@ $I\setminus J = I' \cup II'$ wobei $(a,c)\subset I' \subset [a,c]$, $(d,b) \subs
     \end{theorem}
 
     \begin{proof}
-      siehe Aufschrieb
+      Lemma III.3 $\implies U = \bigcup\limits_{i=1}^{\infty}K_i$, $K_i$ kompakte Würfel \newline
+      $\implies N = \bigcup\limits_{i=1}^{\infty}K_i\cap N$ \newline
+      $f|_K$ ist Lipschitz $\forall$ $K\subset U$ Kpt \newline
+      $\implies$ 1) folgt aus Lemma III.12 \newline
+      zu 2): O.B. $E$ beschränkt (sonst betrachte $E_m := \{x\in E: ||x||\leq m \}$ $E = \bigcup\limits_{i=1}^{\infty}E_i$)  \newline
+      Satz III.7 $\implies \exists$ $A_j$ kompakt und $\lambda^n$-Nullmenge $N$ mit $E=(\bigcup\limits_{j=1}^{\infty}A_j)$ und $f(A_j)$ ist kompakt und $\lambda^n(f(N)) = 0$ nach 1) \newline
+      $\implies f(E) = \bigcup\limits_{j=1}^{\infty}f(A_j) \cup f(N)$ $\implies \lambda^n$-messbar
     \end{proof}
 
     \begin{theorem}
