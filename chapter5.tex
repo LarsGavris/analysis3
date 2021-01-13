@@ -192,6 +192,8 @@
     siehe Aufschrieb
   \end{proof}
 
+  \sidenote{Vorlesung 15}{21.12.20}
+
   \begin{theorem}[Satz von Riesz-Fischer]
     $(L^p(\mu), ||\cdot||_{L^p})$ ist vollständig, also ein Banachraum. $(1 \leq p \leq \infty)$
   \end{theorem}
@@ -277,3 +279,22 @@
     $Hw_k = \lambda^2 w_k \ \forall k \in \mathbb{Z}$\\
     Satz V.18: Der von den Eigenfunktionen $w_k$ aufgespannte Raum ist dicht in $L^2(I, \mathbb{C})$
   \end{remark}
+
+  \sidenote{Vorlesung 16}{08.01.21}
+  \begin{theorem}[Vitali]
+    Sei $f_n \in L^p(\mu), 1 \leq p \leq \infty$, eine Folge mit $f_n \to f$ punktweise fast überall. Dann sind folgende Aussagen äquivalent:
+    \begin{enumerate}[label=\arabic*)]
+      \item $f \in L^p(\mu)$ und $||f_n - f||_{L^p} \to 0$
+      \item Mit $\lambda(A) = \limsup \int\limits_A |f_n|^p d\mu$ gilt:
+            \begin{enumerate}
+              \item zu $\epsilon > 0 \ \exists \ \delta > 0$ mit $\lambda(A) < \epsilon \ \forall A$ messbar mit $\mu(A) < \delta$
+              \item zu $\epsilon > 0 \ \exists \ E$ messbar mit $\mu(E) < \infty$ und $\lambda(X \setminus E) < \epsilon$ 
+            \end{enumerate}
+    \end{enumerate}
+    Im Fall $p = 1$ heißt eine Folge mit 1) und 2) \textbf{gleichgradig integrierbar}.
+  \end{theorem}
+  \begin{proof}
+    siehe Aufschrieb
+  \end{proof}
+
+  
