@@ -122,7 +122,7 @@
     \begin{align*}
       \int\limits_{X\times Y} f \ d(\alpha \times \beta) = \int\limits_Y \int\limits_X f(x,y) \ d\alpha(x) \ d\beta(y) = \int\limits_X \int\limits_Y f(x,y) \ d\beta(y) \ d\alpha(x)
     \end{align*}
-    Zusatz: Ist $f: X \times Y \to \bar{\mathbb{R}} \sigma$-endlich und $\int\limits_Y \int\limits_X |f(x,y)| \ d\alpha(x) \ d\beta(y) < \infty$, so ist $f$ integrierbar bzgl. $\alpha \times \beta$ und der Satz damit anwendbar.
+    Zusatz: Ist $f: X \times Y \to \bar{\mathbb{R}} \ \sigma$-endlich und $\int\limits_Y \int\limits_X |f(x,y)| \ d\alpha(x) \ d\beta(y) < \infty$, so ist $f$ integrierbar bzgl. $\alpha \times \beta$ und der Satz damit anwendbar.
   \end{theorem}
 
   \begin{proof}
@@ -156,3 +156,23 @@
     \end{align*}
     (Begründung siehe Aufschrieb)
   \end{example}
+
+  \sidenote{Vorlesung 19}{18.01.21}
+  \begin{theorem}
+    $\Omega \subseteq \mathbb{R}^n$ offen. Für $f \in C_C^1(\Omega)$ und $g \in C^1(\Omega)$ gilt:
+    $$\int\limits_{\Omega}(\partial_j f)g dx = -\int\limits_{\Omega} f (\partial_j g) dx \ \ \ \ \forall \ 1 \leq j \leq n \ (dx \ \hat{=} \ d \lambda^n)$$
+  \end{theorem}
+  \begin{proof}
+    siehe Aufschrieb
+  \end{proof}
+
+  \begin{remark}
+    \begin{enumerate}
+      \item[]
+      \item partielle Integration wird oft mit $\triangledown$ und $div$ formuliert:\\
+        $f \in C_C^1(\Omega), X \in C^1(\Omega, \mathbb{R}^n)$\\
+        $\int\limits_{\Omega} <\triangledown f, x> dx = -\int\limits_{\Omega} f (div X) dx$\\
+        $(<\triangledown f, X> = \sum\limits_{i=1}^n \partial_i f X_i \ , \ f div X = \sum\limits_{i=1}^n f \partial_i X_i)$
+      \item Der Satz von Fubini gilt auch für kartesische Produkte mit endlich vielen (statt nur zwei) Faktoren. Man zeige analog zu Lemma VI.5, dass in einem endlichen Produkt von Maßen beliebig Klammern gesetzt oder weggelassen werden können. Fubini wird dann per Induktion über die Anzahl der Faktoren bewiesen.
+    \end{enumerate}
+  \end{remark}
