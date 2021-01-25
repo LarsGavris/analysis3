@@ -129,11 +129,11 @@
     Sei $\Phi \in C^1(\script{U}, \script{V})$ Diffeomorphismus zwischen $\script{U}, \script{V} \subseteq \mathbb{R}^n$ offen mit gramscher Matrix $(g_{ij})$
     \begin{enumerate}
       \item Für $v \in C^1(\script{V})$ gilt mit $\mu = v \circ \Phi$:
-      $$(\triangledown v \circ \Phi) = D\Phi \cdot \triangledown_g u \ \ , \ \ \triangledown_g u := \sum\limits_{i,j=1}^n g^{ij} \frac{\partial u}{\partial x_i} e_j$$
+      $$(\triangledown v) \circ \Phi = D\Phi \cdot \triangledown_g u \ \ , \ \ \triangledown_g u := \sum\limits_{i,j=1}^n g^{ij} \frac{\partial u}{\partial x_i} e_j$$
       \item Für $y \in C^1(\script{V}, \mathbb{R}^n)$ gilt mit $y \circ \Phi = D\Phi x$:
-        $$(div y) \circ \Phi = div_g x := \frac{1}{\sqrt{det(y)}} \sum\limits_{j=1}^n \frac{\partial}{\partial x_j} (\sqrt{det(y)} x_j)$$
+        $$(div(y)) \circ \Phi = div_g x := \frac{1}{\sqrt{det(g)}} \sum\limits_{j=1}^n \frac{\partial}{\partial x_j} (\sqrt{det(g)} x_j)$$
       \item Ist $\Phi \in C^2(\script{U}, \script{V}), v \in C^2(\script{V}), u = v \circ \Phi$
-        $$\implies (\triangle \script{V}) \circ \Phi = div_g \triangledown_g u = \frac{1}{\sqrt{det(y)}} \sum\limits_{i,j=1}^n \frac{\partial}{\partial x_i} (\sqrt{det(y)} g^{ij} \frac{\partial u}{\partial x_j})$$
+        $$\implies (\triangle v) \circ \Phi = div_g \triangledown_g u = \frac{1}{\sqrt{det(g)}} \sum\limits_{i,j=1}^n \frac{\partial}{\partial x_i} (\sqrt{det(g)} g^{ij} \frac{\partial u}{\partial x_j})$$
     \end{enumerate}
   \end{theorem}
   \begin{proof}
