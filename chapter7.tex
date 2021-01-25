@@ -124,3 +124,29 @@
     Wir setzen: $g^{ij}(x) = (g(x)^{-1})_{ij}$\\
     ... (Rest siehe Aufschrieb)
   \end{remark}
+
+  \begin{theorem}
+    Sei $\Phi \in C^1(\script{U}, \script{V})$ Diffeomorphismus zwischen $\script{U}, \script{V} \subseteq \mathbb{R}^n$ offen mit gramscher Matrix $(g_{ij})$
+    \begin{enumerate}
+      \item Für $v \in C^1(\script{V})$ gilt mit $\mu = v \circ \Phi$:
+      $$(\triangledown v \circ \Phi) = D\Phi \cdot \triangledown_g u \ \ , \ \ \triangledown_g u := \sum\limits_{i,j=1}^n g^{ij} \frac{\partial u}{\partial x_i} e_j$$
+      \item Für $y \in C^1(\script{V}, \mathbb{R}^n)$ gilt mit $y \circ \Phi = D\Phi x$:
+        $$(div y) \circ \Phi = div_g x := \frac{1}{\sqrt{det(y)}} \sum\limits_{j=1}^n \frac{\partial}{\partial x_j} (\sqrt{det(y)} x_j)$$
+      \item Ist $\Phi \in C^2(\script{U}, \script{V}), v \in C^2(\script{V}), u = v \circ \Phi$
+        $$\implies (\triangle \script{V}) \circ \Phi = div_g \triangledown_g u = \frac{1}{\sqrt{det(y)}} \sum\limits_{i,j=1}^n \frac{\partial}{\partial x_i} (\sqrt{det(y)} g^{ij} \frac{\partial u}{\partial x_j})$$
+    \end{enumerate}
+  \end{theorem}
+  \begin{proof}
+    siehe Aufschrieb
+  \end{proof}
+
+  \begin{example}[Laplace in Polarkoordinaten im $\mathbb{R}^3$]
+    \begin{align*}
+      \triangledown_g u &= \frac{\partial u}{\partial r} e^r + \frac{1}{r^2} \frac{\partial u}{\partial \Theta} e^{\Theta} + \frac{1}{r^2 \sin^2(\Theta)} \frac{\partial u}{\partial \phi} e^{\phi}\\
+      div_g x &= \frac{1}{r^2} \frac{\partial}{\partial r} (r^2 x^r) + \frac{1}{\sin(\Theta)} \frac{\partial}{\partial \Theta} (\sin(\Theta) x^{\Theta}) + \frac{\partial x^{\phi}}{\partial \phi}\\
+      \triangle_g u &= \frac{1}{r^2} \frac{\partial}{\partial r} (r^2 \frac{\partial u}{\partial r})  + \frac{1}{r^2 \sin(\Theta)} \frac{\partial}{\partial \Theta} (\sin(\Theta) \frac{\partial u}{\partial \Theta}) + \frac{1}{r^2 \sin^2(\Theta)} \frac{\partial^2 u}{\partial \phi^2}
+    \end{align*}
+    $e^r, e^{\Theta}, e^{\phi}$ Standardbasis im $(r, \Theta, \phi)$-Raum und $x^r, x^{\Theta}, x^{\phi}$ sind zugehörige Koordinaten
+    $$v(x,y,z) = (x^2 + y^2 + z^2)^{-\frac{1}{2}} \implies u = r^{-1}$$
+    $$\implies \triangle v\circ \Phi = \triangle_g u = 0 \text{ auf }\mathbb{R}^3\setminus\{0\}$$
+  \end{example}
