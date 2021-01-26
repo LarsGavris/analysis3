@@ -37,13 +37,13 @@
   \end{proof}
 
   \begin{theorem}[Transformationsformel]
-    $\script{U}, \script{V} \subseteq\mathbb{R}^n$ offen, $\Phi:\script{U} \to \script{V} C^1$-Diffeomorphismus. Ist $A \subseteq \script{U}$ $\lambda^n$-messbar, so ist auch $\Phi(A)$ $\lambda^n$-messbar und es gilt:
+    $\script{U}, \script{V} \subseteq\mathbb{R}^n$ offen, $\Phi:\script{U} \to \script{V} \ C^1$-Diffeomorphismus. Ist $A \subseteq \script{U}$ $\lambda^n$-messbar, so ist auch $\Phi(A)$ $\lambda^n$-messbar und es gilt:
     \begin{enumerate}
       \item $\lambda^n(\Phi(A)) = \int\limits_A | \det D\Phi(x) | dx$
     \end{enumerate}
-    Weiter gilt für jede $\lambda^n$-messbare Funktion $f: \script{V} \to \bar{\mathbb{R}}$:
+    Weiter gilt für jede $\lambda^n$-messbare Funktion $f: \script{V} \to \bar{\mathbb{R}}$
     \begin{enumerate}[resume]
-      \item $\int\limits_{\script{V}} f(y) dy = \int\limits_{\script{U}} f(\Phi(x)) |\det D\Phi(x)| dx \ \ (dy \ \hat{=} \ d\lambda^n(y))$
+      \item $\int\limits_{\script{V}} f(y) dy = \int\limits_{\script{U}} f(\Phi(x)) \ |\det D\Phi(x)| \ dx \ \ (dy \ \hat{=} \ d\lambda^n(y))$
     \end{enumerate}
     falls eines der Integrale definiert ist.
   \end{theorem}
@@ -59,19 +59,19 @@
       \item
         \begin{align*}
           f:\mathbb{R}^2 \to \mathbb{R}, f(x,y) = e^{-(x^2+y^2)} = e^{-||(x,y)||^2}\\
-          \int\limits_{\mathbb{R}^2} f d\lambda^2 \stackrel{\text{Fubini}}{=} \int\limits_{\mathbb{R}} e^{-x^2}(\int\limits_{\mathbb{R}} e^{-y^2} dy) dx = (\int\limits_{\mathbb{R}}^{-x^2} dx)^2
+          \int\limits_{\mathbb{R}^2} f d\lambda^2 \stackrel{\text{Fubini}}{=} \int\limits_{\mathbb{R}} e^{-x^2}(\int\limits_{\mathbb{R}} e^{-y^2} dy) dx = (\int\limits_{\mathbb{R}} e^{-x^2} dx)^2
         \end{align*}
         Für Polarkoordinaten $\Phi:(0,\infty) \times (0,2\pi) \to \mathbb{R}^2 \setminus \{(x,0) \ | \ x \geq 0\}$ gilt: \\
         $$\det D\Phi(r,\Theta) = r$$\\
         Da $\{(x,0) \ | \ x \geq 0\}$ eine $\lambda^2$-Nullmenge ist, folgt aus der Transformationsformel:
         \begin{align*}
           \int\limits_{\mathbb{R}^2} f d\lambda^2
-          &= \int\limits_{(0,\infty) \times (0,2\pi)} e^{-r^2} d\lambda^2(r,\Theta)\\
+          &= \int\limits_{(0,\infty) \times (0,2\pi)} e^{-r^2} r \ d\lambda^2(r,\Theta)\\
           &\stackrel{\text{Fubini}}{=} \int\limits_0^{\infty} e^{-r^2}r(\int\limits_0^{2\pi}d\Theta)dr\\
-          &= 2\pi \int\limits_0^{\infty} e^{-r^2} r dr\\
+          &= 2\pi \int\limits_0^{\infty} e^{-r^2} r \ dr\\
           &= 2\pi [-\frac{1}{2} e^{-r^2}]_{r=0}^{r=\infty}\\
           &= \pi\\
-          \implies \int\limits_0^{\infty} e^{-x^2} dx &= \sqrt{x}
+          \implies \int\limits_0^{\infty} e^{-x^2} dx &= \frac{\sqrt{\pi}}{2}
         \end{align*}
       \item Spezialfall $\Phi: \script{U} \to \script{V} C^1$-Diffeomorphismus ist Einschränkung einer linearen Abbildung.
         \begin{align*}
@@ -103,7 +103,7 @@
 
   \begin{remark}
     \underline{Ziel:} Umrechnung von Differentialoperatoren\\
-    Begriff: $\Phi: \script{U} \to \script{V} C^k$-Diffeomorphismus zwischen $\script{U}, \script{V}$ offen.\\
+    Begriff: $\Phi: \script{U} \to \script{V} \ C^k$-Diffeomorphismus zwischen $\script{U}, \script{V}$ offen.\\
     Gramsche Matrix $g \in C^{k-1}(\script{U}, \mathbb{R}^{n\times n}), g = (g_{i,j})$
     $$g(x) = D\Phi(x)^{\top} D\Phi(x) \text{ bzw.}\\
     g_{i,j}(x) = <\frac{\partial\Phi}{\partial x_i}(x), \frac{\partial\Phi}{\partial x_j}(x)>$$\\
