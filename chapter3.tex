@@ -53,6 +53,7 @@
   \end{proof}
 
   \sidenote{Vorlesung 9}{30.11.20}
+<<<<<<< HEAD
 \begin{lemma}
 	Die Borelmengen $\script{B}^n$ sind die vom Halbring $\script{Q}^n$ der Quader, dem Ring $\script{F}^n$ der Figuren, und dem System $\script{C}^n$ der abgeschlossenen Mengen des $\mathbb{R}^n$ erzeugten $\sigma$-Algebra, d.h. $\sigma(\script{Q}^n) = \script{B}^n = \sigma(\script{Q}^n) = \sigma(\script{F}^n) = \sigma(\script{C}^n)$
 \end{lemma}
@@ -158,6 +159,57 @@
 	Setze $K:= \bigcap\limits_{i=1}^{\infty} D_i \implies K$ ist kompakt und $\lambda^n(A\setminus K) \leq \sum\limits_{i=1}^{\infty}\lambda^n(A\setminus D_i) < \epsilon$ \newline
 	Aus \ref{eq1} und Def von $K$ folgt: $g_i$ konvergiert gleichmäßig gegen $f$ auf $K$ $\implies f$ ist stetig auf $K$. 
 	\end{proof}
+=======
+
+  \begin{lemma}
+    Die Borelmengen $\script{B}^n$ sind die vom Halbring $\script{Q}^n$ der Quader, dem Ring $\script{F}^n$ der Figuren, und dem System $\script{C}^n$ der abgeschlossenen Mengen des $\mathbb{R}^n$ erzeugten $\sigma$-Algebra, d.h. $\sigma(\script{Q}^n) = \script{B}^n = \sigma(\script{Q}^n) = \sigma(\script{F}^n) = \sigma(\script{C}^n)$
+  \end{lemma}
+
+  \begin{proof}
+    siehe Aufschrieb
+  \end{proof}
+
+  \newpage
+  \begin{theorem}
+    Für $\lambda^n$ gilt:
+    \begin{enumerate}
+      \item Alle Borelmengen sind Lebesgue-messbar 
+      \item Zu $E \subseteq \mathbb{R}^n \ \exists$ Borelmenge $B \supseteq E$ mit $\lambda^n(B) = \lambda^n(E)$
+      \item $\lambda^n(K) < \infty \ \forall K \subseteq \mathbb{R}^n$ kompakt
+    \end{enumerate}
+  \end{theorem}
+
+  \begin{proof}
+    siehe Aufschrieb
+  \end{proof}
+
+  \begin{lemma}
+    Für $E \subseteq \mathbb{R}^n$ beliebig gilt:
+    \begin{enumerate}[label=\roman*)]
+      \item $\lambda^n(E) = inf\{\lambda^n(U) \ | \ U \text{ offen }, U \supset E\}$
+      \item $\lambda^n(E) = inf\{\lambda^n(K) \ | \ K \text{ kompakt }, K \subset E\}$, falls $E \ \lambda^n$-messbar
+    \end{enumerate}
+  \end{lemma}
+
+  \begin{theorem}
+    $D \subseteq \mathbb{R}^n$ ist genau dann $\lambda^n$-messbar, wenn eine der beiden Bedingungen gilt:
+    \begin{enumerate}[label=\roman*)]
+      \item $\exists$ Borlemenge $E \supset D$ mit $\lambda^n(E \setminus D) = 0$
+      \item $\exists$ Borlemenge $C \subset D$ mit $\lambda^n(D \setminus C) = 0$
+    \end{enumerate}
+    Es kann $E = \bigcap\limits_{i \in \mathbb{N}} U_i$ mit $U_i$ offen und $C = \bigcup\limits_{j \in \mathbb{N}} A_j$ mit $A_j$ abgeschlossen gewählt werden.
+  \end{theorem}
+
+  \newpage
+
+  \begin{theorem}[Satz von Lusin]
+    Sei $A \subseteq \mathbb{R}^n$ offen mit $\lambda^n(A) < \infty$ und sei $f \ \lambda^n$-messbar auf $A$ mit Werten in $\mathbb{R}$. Dann existiert $\forall \epsilon > 0$ ein $K = K_{\epsilon} \subseteq A$ kompakt, mit:
+    \begin{enumerate}[label=\roman*)]
+      \item $\lambda^n(A \setminus K) < \epsilon$
+      \item $f|_k$ ist stetig
+    \end{enumerate}
+  \end{theorem}
+>>>>>>> 4b16f17268042f1a800025c4c38bcc4482ee1a05
 
   \sidenote{Vorlesung 10}{4.12.20}
 

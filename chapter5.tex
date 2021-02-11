@@ -191,3 +191,110 @@
   \begin{proof}
     siehe Aufschrieb
   \end{proof}
+
+  \sidenote{Vorlesung 15}{21.12.20}
+
+  \begin{theorem}[Satz von Riesz-Fischer]
+    $(L^p(\mu), ||\cdot||_{L^p})$ ist vollständig, also ein Banachraum. $(1 \leq p \leq \infty)$
+  \end{theorem}
+  \begin{proof}
+    siehe Aufschrieb
+  \end{proof}
+
+  \begin{lemma}
+    Konvergiert $f_k$ gegen $f$ in $L^p(\mu)$, so konvergiert eine Teilfolge $f_{k_j}$ punktweise $\mu$-fast überall gegen $f$.
+  \end{lemma}  
+  
+  \begin{example}
+    Im Fall $p < \infty$ kann im Allgemeinen nicht auf die Wahl einer Teilfolge verzichtet werden:\\
+    Jedes $n \in \mathbb{N}$ besitzt die eindeutige Darstellung $n=2^k+j$ mit $k \in \mathbb{N}_0, 0 \leq j < 2^k$\\
+    Definiere damit $f_n:[0,1] \to \mathbb{R}, f_n(x) = \begin{cases}
+      1 & \text{, falls } j \cdot 2^{-k} \leq x \leq (j+1) 2^{-k}\\
+      0 & \text{, sonst}
+    \end{cases}$\\
+    $\int\limits_0^1 f_n(x) dx = 2^{-k} < \dfrac{2}{n} \to 0$ mit $n \to \infty$\\
+    Andererseits: $\limsup\limits_{n \to \infty} f_n(x) = 1 \ \forall x \in [0,1)$, denn zu $x \in [0,1), k \in \mathbb{N}$ können wir\\
+    $j \in \{0,1,...,2^k-1\}$ wählen mit $j \cdot 2^{-k} \leq x < (j+1) 2^{-k}$\\
+    $\implies f_n(x) = 1$ für $n = 2^k+j$\\
+    $\implies$ Folge konvergiert nicht punktweise $\lambda^1$-fast überall gegen $0$.
+  \end{example}
+
+  \begin{remark}
+    Jetzt betrachten wir $\mu=\lambda^n$ im $\mathbb{R}^n$.\\
+    Im $\mathbb{R}^n$ haben wir eine Metrik.
+  \end{remark}
+
+  \begin{definition}
+    Der \textbf{Träger} einer Funktion $f:\Omega \to \mathbb{R}, \Omega \subseteq \mathbb{R}^n$ offen, ist die Menge 
+    \begin{align*}
+      spt(f) = \overline{\{x \in \mathbb{R} \ | \ f(x) \neq 0\}}
+    \end{align*}
+    Der Raum der stetigen Funktionen mit kompaktem Träger in $\Omega$ wird mit $C_c^0(\Omega)$ bezeichnet.\\
+    Für $K \subseteq \Omega$ kompakt sei $dist(\cdot, K): \mathbb{R}^n \to [0, \infty), dist(x, K) = \inf\limits_{z \in K} ||x - z||$ die \textbf{Abstandsfunktion} von K.\\
+    Wir benötigen:
+    \begin{enumerate}
+      \item $dist(\cdot, K)$ ist Lipschitz-stetig mit Konstante $1$
+      \item $dist(\mathbb{R}^n \setminus \Omega, K) = \inf\limits_{x \in \mathbb{R}^n \setminus \Omega} dist(x, K) > 0$
+    \end{enumerate}
+  \end{definition}
+
+  \begin{theorem}
+    Sei $\Omega \subseteq \mathbb{R}^n$ offen und $1 \leq p < \infty$. Dann existiert zu jedem $f \in C^p(\Omega)$ eine Folge $f_k \in C_c^0(\Omega)$ mit $|| f_k - f||_{L^p(\Omega)} \to 0$ mit $k \to \infty$.
+  \end{theorem}
+  \begin{proof}
+    siehe Aufschrieb
+  \end{proof}
+
+  \begin{remark}
+    $BC^0(\Omega)$ bezeichnet die Menge der beschränkten, stetigen Funktionen auf $\Omega$. Mit Supremumsnorm $||\cdot||_{sup}$ ist diese ein Banachraum.\\
+    ... (Rest siehe Aufschrieb)
+  \end{remark}
+
+  \begin{theorem}
+    Für $f \in L^2(I, \mathbb{C})$ konvergiert $f_n$ gegen $f$ in $L^2(I, \mathbb{C})$? (bezieht sich auf Bem. vorher)
+  \end{theorem}
+  \begin{proof}
+    siehe Aufschrieb
+  \end{proof}
+
+  \begin{remark}
+    Sei $\ell^2(\mathbb{C})$ der Raum aller komplexen Folgen $c = (c_k)_{k \in \mathbb{Z}}$ mit $||c||_{\ell^2}^2 = 2 \pi \sum\limits_{k \in \mathbb{Z}} |c_k|^2 < \infty$\\
+    $\ell^2(\mathbb{C})$ ist vollständig (folgt aus Riesz-Fischer angewandt auf das Zählmaß auf $\mathbb{Z}$)
+  \end{remark}
+
+  \newpage
+  \begin{lemma}
+    Die Abbildung $\script{F}: (L^2(I, \mathbb{C}), ||\cdot||_{L^2}) \to (\ell^2(\mathbb{C}), ||\cdot||_{\ell^2}), \script{F}(f) = (\hat{f}(k))_{k \in \mathbb{Z}}$ ist eine Isometrie von Hilberträumen.
+  \end{lemma}
+  \begin{proof}
+    siehe Aufschrieb
+  \end{proof}
+
+  \begin{remark}
+    Die Konvergenz der Fourierreihe ist ein Spezialfall des Spektralsatzes für selbstadjungierte Operatoren. Dieser verallgemeinert die Diagonalisierbarkeit symmetrischer Matrizen (siehe LA) auf $\infty$-dimensionalen Räume.\\
+    Hier ist der Operator $H = -\dfrac{d^2}{dx^2}$ ein Endomorphismus auf $C_{Per}^{\infty}(I)$\\
+    $H:C_{Per}^{\infty}(I) \to C_{Per}^{\infty}(I), Hf=-\dfrac{d^2f}{dx^2}$\\
+    Part. Int. $\implies \langle Hf,g \rangle_{L^2} = \langle f,Hg \rangle_{L^2} \ \forall f,g \in C_{Per}^{\infty}(I)$ sowie $\langle Hf, f \rangle_{L^2} = ||\dfrac{df}{dx}||_{L^2}^2 \geq 0$\\
+    Die $w_k$ sind Eigenfunktionen von den Eigenvektoren $\lambda_k = k^2$:\\
+    $Hw_k = \lambda^2 w_k \ \forall k \in \mathbb{Z}$\\
+    Satz V.18: Der von den Eigenfunktionen $w_k$ aufgespannte Raum ist dicht in $L^2(I, \mathbb{C})$
+  \end{remark}
+
+  \sidenote{Vorlesung 16}{08.01.21}
+  \begin{theorem}[Vitali]
+    Sei $f_n \in L^p(\mu), 1 \leq p \leq \infty$, eine Folge mit $f_n \to f$ punktweise fast überall. Dann sind folgende Aussagen äquivalent:
+    \begin{enumerate}[label=\alph*)]
+      \item $f \in L^p(\mu)$ und $||f_n - f||_{L^p} \to 0$
+      \item Mit $\lambda(A) = \limsup \int\limits_A |f_n|^p d\mu$ gilt:
+            \begin{enumerate}[label=\arabic*)]
+              \item zu $\epsilon > 0 \ \exists \ \delta > 0$ mit $\lambda(A) < \epsilon \ \forall A$ messbar mit $\mu(A) < \delta$
+              \item zu $\epsilon > 0 \ \exists \ E$ messbar mit $\mu(E) < \infty$ und $\lambda(X \setminus E) < \epsilon$ 
+            \end{enumerate}
+    \end{enumerate}
+    Im Fall $p = 1$ heißt eine Folge mit 1) und 2) \textbf{gleichgradig integrierbar}.
+  \end{theorem}
+  \begin{proof}
+    siehe Aufschrieb
+  \end{proof}
+
+  
