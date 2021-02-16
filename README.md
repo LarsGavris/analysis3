@@ -7,9 +7,6 @@ KIT
 WS 20/21
 Prof. Lamm
 
-#### Aktueller Stand
-Vorlesung 13 - Bsp. nach Def VII.4
-
 #### Notes
 - Ab Def II.10 hat der Prof die Nummerierung um eins versetzt gehabt, daher habe ich hier immer die Nummern, wie sie im Aufschrieb benannt wurden hinzugefügt (mit "im Aufschrieb" bzw. "i.A." ...). Ab Kapitel III passt es aber wieder.
 
