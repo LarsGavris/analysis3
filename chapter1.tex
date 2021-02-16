@@ -38,7 +38,7 @@
   \end{theorem}
 
   \begin{proof}
-    $(A_i)_{i \in I}$ sei eine Familie von $\sigma$-Algebren bezüglich $X$.\\
+    $(\script{A}_i)_{i \in I}$ sei eine Familie von $\sigma$-Algebren bezüglich $X$.\\
     Offensichtlich gilt: $X \in \bigcap\limits_{i \in I} \script{A}_i$\\
     Sei $A \in \bigcap\limits_{i \in I} \script{A}_i \implies A \in \script{A}_i \ \forall i \in I \implies X \setminus A \in \script{A}_i \ \forall i \in I \implies X \setminus A \in \bigcap\limits_{i \in I} A_i$\\
     Analog für die abzählbare Vereinigung.
@@ -115,7 +115,7 @@
     Sei $\script{A} \subseteq \script{P}(X)$ eine $\sigma$-Algebra, eine nicht-negative Mengenfunktion $\mu: \script{A} \rightarrow [0, \infty]$ heißt \textbf{Maß} auf $\script{A}$, falls:
     \begin{enumerate}[label=(\roman*)]
       \item $\mu(\emptyset) = 0$
-      \item für beliebige paarweiße disjunkte $A_i \in \script{A}$, $i \in \mathbb{N}$, gilt:\\
+      \item für beliebige paarweise disjunkte $A_i \in \script{A}$, $i \in \mathbb{N}$, gilt:\\
             $\mu(\bigcup\limits_{i \in \mathbb{N}} A_i) = \sum\limits_{i \in \mathbb{N}} \mu (A_i)$ \hfill ($\sigma$-Additivität)
     \end{enumerate}
     Das Tripel $(X, \script{A}, \mu)$ heißt \textbf{Maßraum}.
@@ -124,7 +124,7 @@
   \begin{remark}
     \begin{enumerate}
       \item[]
-      \item Für endlich viele paarweiße disjunkte $A_i \in \script{A}$, $i=1,...,n$, folgt aus (ii) indem man $A_i=\emptyset$ für $i=n+1, ...$ setzt: $\mu(\bigcup\limits_{i=1}^n A_i) = \sum\limits_{i=1}^n \mu(A_i)$
+      \item Für endlich viele paarweise disjunkte $A_i \in \script{A}$, $i=1,...,n$, folgt aus (ii) indem man $A_i=\emptyset$ für $i=n+1, ...$ setzt: $\mu(\bigcup\limits_{i=1}^n A_i) = \sum\limits_{i=1}^n \mu(A_i)$
       \item Monotonie des Maßes: $A,B \in \script{A}$ mit $A \subseteq B \implies \mu(A) \leq \mu(B) = \mu(A \cup (B \setminus A)) = \mu(A) + \mu(B \setminus A)$
     \end{enumerate}
   \end{remark}
@@ -139,14 +139,14 @@
       \item Sei $X$ eine beliebige Menge, $\script{A} = \script{P}(X)$, für $x \in X$ sei $\delta_x(A) := \begin{cases}1, & x \in A\\0, & x \notin A\end{cases}$ (\textbf{Dirac-Maß})
             \begin{itemize}
               \item Es gilt $\delta_x(A) \in \{0,1\}$, $\delta_x(\emptyset) = 0$, $\delta_x(X) = 1$.
-              \item Sei $A = \bigcup\limits_{k \in \mathbb{N}} A_k$ gegeben mit $A_k$ paarweiße disjunkt und $x \in A \implies x \in A_k$ für genau ein $k \in \mathbb{N} \implies\ \sigma$-Additivität.
+              \item Sei $A = \bigcup\limits_{k \in \mathbb{N}} A_k$ gegeben mit $A_k$ paarweise disjunkt und $x \in A \implies x \in A_k$ für genau ein $k \in \mathbb{N} \implies\ \sigma$-Additivität.
               \item Für $x \notin A$ gilt sowieso $\delta_x{A} = 0$
             \end{itemize}
             $\implies$ Das Dirac-Maß ist ein Wahrscheinlichkeits-Maß
       \item \textbf{Zählmaß:} $X$ beliebige Menge \sidenote{Vorlesung 2}{06.11.2020}\\
             $card: \script{P}(X) \to [0, \infty]$\\
             $card(A) := \begin{cases}\text{Anzahl der Elemente von A}, & \text{falls A endlich}\\\infty, sonst\end{cases}$\\
-            Für $A = \bigcup\limits_{k\in \mathbb{N}}A_k$ endlich und paarweiße disjunkt ist die $\sigma$-Additivität klar.\\
+            Für $A = \bigcup\limits_{k\in \mathbb{N}}A_k$ endlich und paarweise disjunkt ist die $\sigma$-Additivität klar.\\
             \\
             Sei $A$ unendlich und $A = \bigcup\limits_{k\in \mathbb{N}}A_k$.
             \begin{enumerate}
@@ -195,14 +195,14 @@
     \begin{enumerate}[label=(\roman*)]
       \item[]
       \item $\tilde{A_1} := A_1, \ \tilde{A_k} := A_k \setminus A_{k-1}, \ k \geq 2$\\
-            $\tilde{A_i}$ sind paarweiße disjunkt.\\
+            $\tilde{A_i}$ sind paarweise disjunkt.\\
             $\bigcup\limits_{i \in \mathbb{N}} \tilde{A_i} = \bigcup\limits_{i \in \mathbb{N}} A_i$\\
             $\mu(\bigcup\limits_{i \in \mathbb{N}} A_i) = \mu(\bigcup\limits_{i \in \mathbb{N}} \tilde{A_i}) = \sum\limits_{i \in \mathbb{N}} \mu(\tilde{A_i}) = \lim\limits_{k \to \infty}(\sum\limits_{i=1}^k \mu(\tilde{A_i})) = \lim\limits_{k \to \infty} \mu(\bigcup\limits_{i=1}^k A_k) = \lim\limits_{k \to \infty} \mu(A_k)$
       \item $A'_k := A_1 \setminus A_k \ \implies \ A'_1 \subseteq A'_2 \subseteq ...$\\
             Es gilt: $\mu(A_1) = \mu(A_1 \cap A_k) + \mu(A_1 \setminus A_k) = \mu(A_k) + \mu(A'_k)$\\
-            $\implies \mu(A_1) - \lim\limits_{k \to \infty} \mu(A_k) = \lim\limits_{k \to \infty} \mu(A'_k) \stackrel{(i)}{=} \mu(\bigcup\limits_{k \in \mathbb{N}} A'_i) = \mu(A_1 \setminus \bigcap\limits_{i \in \mathbb{N}})\\ = \mu(A_1) - \mu(\bigcap\limits_{i \in \mathbb{N}} A_i)$
+            $\implies \mu(A_1) - \lim\limits_{k \to \infty} \mu(A_k) = \lim\limits_{k \to \infty} \mu(A'_k) \stackrel{(i)}{=} \mu(\bigcup\limits_{k \in \mathbb{N}} A'_i) = \mu(A_1 \setminus \bigcap\limits_{i \in \mathbb{N}}A_i)\\ = \mu(A_1) - \mu(\bigcap\limits_{i \in \mathbb{N}} A_i)$
       \item Es genügt, die Folge $B_1 = A_1,\ B_i \stackrel{i \geq 2}{=} A_i \setminus \bigcup\limits_{j=1}^{i-1}A_j$ zu betrachten.\\
-            $\bigcup\limits_{i \in \mathbb{N}} A_i = \bigcup\limits_{i \in \mathbb{N}} B_i$ und $(B_i)$ ist paarweiße disjunkt.\\
+            $\bigcup\limits_{i \in \mathbb{N}} A_i = \bigcup\limits_{i \in \mathbb{N}} B_i$ und $(B_i)$ ist paarweise disjunkt.\\
             $\implies \mu(\bigcup\limits_{i \in \mathbb{N}} A_i) = \mu(\bigcup\limits_{i \in \mathbb{N}} B_i) = \sum\limits_{i \in \mathbb{N}} \mu(B_i) \leq \sum\limits_{i \in \mathbb{N}} \mu(A_i)$
     \end{enumerate}
   \end{proof}
@@ -211,7 +211,7 @@
     $(X, \script{A}, \mu)$ Maßraum.\\
     Jede Menge $A \in \script{A}$ mit $\mu(A) = 0$ heißt $\bm{\mu}$\textbf{-Nullmenge}. Das System aller $\mu$-Nullmengen bezeichnen wir mit $\bm{\script{N}(\mu)}$. Das Maß $\mu$ heißt \textbf{vollständig}, wenn gilt:\\
     \[
-      N \subseteq A \text{ für ein } H \in \script{A} \text{ mit } \mu(A)=0\\
+      N \subseteq A \text{ für ein } A \in \script{A} \text{ mit } \mu(A)=0\\
       \implies N \in \script{A} \text{ und } \mu(N)=0
     \]
   \end{definition}
@@ -222,7 +222,7 @@
       \script{A} \neq \script{P}(X) \ \mu(A) = 0 \ \forall A \in \script{A}
     \]
     Allerdings lässt sich jedes Maß vervollständigen:\\
-    Sei $(X, \script{A}, \mu)$ Maßraum und $\script{T}_{\mu}$ sei das System aller Mengen $N \subseteq X$ für die keine $\mu$-Nullmenge $B \in \script{N}(\mu)$ existiert mit $N \subseteq B$. Es gilt:\\
+    Sei $(X, \script{A}, \mu)$ Maßraum und $\script{T}_{\mu}$ sei das System aller Mengen $N \subseteq X$ für die eine $\mu$-Nullmenge $B \in \script{N}(\mu)$ existiert mit $N \subseteq B$. Es gilt:\\
     \[
       \mu \text{ vollständig } \Leftrightarrow \script{T}_{\mu} \subseteq \script{A}
     \]
@@ -243,14 +243,14 @@
     Offensichtlich:
     \begin{enumerate}
       \item $\script{A} \subseteq \bar{\script{A}}_{\mu}$
-      \item $\script{T}_{\mu}$ ist abgeschlossen unter Abz. $\bigcup$
+      \item $\script{T}_{\mu}$ ist abgeschlossen unter abzählbaren $\bigcup$
     \end{enumerate}
     $\script{A}$ ist auch abgeschlossen unter abzählbarer Vereinigung\\
     $\implies \ \bar{\script{A}}_{\mu}$ abgeschlossen unter abzählbarer Vereinigung\\
     Sei $x \in \bar{\script{A}}_{\mu}$. Für $E \in \bar{\script{A}}_{\mu}$ ex. ein $A \in \script{A}, \ N \in \script{T}_{\mu}$ und $B \in \script{A}$ und $N \subseteq B$ mit $\mu(B) = 0$, sodass $E = A \cup N \\ \implies B \setminus N \in \script{T}_{\mu} \\ \implies X \setminus E = (X \setminus (A\cup B)) \cup (B \setminus N) \in \bar{\script{A}}_{\mu} \\ \implies \bar{\script{A}}_{\mu}$ ist $\sigma$-Algebra \\
     $\bar{\mu}$ ist Maß (ist klar)\\
     Sei $M \subseteq B = A \cup N$ mit $A \in \script{A}, N \in \script{T}_{\mu}$ und $\bar{\mu}(B) = \mu(A) = 0$ \\
-    Aus $M = (M \cap A) \cup (M \cap N) \in \script{T}_{mu} \cup \script{T}_{\mu} = \script{T}_{\mu} \in \bar{\script{A}}_{\mu} \\ \implies \ \bar{\mu}$ ist vollständig.  
+    Aus $M = (M \cap A) \cup (M \cap N) \in \script{T}_{\mu} \cup \script{T}_{\mu} = \script{T}_{\mu} \in \bar{\script{A}}_{\mu} \\ \implies \ \bar{\mu}$ ist vollständig.  
   \end{proof}
 
   \begin{theorem}
@@ -258,7 +258,7 @@
   \end{theorem}
 
   \begin{proof}
-    Aus $\script{A} \subseteq \script{B}$ und $\mu = \nu$ auf $\script{A}$ folgt: $\script{N}(\mu) \subseteq \script{N}(\nu) \implies \script{T}_{\mu} \subseteq \script{T}_{\mu}$\\
+    Aus $\script{A} \subseteq \script{B}$ und $\mu = \nu$ auf $\script{A}$ folgt: $\script{N}(\mu) \subseteq \script{N}(\nu) \implies \script{T}_{\mu} \subseteq \script{T}_{\nu}$\\
     $\nu$ vollständig $\implies \ \script{T}_{\nu} \subseteq \script{B} \implies \script{T}_{\mu} \subseteq \script{B} \implies \bar{\script{A}}_{\mu} \subseteq \script{B}$\\
     Da $\bar{\mu}$ auf $\bar{\script{A}}_{\mu}$ vollständig durch $\mu$ auf $\script{A}$ bestimmt ist, folgt sofort $\bar{\mu} = \nu$ auf $\bar{\script{A}}_{\mu}$, da $\mu = \nu$ auf $\script{A}$.
   \end{proof}
@@ -277,7 +277,7 @@
       \item $(X, \script{A}), (Y, \script{C})$ beliebige messbare Räume.\\
             Sei $y_0 \in Y$ und $f: X \to Y, \ f(x) = y_0 \ \forall x \in X$\\
             $\implies f$ ist $\script{A}$-$\script{C}-$messbar
-      \item $\chi_R: X \to \mathbb{R}, \chi_R(x) = \begin{cases} 1 \text{, falls } x \in E \subseteq X \\ 0 \text{, sonst}\end{cases}$\\
+      \item $\chi_R: X \to \mathbb{R}$, $\chi_R(x) = \begin{cases} 1 \text{, falls } x \in E \subseteq X \\ 0 \text{, sonst}\end{cases}$\\
             $\mathbb{R}$ wird versehen mit Borel-$\sigma$-Algebra $\script{B}$. Für $(X, \script{A})$ messbarer Raum gilt:\\
             $\chi_R \ \script{A}$-$\script{B}$-messbar $\Leftrightarrow \ E \in \script{A}$
       \item Komposition messbarer Abbildungen ist messbar.\\
@@ -337,16 +337,16 @@
     $\bar{\mathbb{B}}^1$ wird erzeugt durch die offenen Mengen und $\pm \infty \implies$ (i) $\Leftrightarrow$ (ii)\\
     \\
     (iii) $\Leftrightarrow$ (iv) $\Leftrightarrow$ (v) $\Leftrightarrow$ (vi) denn:\\
-    (iv) $\implies$ (iii): ${f \leq s} = \bigcap\limits_{k \in \mathbb{N}} \{f < s + \dfrac{1}{k}\}$\\
+    (iv) $\implies$ (iii): $\{f \leq s \} = \bigcap\limits_{k \in \mathbb{N}} \{f < s + \dfrac{1}{k}\}$\\
     (iii) $\implies$ (vi): $\{f > s\} = D \setminus \{f \leq s\}$\\
-    (vi) $\implies$ (v): $\{f \geq \bigcap\limits_{k \in \mathbb{N}} \{f > s - \dfrac{1}{k}\}\}$\\
+    (vi) $\implies$ (v): $\{f \geq s \} = \bigcap\limits_{k \in \mathbb{N}} \{f > s - \dfrac{1}{k}\}\}$\\
     (v) $\implies$ (iv): $\{f < s\} = D \setminus \{f \geq s\}$\\
     \\
     (ii) $\implies$ (vi), denn: $\{f > s\} = f^{-1}(s,\infty) \cup f^{-1}(\{\infty\}) \in \script{A}$\\
     \\
     Für ein offenes Intervall $(a,b)$ gilt: $f^{-1}((a,b)) = \{f > a\} \cap \{f < b\} \in \script{A}$\\
     Eine der Aussagen (und damit alle) (iii) - (vi) gelte.\\
-    Mann kann zeigen: Jede offene Menge $U \subseteq \mathbb{R}$ lässt sich als abzählbare Vereinigung $\script{U} = \bigcup\limits_{k \in \mathbb{N}} I_k$ von offenen Intervallen $I_k = (a_k, b_k)$ schreiben (siehe Blatt 2).\\
+    Man kann zeigen: Jede offene Menge $U \subseteq \mathbb{R}$ lässt sich als abzählbare Vereinigung $\script{U} = \bigcup\limits_{k \in \mathbb{N}} I_k$ von offenen Intervallen $I_k = (a_k, b_k)$ schreiben (siehe Blatt 2).\\
     $\implies f^{-1}(\script{U}) = \bigcup\limits_{k \in \mathbb{N}} f^{-1}(I_k) \in \script{A}$\\
     $f^{-1}(\{\infty\}) = \bigcap\limits_{k \in \mathbb{N}} \{f > k\} \in \script{A}, \ \ \ f^{-1}(\{-\infty\}) = \bigcap\limits_{k \in \mathbb{N}} \{f < -k\} \in \script{A} \ \ \ \implies$ (ii)
   \end{proof}
@@ -369,7 +369,7 @@
   \end{proof}
 
   \begin{remark}
-    Im folgenden Satz sind die Grenzfunktionen paarweiße definiert, z.B.:\\
+    Im folgenden Satz sind die Grenzfunktionen paarweise definiert, z.B.:\\
     $\liminf f_x : X \to \bar{\mathbb{R}}$ ist definiert durch: \ \ $(\liminf\limits_{k \to \infty} f_k)(x) := \liminf\limits_{k \to \infty} f_k (x)$
   \end{remark}
 
